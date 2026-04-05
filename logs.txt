@@ -1,0 +1,83 @@
+V1
+The model uses a standard **encoder-decoder Transformer** (Vaswani et al., 2017 — "Attention Is All You Need"), with a few adaptations for sign language:
+
+**Standard components kept as-is:**
+- Multi-head self-attention + cross-attention
+- Positional encoding (sinusoidal)
+- Feed-forward sublayers
+- Autoregressive decoding with causal mask
+
+**Adaptations made for this task:**
+
+| Design choice | What was done | Why |
+|---|---|---|
+| Input | Linear projection + LayerNorm + ReLU instead of token embedding | Continuous keypoint vectors, not discrete tokens |
+| Normalisation | Pre-LN (norm before attention) | More stable training than original post-LN |
+| Output | Standard token softmax over English vocabulary | Same as NMT |
+| Positional encoding | Sinusoidal on both encoder and decoder | Standard |
+| Decoding | Greedy + beam search with length penalty | Standard NMT practice |
+
+**What it is NOT:**
+- Not a vision transformer (ViT) — no raw video/pixels
+- Not a graph neural network over the keypoint skeleton
+- Not a CTC-based model (common in some SLR work)
+- Not pretrained (no transfer from mBERT, mBART etc.)
+
+**Closest published work it resembles:**
+- Sign Language Transformers (Camgoz et al., 2020) which introduced the encoder-decoder transformer for sign language translation.
+
+Results:
+Epoch   1/50 | train_loss=7.0492 | dev_loss=6.1841 | dev_BLEU=0.00 | 404.5s
+Epoch   2/50 | train_loss=5.4818 | dev_loss=5.0047 | dev_BLEU=0.65 | 310.6s
+  ✓ New best BLEU=0.65 — checkpoint saved.
+Epoch   3/50 | train_loss=4.7021 | dev_loss=4.5719 | dev_BLEU=3.60 | 314.1s
+  ✓ New best BLEU=3.60 — checkpoint saved.
+Epoch   4/50 | train_loss=4.3359 | dev_loss=4.4067 | dev_BLEU=2.37 | 308.8s
+Epoch   5/50 | train_loss=4.1178 | dev_loss=4.2048 | dev_BLEU=2.03 | 315.3s
+Epoch   6/50 | train_loss=3.9758 | dev_loss=4.0829 | dev_BLEU=2.00 | 361.6s
+Epoch   7/50 | train_loss=3.8609 | dev_loss=4.0377 | dev_BLEU=2.45 | 318.1s
+Epoch   8/50 | train_loss=3.7677 | dev_loss=3.9768 | dev_BLEU=2.59 | 317.3s
+Epoch   9/50 | train_loss=3.6784 | dev_loss=3.9194 | dev_BLEU=2.38 | 316.8s
+Epoch  10/50 | train_loss=3.5957 | dev_loss=3.8738 | dev_BLEU=2.59 | 323.8s
+Epoch  11/50 | train_loss=3.5260 | dev_loss=3.8421 | dev_BLEU=2.89 | 320.2s
+Epoch  12/50 | train_loss=3.4547 | dev_loss=3.8355 | dev_BLEU=2.69 | 326.2s
+Epoch  13/50 | train_loss=3.3846 | dev_loss=3.8141 | dev_BLEU=2.91 | 315.3s
+Epoch  14/50 | train_loss=3.3173 | dev_loss=3.8009 | dev_BLEU=3.15 | 316.0s
+Epoch  15/50 | train_loss=3.2549 | dev_loss=3.8260 | dev_BLEU=3.02 | 314.2s
+Epoch  16/50 | train_loss=3.1910 | dev_loss=3.8132 | dev_BLEU=3.20 | 316.6s
+Epoch  17/50 | train_loss=3.1288 | dev_loss=3.8224 | dev_BLEU=2.88 | 317.6s
+Epoch  18/50 | train_loss=3.0652 | dev_loss=3.8489 | dev_BLEU=2.92 | 314.4s
+Epoch  19/50 | train_loss=3.0054 | dev_loss=3.8484 | dev_BLEU=3.10 | 320.1s
+Epoch  20/50 | train_loss=2.9483 | dev_loss=3.8611 | dev_BLEU=3.21 | 315.3s
+Epoch  21/50 | train_loss=2.8847 | dev_loss=3.8998 | dev_BLEU=2.60 | 317.0s
+Epoch  22/50 | train_loss=2.8335 | dev_loss=3.8922 | dev_BLEU=2.67 | 323.0s
+Epoch  23/50 | train_loss=2.7780 | dev_loss=3.9441 | dev_BLEU=3.06 | 321.9s
+Epoch  24/50 | train_loss=2.7285 | dev_loss=3.9578 | dev_BLEU=2.65 | 321.8s
+Epoch  25/50 | train_loss=2.6718 | dev_loss=4.0047 | dev_BLEU=2.81 | 316.5s
+Epoch  26/50 | train_loss=2.6227 | dev_loss=4.0186 | dev_BLEU=2.91 | 315.2s
+Epoch  27/50 | train_loss=2.5776 | dev_loss=4.0319 | dev_BLEU=3.38 | 316.4s
+Epoch  28/50 | train_loss=2.5367 | dev_loss=4.0736 | dev_BLEU=2.74 | 315.4s
+Epoch  29/50 | train_loss=2.4926 | dev_loss=4.0931 | dev_BLEU=2.43 | 324.6s
+Epoch  30/50 | train_loss=2.4521 | dev_loss=4.1030 | dev_BLEU=2.89 | 335.1s
+Epoch  31/50 | train_loss=2.4160 | dev_loss=4.1492 | dev_BLEU=3.01 | 321.1s
+Epoch  32/50 | train_loss=2.3838 | dev_loss=4.1592 | dev_BLEU=2.68 | 319.4s
+Epoch  33/50 | train_loss=2.3505 | dev_loss=4.1900 | dev_BLEU=3.00 | 313.8s
+Epoch  34/50 | train_loss=2.3226 | dev_loss=4.2116 | dev_BLEU=2.53 | 317.1s
+Epoch  35/50 | train_loss=2.2931 | dev_loss=4.2175 | dev_BLEU=2.46 | 316.0s
+Epoch  36/50 | train_loss=2.2725 | dev_loss=4.2478 | dev_BLEU=2.88 | 319.2s
+Epoch  37/50 | train_loss=2.2518 | dev_loss=4.2624 | dev_BLEU=2.82 | 315.2s
+Epoch  38/50 | train_loss=2.2333 | dev_loss=4.2723 | dev_BLEU=2.49 | 404.6s
+Epoch  39/50 | train_loss=2.2120 | dev_loss=4.2751 | dev_BLEU=2.87 | 542.2s
+Epoch  40/50 | train_loss=2.2016 | dev_loss=4.2866 | dev_BLEU=2.80 | 315.7s
+Epoch  41/50 | train_loss=2.1855 | dev_loss=4.3098 | dev_BLEU=2.88 | 314.6s
+Epoch  42/50 | train_loss=2.1781 | dev_loss=4.3057 | dev_BLEU=3.08 | 313.6s
+Epoch  43/50 | train_loss=2.1648 | dev_loss=4.3201 | dev_BLEU=2.86 | 317.1s
+Epoch  44/50 | train_loss=2.1629 | dev_loss=4.3247 | dev_BLEU=2.87 | 314.1s
+Epoch  45/50 | train_loss=2.1545 | dev_loss=4.3283 | dev_BLEU=3.13 | 313.6s
+Epoch  46/50 | train_loss=2.1498 | dev_loss=4.3312 | dev_BLEU=2.92 | 316.0s
+Epoch  47/50 | train_loss=2.1442 | dev_loss=4.3304 | dev_BLEU=3.39 | 319.5s
+Epoch  48/50 | train_loss=2.1450 | dev_loss=4.3312 | dev_BLEU=3.38 | 319.7s
+Epoch  49/50 | train_loss=2.1418 | dev_loss=4.3322 | dev_BLEU=3.35 | 316.9s
+Epoch  50/50 | train_loss=2.1376 | dev_loss=4.3320 | dev_BLEU=3.36 | 319.7s
+
+Training complete. Best dev BLEU: 3.60
