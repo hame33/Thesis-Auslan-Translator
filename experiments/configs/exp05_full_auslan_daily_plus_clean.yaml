@@ -1,0 +1,38 @@
+experiment_name: "exp05_full_auslan_daily_plus_clean"
+description: >
+  Train on the full Auslan Daily dataset combined with augmented clean clips.
+  Clean originals used as test set.
+  The kitchen-sink experiment — tests whether clean clips improve the full-data baseline (exp03).
+
+data:
+  use_auslan_daily: true
+  use_annotated_clips: true          # augmented clean clips added to train
+  filter_to_manual_glosses: false    # full Auslan Daily vocabulary
+  clean_clips_as_test: true          # originals → test
+
+  auslan_daily_manifest: "data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx"
+  annotated_manifest: "data/manifests/gloss_clips_manifest.xlsx"
+  auslan_daily_features_dir: "data/auslan_daily_features"
+  annotated_features_dir: "data/gloss_clips_features"
+
+  gloss_col: "gloss"
+  split_col: "Split"
+
+model:
+  frame_feat_dim: 258
+  proj_dim: 128
+  n_heads: 4
+  n_layers: 3
+  dropout: 0.3
+  max_frames: 300
+
+training:
+  batch_size: 32
+  epochs: 60
+  lr: 1e-3
+  weight_decay: 1e-4
+  min_gloss_freq: 100
+  confidence_threshold: 0.45
+
+output:
+  results_dir: "results"

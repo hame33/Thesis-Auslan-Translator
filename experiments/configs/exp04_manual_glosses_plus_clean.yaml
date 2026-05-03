@@ -1,0 +1,38 @@
+experiment_name: "exp04_manual_glosses_plus_clean"
+description: >
+  Train on Auslan Daily (filtered to manual-clip glosses) combined with the
+  augmented clean clips. Clean originals used as test.
+  Tests whether adding clean clips improves over Auslan Daily alone (exp02).
+
+data:
+  use_auslan_daily: true
+  use_annotated_clips: true          # augmented clean clips added to train
+  filter_to_manual_glosses: true     # restrict Auslan Daily to manual-clip glosses
+  clean_clips_as_test: true          # originals → test
+
+  auslan_daily_manifest: "data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx"
+  annotated_manifest: "data/manifests/gloss_clips_manifest.xlsx"
+  auslan_daily_features_dir: "data/auslan_daily_features"
+  annotated_features_dir: "data/gloss_clips_features"
+
+  gloss_col: "gloss"
+  split_col: "Split"
+
+model:
+  frame_feat_dim: 258
+  proj_dim: 128
+  n_heads: 4
+  n_layers: 3
+  dropout: 0.3
+  max_frames: 300
+
+training:
+  batch_size: 32
+  epochs: 60
+  lr: 1e-3
+  weight_decay: 1e-4
+  min_gloss_freq: 5
+  confidence_threshold: 0.45
+
+output:
+  results_dir: "results"

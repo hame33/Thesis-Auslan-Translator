@@ -1,0 +1,37 @@
+{
+  "run_id": "20260430_074325__exp05_full_auslan_daily_plus_clean",
+  "experiment_name": "exp05_full_auslan_daily_plus_clean",
+  "timestamp": "2026-04-30T07:43:25.465587",
+  "config": {
+    "description": "Train on the full Auslan Daily dataset combined with augmented clean clips. Clean originals used as test set. The kitchen-sink experiment \u2014 tests whether clean clips improve the full-data baseline (exp03).\n",
+    "data": {
+      "use_auslan_daily": true,
+      "use_annotated_clips": true,
+      "filter_to_manual_glosses": false,
+      "clean_clips_as_test": true,
+      "auslan_daily_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx",
+      "annotated_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/gloss_clips_manifest.xlsx",
+      "auslan_daily_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/auslan_daily_features",
+      "annotated_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/gloss_clips_features",
+      "gloss_col": "gloss",
+      "split_col": "Split"
+    },
+    "model": {
+      "frame_feat_dim": 258,
+      "proj_dim": 128,
+      "n_heads": 4,
+      "n_layers": 3,
+      "dropout": 0.3,
+      "max_frames": 300
+    },
+    "training": {
+      "batch_size": 32,
+      "epochs": 60,
+      "lr": "1e-3",
+      "weight_decay": "1e-4",
+      "min_gloss_freq": 100,
+      "confidence_threshold": 0.45
+    },
+    "n_classes": 83
+  }
+}

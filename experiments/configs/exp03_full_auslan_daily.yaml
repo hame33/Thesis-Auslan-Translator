@@ -1,0 +1,38 @@
+experiment_name: "exp03_full_auslan_daily"
+description: >
+  Train on the full Auslan Daily (Communications) dataset with no filtering.
+  Clean clips (originals) used as test set.
+  Baseline for what the PGen-annotated Auslan Daily data can do alone.
+
+data:
+  use_auslan_daily: true
+  use_annotated_clips: false
+  filter_to_manual_glosses: false    # full vocabulary
+  clean_clips_as_test: true
+
+  auslan_daily_manifest: "data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx"
+  annotated_manifest: "data/manifests/gloss_clips_manifest.xlsx"
+  auslan_daily_features_dir: "data/auslan_daily_features"
+  annotated_features_dir: "data/gloss_clips_features"
+
+  gloss_col: "gloss"
+  split_col: "Split"
+
+model:
+  frame_feat_dim: 258
+  proj_dim: 128
+  n_heads: 4
+  n_layers: 3
+  dropout: 0.3
+  max_frames: 300
+
+training:
+  batch_size: 32
+  epochs: 60
+  lr: 1e-3
+  weight_decay: 1e-4
+  min_gloss_freq: 100               # full dataset — filter out very rare glosses
+  confidence_threshold: 0.45
+
+output:
+  results_dir: "results"

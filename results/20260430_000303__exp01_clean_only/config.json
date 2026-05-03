@@ -1,0 +1,40 @@
+{
+  "run_id": "20260430_000303__exp01_clean_only",
+  "experiment_name": "exp01_clean_only",
+  "timestamp": "2026-04-30T00:03:03.686109",
+  "config": {
+    "description": "Train exclusively on hand-annotated clean clips + their augmented variants. Non-augmented originals used as test set. Establishes upper-bound performance on clean, high-quality data.\n",
+    "data": {
+      "use_auslan_daily": false,
+      "use_annotated_clips": true,
+      "filter_to_manual_glosses": false,
+      "clean_clips_as_test": true,
+      "test_split_strategy": "stratified",
+      "test_fraction": 0.2,
+      "split_seed": 42,
+      "auslan_daily_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/AuslanDaily_Communication.csv",
+      "annotated_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/gloss_clips_manifest.xlsx",
+      "auslan_daily_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/auslan_daily_features",
+      "annotated_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/gloss_clips_features",
+      "gloss_col": "gloss",
+      "split_col": "Split"
+    },
+    "model": {
+      "frame_feat_dim": 258,
+      "proj_dim": 128,
+      "n_heads": 4,
+      "n_layers": 3,
+      "dropout": 0.3,
+      "max_frames": 300
+    },
+    "training": {
+      "batch_size": 16,
+      "epochs": 60,
+      "lr": "1e-3",
+      "weight_decay": "1e-4",
+      "min_gloss_freq": 1,
+      "confidence_threshold": 0.45
+    },
+    "n_classes": 12
+  }
+}

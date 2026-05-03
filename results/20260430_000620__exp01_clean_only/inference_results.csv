@@ -1,0 +1,83 @@
+clip,predicted_glosses,predicted_with_confidence,ground_truth,correct
+video_1_83_signer_HELLO_1,YES,YES(0.98),HELLO,False
+video_3_5_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_4_5_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_6_0_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_6_12_signer_HELLO_1,YES,YES(1.00),HELLO,False
+video_7_5_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_1_96_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_7_123_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_10_141_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_22_33_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_27_157_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_29_207_signer_TIME_1,GO,GO(1.00),TIME,False
+video_31_127_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_38_138_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_7_28_signer_KNOW_1,KNOW,KNOW(0.99),KNOW,True
+video_7_84_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_11_77_signer_KNOW_1,THINK,THINK(1.00),KNOW,False
+video_12_20_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_15_74_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_21_117_signer_KNOW_1,THINK,THINK(1.00),KNOW,False
+video_22_96_signer_KNOW_1,THINK,THINK(0.93),KNOW,False
+video_23_144_signer_KNOW_1,LOOK,LOOK(0.89),KNOW,False
+video_24_73_signer_KNOW_1,KNOW THINK,KNOW(0.97) THINK(0.79),KNOW,False
+video_27_21_signer_KNOW_1,HELLO,HELLO(1.00),KNOW,False
+video_1_54_signer_YES_1,WHAT,WHAT(1.00),YES,False
+video_2_100_signer_YES_1,GOOD,GOOD(1.00),YES,False
+video_4_82_signer_YES_1,YES,YES(0.94),YES,True
+video_5_35_signer_YES_1,GOOD,GOOD(1.00),YES,False
+video_5_93_signer_YES_1,YES,YES(1.00),YES,True
+video_6_90_signer_YES_1,YES,YES(1.00),YES,True
+video_6_124_signer_YES_1,WHAT,WHAT(1.00),YES,False
+video_7_48_signer_YES_1,WHAT,WHAT(0.99),YES,False
+video_7_71_signer_YES_1,WHAT,WHAT(1.00),YES,False
+video_9_59_signer_YES_1,YES,YES(1.00),YES,True
+video_11_50_signer_YES_1,YES,YES(1.00),YES,True
+video_13_69_signer_YES_1,THINK KNOW,THINK(0.88) KNOW(0.84),YES,False
+video_14_79_signer_YES_1,KNOW,KNOW(0.99),YES,False
+video_1_59_signer_LOOK_1,YES,YES(1.00),LOOK,False
+video_1_86_signer_LOOK_1,YES KNOW,YES(0.95) KNOW(0.66),LOOK,False
+video_4_44_signer_LOOK_1,LOOK,LOOK(1.00),LOOK,True
+video_5_8_signer_LOOK_1,YES,YES(1.00),LOOK,False
+video_5_70_signer_LOOK_1,THINK,THINK(1.00),LOOK,False
+video_5_73_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_7_46_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_10_93_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_14_92_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_18_137_signer_THINK_1,THINK TIME,THINK(0.90) TIME(0.77),THINK,False
+video_20_109_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_22_199_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_23_30_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_24_36_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_26_53_signer_THINK_1,TIME,TIME(1.00),THINK,False
+video_29_162_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_32_43_signer_THINK_1,KNOW THINK,KNOW(0.96) THINK(0.77),THINK,False
+video_34_49_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_2_18_signer_WHAT_1,YES,YES(1.00),WHAT,False
+video_2_49_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_3_104_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_6_42_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_9_24_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_18_27_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_7_83_signer_GOOD_1,READY GO,READY(0.97) GO(0.68),GOOD,False
+video_11_46_signer_GOOD_1,FINISH,FINISH(0.77),GOOD,False
+video_13_103_signer_GOOD_1,GOOD,GOOD(1.00),GOOD,True
+video_15_29_signer_GOOD_1,LOOK THINK,LOOK(0.81) THINK(0.66),GOOD,False
+video_41_206_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_42_139_signer_TIME_1,READY,READY(0.99),TIME,False
+video_2_45_signer_GO_1,GO,GO(1.00),GO,True
+video_2_106_signer_GO_1,HELLO GO,HELLO(0.99) GO(0.57),GO,False
+video_8_55_signer_GO_1,READY,READY(1.00),GO,False
+video_12_8_signer_GO_1,GO,GO(1.00),GO,True
+video_12_29_signer_GO_1,GO,GO(1.00),GO,True
+video_16_9_signer_GO_1,READY,READY(1.00),GO,False
+video_17_13_signer_GO_1,READY,READY(0.46),GO,False
+video_13_69_signer_READY_1,YES,YES(0.96),READY,False
+video_14_77_signer_READY_1,LOOK,LOOK(1.00),READY,False
+video_20_86_signer_READY_1,WHAT,WHAT(1.00),READY,False
+video_13_132_signer_LOOK_1,READY,READY(1.00),LOOK,False
+video_35_106_signer_READY_1,LOOK,LOOK(1.00),READY,False
+video_35_125_signer_READY_1,YES,YES(1.00),READY,False
+video_36_156_signer_READY_1,GOOD,GOOD(1.00),READY,False
+video_40_29_signer_READY_1,YES,YES(0.99),READY,False

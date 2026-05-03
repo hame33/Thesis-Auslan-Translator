@@ -1,0 +1,40 @@
+experiment_name: "exp02_auslan_daily_manual_glosses"
+description: >
+  Train on Auslan Daily clips, but restricted to only the glosses that appear
+  in the hand-annotated manual clip set. Clean clips (originals) used as test.
+  Tests whether Auslan Daily data alone is sufficient for the glosses we care about.
+
+data:
+  use_auslan_daily: true
+  use_annotated_clips: false         # annotated clips NOT in train
+  filter_to_manual_glosses: true     # restrict Auslan Daily to manual-clip glosses
+  clean_clips_as_test: true
+  test_split_strategy: "all_originals"  # all non-augmented originals → test
+  split_seed: 42
+
+  auslan_daily_manifest: "data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx"
+  annotated_manifest: "data/manifests/gloss_clips_manifest.xlsx"
+  auslan_daily_features_dir: "data/auslan_daily_features"
+  annotated_features_dir: "data/gloss_clips_features"
+
+  gloss_col: "gloss"
+  split_col: "Split"
+
+model:
+  frame_feat_dim: 258
+  proj_dim: 128
+  n_heads: 4
+  n_layers: 3
+  dropout: 0.3
+  max_frames: 300
+
+training:
+  batch_size: 32
+  epochs: 60
+  lr: 1e-3
+  weight_decay: 1e-4
+  min_gloss_freq: 10
+  confidence_threshold: 0.45
+
+output:
+  results_dir: "results"

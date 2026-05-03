@@ -1,0 +1,15 @@
+{
+  "run_id": "20260430_001933__exp02_auslan_daily_manual_glosses",
+  "experiment_name": "exp02_auslan_daily_manual_glosses",
+  "duration_seconds": 5564.6,
+  "duration_human": "1h 32m 44s",
+  "test_loss": 0.1756,
+  "test_f1_micro": 0.1284,
+  "test_f1_macro": 0.009,
+  "best_dev_f1_macro": 0.0324,
+  "best_epoch": 45,
+  "n_classes": 230,
+  "n_train": 4045,
+  "n_dev": 295,
+  "n_test": 431
+}

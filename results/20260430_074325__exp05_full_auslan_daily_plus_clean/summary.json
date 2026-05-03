@@ -1,0 +1,15 @@
+{
+  "run_id": "20260430_074325__exp05_full_auslan_daily_plus_clean",
+  "experiment_name": "exp05_full_auslan_daily_plus_clean",
+  "duration_seconds": 18467.0,
+  "duration_human": "5h 7m 47s",
+  "test_loss": 0.8268,
+  "test_f1_micro": 0.1122,
+  "test_f1_macro": 0.0263,
+  "best_dev_f1_macro": 0.0921,
+  "best_epoch": 47,
+  "n_classes": 83,
+  "n_train": 11299,
+  "n_dev": 704,
+  "n_test": 378
+}

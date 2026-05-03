@@ -1,0 +1,15 @@
+{
+  "run_id": "20260430_000620__exp01_clean_only",
+  "experiment_name": "exp01_clean_only",
+  "duration_seconds": 784.9,
+  "duration_human": "13m 4s",
+  "test_loss": 6.6339,
+  "test_f1_micro": 0.5233,
+  "test_f1_macro": 0.3988,
+  "best_dev_f1_macro": 0.8333,
+  "best_epoch": 32,
+  "n_classes": 12,
+  "n_train": 3456,
+  "n_dev": 34,
+  "n_test": 82
+}

@@ -1,0 +1,41 @@
+experiment_name: "exp01_clean_only"
+description: >
+  Train exclusively on hand-annotated clean clips + their augmented variants.
+  Non-augmented originals used as test set.
+  Establishes upper-bound performance on clean, high-quality data.
+
+data:
+  use_auslan_daily: false
+  use_annotated_clips: true
+  filter_to_manual_glosses: false
+  clean_clips_as_test: true
+  test_split_strategy: "stratified"  # per-gloss 20% holdout; rest + augments → train
+  test_fraction: 0.20
+  split_seed: 42
+
+  auslan_daily_manifest: "data/manifests/AuslanDaily_Communication.csv"
+  annotated_manifest: "data/manifests/gloss_clips_manifest.xlsx"
+  auslan_daily_features_dir: "data/auslan_daily_features"
+  annotated_features_dir: "data/gloss_clips_features"
+
+  gloss_col: "gloss"
+  split_col: "Split"
+
+model:
+  frame_feat_dim: 258
+  proj_dim: 128
+  n_heads: 4
+  n_layers: 3
+  dropout: 0.3
+  max_frames: 300
+
+training:
+  batch_size: 16          # smaller — less data than other experiments
+  epochs: 60
+  lr: 1e-3
+  weight_decay: 1e-4
+  min_gloss_freq: 1       # keep all glosses — clean set is small
+  confidence_threshold: 0.45
+
+output:
+  results_dir: "results"
