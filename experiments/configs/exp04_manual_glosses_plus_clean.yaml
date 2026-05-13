@@ -5,6 +5,7 @@ description: >
   Tests whether adding clean clips improves over Auslan Daily alone (exp02).
 
 data:
+  exclude_glosses: ["FINISH", "BYE", "LOOK"]
   use_auslan_daily: true
   use_annotated_clips: true          # augmented clean clips added to train
   filter_to_manual_glosses: true     # restrict Auslan Daily to manual-clip glosses

@@ -1,0 +1,102 @@
+clip,predicted_glosses,predicted_with_confidence,ground_truth,correct
+video_1_6_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_1_9_signer_HELLO_1,KNOW THINK,KNOW(0.75) THINK(0.40),HELLO,False
+video_5_0_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_6_38_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_7_0_signer_HELLO_1,HELLO,HELLO(1.00),HELLO,True
+video_7_34_signer_HELLO_1,NON_DETECTION,NON_DETECTION(1.00),HELLO,False
+video_10_29_signer_READY_1,GOOD,GOOD(1.00),READY,False
+video_2_127_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_11_67_signer_TIME_1,THINK TIME,THINK(1.00) TIME(0.81),TIME,False
+video_13_154_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_14_131_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_18_167_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_35_160_signer_TIME_1,ONE,ONE(0.99),TIME,False
+video_38_138_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_7_28_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_12_53_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_15_84_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_19_24_signer_KNOW_1,THINK,THINK(0.65),KNOW,False
+video_19_65_signer_KNOW_1,THINK,THINK(1.00),KNOW,False
+video_22_111_signer_KNOW_1,NON_DETECTION KNOW,NON_DETECTION(0.97) KNOW(0.38),KNOW,False
+video_23_30_signer_KNOW_1,THINK,THINK(0.99),KNOW,False
+video_24_73_signer_KNOW_1,KNOW,KNOW(1.00),KNOW,True
+video_24_150_signer_KNOW_1,THINK,THINK(1.00),KNOW,False
+video_28_76_signer_KNOW_1,THINK,THINK(0.99),KNOW,False
+video_1_54_signer_YES_1,NON_DETECTION READY,NON_DETECTION(0.95) READY(0.59),YES,False
+video_2_100_signer_YES_1,GOOD,GOOD(1.00),YES,False
+video_2_118_signer_YES_1,YES,YES(0.76),YES,True
+video_3_70_signer_YES_1,YES,YES(1.00),YES,True
+video_3_82_signer_YES_1,ONE,ONE(1.00),YES,False
+video_5_35_signer_YES_1,GOOD,GOOD(1.00),YES,False
+video_6_92_signer_YES_1,YES,YES(1.00),YES,True
+video_7_55_signer_YES_1,NON_DETECTION,NON_DETECTION(0.97),YES,False
+video_10_30_signer_YES_1,YES,YES(0.92),YES,True
+video_10_49_signer_YES_1,YES,YES(1.00),YES,True
+video_10_61_signer_YES_1,YES,YES(1.00),YES,True
+video_10_92_signer_YES_1,YES,YES(1.00),YES,True
+video_13_109_signer_YES_1,WHAT GOOD,WHAT(1.00) GOOD(0.67),YES,False
+video_4_15_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_6_25_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_6_48_signer_THINK_1,GO,GO(0.99),THINK,False
+video_12_68_signer_THINK_1,THINK,THINK(0.98),THINK,True
+video_18_47_signer_THINK_1,KNOW THINK,KNOW(0.55) THINK(0.50),THINK,False
+video_18_154_signer_THINK_1,YES,YES(1.00),THINK,False
+video_18_155_signer_THINK_1,GOOD,GOOD(1.00),THINK,False
+video_19_171_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_19_175_signer_THINK_1,THINK,THINK(0.99),THINK,True
+video_20_109_signer_THINK_1,THINK KNOW,THINK(0.98) KNOW(0.92),THINK,False
+video_24_81_signer_THINK_1,THINK KNOW,THINK(0.98) KNOW(0.40),THINK,False
+video_24_140_signer_THINK_1,THINK,THINK(1.00),THINK,True
+video_32_43_signer_THINK_1,KNOW,KNOW(1.00),THINK,False
+video_2_18_signer_WHAT_1,YES NON_DETECTION,YES(0.73) NON_DETECTION(0.55),WHAT,False
+video_5_55_signer_WHAT_1,WHAT,WHAT(0.98),WHAT,True
+video_6_42_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_10_20_signer_WHAT_1,TIME,TIME(1.00),WHAT,False
+video_10_51_signer_WHAT_1,KNOW,KNOW(1.00),WHAT,False
+video_18_27_signer_WHAT_1,WHAT,WHAT(1.00),WHAT,True
+video_5_104_signer_GOOD_1,GOOD,GOOD(1.00),GOOD,True
+video_7_45_signer_GOOD_1,GO,GO(1.00),GOOD,False
+video_17_8_signer_GOOD_1,ONE,ONE(1.00),GOOD,False
+video_41_206_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_42_139_signer_TIME_1,TIME,TIME(1.00),TIME,True
+video_44_48_signer_TIME_1,NON_DETECTION,NON_DETECTION(0.51),TIME,False
+video_2_45_signer_GO_1,NON_DETECTION,NON_DETECTION(0.96),GO,False
+video_2_106_signer_GO_1,GO,GO(0.54),GO,True
+video_8_55_signer_GO_1,TIME,TIME(0.99),GO,False
+video_12_8_signer_GO_1,ONE,ONE(1.00),GO,False
+video_12_29_signer_GO_1,ONE,ONE(1.00),GO,False
+video_16_9_signer_GO_1,NON_DETECTION,NON_DETECTION(1.00),GO,False
+video_17_13_signer_GO_1,WHAT,WHAT(1.00),GO,False
+video_15_105_signer_READY_1,NON_DETECTION READY,NON_DETECTION(0.88) READY(0.56),READY,False
+video_16_146_signer_READY_1,READY,READY(1.00),READY,True
+video_16_170_signer_READY_1,READY,READY(1.00),READY,True
+video_30_141_signer_READY_1,YES,YES(1.00),READY,False
+video_35_51_signer_READY_1,TIME,TIME(1.00),READY,False
+video_43_111_signer_READY_1,NON_DETECTION,NON_DETECTION(1.00),READY,False
+video_50_115_signer_READY_1,GOOD,GOOD(0.98),READY,False
+video_60_128_signer_READY_1,READY,READY(1.00),READY,True
+video_63_52_signer_READY_1,READY,READY(1.00),READY,True
+video_13_51_signer_ONE_1,YES,YES(1.00),ONE,False
+video_73_51_signer_READY_1,NON_DETECTION,NON_DETECTION(0.98),READY,False
+video_73_76_signer_READY_1,READY,READY(1.00),READY,True
+video_82_176_signer_READY_1,ONE,ONE(1.00),READY,False
+video_86_86_signer_READY_1,READY,READY(1.00),READY,True
+video_87_36_signer_READY_1,TIME,TIME(1.00),READY,False
+video_19_42_signer_GOOD_1,YES,YES(1.00),GOOD,False
+video_19_101_signer_GOOD_1,READY,READY(1.00),GOOD,False
+video_19_114_signer_GOOD_1,READY,READY(1.00),GOOD,False
+video_24_87_signer_GOOD_1,NON_DETECTION WHAT,NON_DETECTION(0.57) WHAT(0.49),GOOD,False
+video_24_114_signer_GOOD_1,GOOD ONE,GOOD(1.00) ONE(0.92),GOOD,False
+video_26_77_signer_GOOD_1,NON_DETECTION,NON_DETECTION(1.00),GOOD,False
+video_29_30_signer_GOOD_1,GOOD,GOOD(0.95),GOOD,True
+video_20_48_signer_ONE_1,WHAT,WHAT(0.99),ONE,False
+video_29_57_signer_ONE_1,YES,YES(1.00),ONE,False
+video_29_193_signer_ONE_1,ONE,ONE(1.00),ONE,True
+video_36_198_signer_ONE_1,YES,YES(0.99),ONE,False
+video_42_25_signer_ONE_1,ONE NON_DETECTION,ONE(0.98) NON_DETECTION(0.46),ONE,False
+video_42_135_signer_ONE_1,ONE GOOD,ONE(0.65) GOOD(0.46),ONE,False
+video_83_28_signer_ONE_1,READY,READY(0.96),ONE,False
+video_83_88_signer_ONE_1,ONE,ONE(1.00),ONE,True
+video_83_96_signer_ONE_1,KNOW THINK,KNOW(0.99) THINK(0.41),ONE,False
+video_87_85_signer_ONE_1,NON_DETECTION,NON_DETECTION(0.90),ONE,False

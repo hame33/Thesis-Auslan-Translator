@@ -5,6 +5,7 @@ description: >
   The kitchen-sink experiment — tests whether clean clips improve the full-data baseline (exp03).
 
 data:
+  exclude_glosses: ["FINISH", "BYE", "LOOK"]
   use_auslan_daily: true
   use_annotated_clips: true          # augmented clean clips added to train
   filter_to_manual_glosses: false    # full Auslan Daily vocabulary

@@ -1,0 +1,15 @@
+{
+  "run_id": "20260506_234030__exp03_full_auslan_daily",
+  "experiment_name": "exp03_full_auslan_daily",
+  "duration_seconds": 15424.4,
+  "duration_human": "4h 17m 4s",
+  "test_loss": 0.7203,
+  "test_f1_micro": 0.0936,
+  "test_f1_macro": 0.0265,
+  "best_dev_f1_macro": 0.0909,
+  "best_epoch": 51,
+  "n_classes": 83,
+  "n_train": 11299,
+  "n_dev": 704,
+  "n_test": 477
+}

@@ -5,6 +5,7 @@ description: >
   Tests whether Auslan Daily data alone is sufficient for the glosses we care about.
 
 data:
+  exclude_glosses: ["FINISH", "BYE", "LOOK"]
   use_auslan_daily: true
   use_annotated_clips: false         # annotated clips NOT in train
   filter_to_manual_glosses: true     # restrict Auslan Daily to manual-clip glosses

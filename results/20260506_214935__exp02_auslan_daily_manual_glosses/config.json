@@ -1,0 +1,44 @@
+{
+  "run_id": "20260506_214935__exp02_auslan_daily_manual_glosses",
+  "experiment_name": "exp02_auslan_daily_manual_glosses",
+  "timestamp": "2026-05-06T21:49:35.630691",
+  "config": {
+    "description": "Train on Auslan Daily clips, but restricted to only the glosses that appear in the hand-annotated manual clip set. Clean clips (originals) used as test. Tests whether Auslan Daily data alone is sufficient for the glosses we care about.\n",
+    "data": {
+      "exclude_glosses": [
+        "FINISH",
+        "BYE",
+        "LOOK"
+      ],
+      "use_auslan_daily": true,
+      "use_annotated_clips": false,
+      "filter_to_manual_glosses": true,
+      "clean_clips_as_test": true,
+      "test_split_strategy": "all_originals",
+      "split_seed": 42,
+      "auslan_daily_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx",
+      "annotated_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/gloss_clips_manifest.xlsx",
+      "auslan_daily_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/auslan_daily_features",
+      "annotated_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/gloss_clips_features",
+      "gloss_col": "gloss",
+      "split_col": "Split"
+    },
+    "model": {
+      "frame_feat_dim": 258,
+      "proj_dim": 128,
+      "n_heads": 4,
+      "n_layers": 3,
+      "dropout": 0.3,
+      "max_frames": 300
+    },
+    "training": {
+      "batch_size": 32,
+      "epochs": 60,
+      "lr": "1e-3",
+      "weight_decay": "1e-4",
+      "min_gloss_freq": 10,
+      "confidence_threshold": 0.45
+    },
+    "n_classes": 237
+  }
+}

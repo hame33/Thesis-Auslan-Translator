@@ -43,7 +43,8 @@ def load_config(path: str) -> dict:
     # Resolve all paths relative to repo root
     data = cfg["data"]
     for key in ["auslan_daily_manifest", "annotated_manifest",
-                "auslan_daily_features_dir", "annotated_features_dir"]:
+                "auslan_daily_features_dir", "annotated_features_dir",
+                "non_detection_manifest", "non_detection_features_dir"]:
         if key in data and data[key]:
             data[key] = str(REPO_ROOT / data[key])
     cfg["output"]["results_dir"] = str(REPO_ROOT / cfg["output"]["results_dir"])
@@ -61,6 +62,7 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
     Experiment modes (set in config):
       use_auslan_daily           – include Auslan Daily clips
       use_annotated_clips        – include hand-annotated clean clips
+      use_non_detection          – include non-detection class clips
       filter_to_manual_glosses   – restrict Auslan Daily to glosses that
                                    appear in the annotated (manual) clip set
       clean_clips_as_test        – use non-augmented annotated clips as the
@@ -99,6 +101,13 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
         ann = ann.rename(columns={"gloss": gloss_col})
         ann["source"] = "annotated"
         ann_orig = ann[["clip_id", gloss_col, "source"]].copy()
+
+        # ── Exclude specified glosses ─────────────────────────────────────────
+        exclude = [g.strip().upper() for g in data_cfg.get("exclude_glosses", [])]
+        if exclude:
+            before = len(ann_orig)
+            ann_orig = ann_orig[~ann_orig[gloss_col].str.strip().str.upper().isin(exclude)].copy()
+            print(f"  Excluded glosses {exclude}: {before} → {len(ann_orig)} originals")
 
         # ── Decide test split strategy for originals ──────────────────────────
         strategy = data_cfg.get("test_split_strategy", "all_originals")
@@ -163,6 +172,71 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
         if data_cfg.get("use_annotated_clips", False):
             frames.append(ann_df)
 
+    # ── Non-detection clips ───────────────────────────────────────────────────
+    if data_cfg.get("use_non_detection", False):
+        nd_manifest = data_cfg["non_detection_manifest"]
+        nd_feat_dir = Path(data_cfg["non_detection_features_dir"])
+        nd_df = pd.read_excel(nd_manifest)
+        nd_df = nd_df[nd_df["status"] == "accepted"].copy()
+
+        NONDET_LABEL = "NON_DETECTION"
+
+        # Build originals rows
+        nd_orig_rows = []
+        for _, row in nd_df.iterrows():
+            out_file = str(row.get("output_file", ""))
+            if not out_file:
+                continue
+            clip_id = Path(out_file).stem   # e.g. video_10_119_nondet_1
+            nd_orig_rows.append({
+                "clip_id":  clip_id,
+                gloss_col:  NONDET_LABEL,
+                split_col:  "train",        # default; overridden below
+                "source":   "non_detection",
+            })
+
+        nd_orig = pd.DataFrame(nd_orig_rows)
+
+        # Stratified-style split — hold out test_fraction as test
+        if data_cfg.get("clean_clips_as_test", False):
+            import math
+            test_fraction = data_cfg.get("test_fraction", 0.20)
+            rng = np.random.default_rng(seed=data_cfg.get("split_seed", 42))
+            n_test = max(1, math.floor(len(nd_orig) * test_fraction))
+            test_idx = rng.choice(nd_orig.index, size=n_test, replace=False)
+            nd_orig.loc[test_idx, split_col] = "test"
+
+        n_nd_test  = (nd_orig[split_col] == "test").sum()
+        n_nd_train = (nd_orig[split_col] == "train").sum()
+
+        # Augmented variants for train originals only
+        aug_suffixes = {
+            "mirror", "slow", "fast", "crop1", "crop2",
+            "noise1", "noise2", "mirror_slow", "mirror_fast",
+        }
+        nd_aug_rows = []
+        for _, row in nd_orig[nd_orig[split_col] == "train"].iterrows():
+            for suffix in aug_suffixes:
+                aug_id = f"{row['clip_id']}_{suffix}"
+                if (nd_feat_dir / f"{aug_id}.npy").exists():
+                    nd_aug_rows.append({
+                        "clip_id":  aug_id,
+                        gloss_col:  NONDET_LABEL,
+                        split_col:  "train",
+                        "source":   "non_detection_aug",
+                    })
+
+        nd_aug = pd.DataFrame(nd_aug_rows) if nd_aug_rows else pd.DataFrame(
+            columns=["clip_id", gloss_col, split_col, "source"]
+        )
+        nd_all = pd.concat([nd_orig, nd_aug], ignore_index=True)
+
+        print(f"  Non-detection originals:     {len(nd_orig)} "
+              f"({n_nd_train} train, {n_nd_test} test)")
+        print(f"  Non-detection augmented:     {len(nd_aug)}")
+
+        frames.append(nd_all)
+
     # ── Combine ───────────────────────────────────────────────────────────────
     if not frames and not data_cfg.get("clean_clips_as_test", False):
         raise ValueError("No data sources enabled in config.")
@@ -196,9 +270,12 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
 
     # ── Override test split with clean clips ──────────────────────────────────
     if data_cfg.get("clean_clips_as_test", False) and ann_df is not None:
-        # Remove any existing "test" rows from combined (from Auslan Daily split)
-        combined = combined[combined[split_col] != "test"].copy()
-        # Add annotated originals as test
+        # Remove Auslan Daily test rows only — preserve non-detection test rows
+        # which were already appended to combined via frames.append(nd_all)
+        combined = combined[
+            ~((combined[split_col] == "test") & (combined["source"] == "auslan_daily"))
+        ].copy()
+        # Add annotated gloss originals as test
         test_rows = ann_df[ann_df[split_col] == "test"].copy()
         combined = pd.concat([combined, test_rows], ignore_index=True)
 
@@ -211,7 +288,7 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
     # If no dev split exists (e.g. clean-only exp), carve 10% out of train.
     # Only sample from non-augmented clips so dev mirrors real distribution.
     if len(dev_df) == 0 and len(train_df) > 0:
-        non_aug = train_df[train_df["source"] == "annotated"]
+        non_aug = train_df[train_df["source"].isin(["annotated", "non_detection"])]
         if len(non_aug) >= 10:
             dev_sample = non_aug.groupby(gloss_col, group_keys=False).apply(
                 lambda g: g.sample(frac=0.10, random_state=42) if len(g) >= 5 else g.iloc[:0]
@@ -255,10 +332,16 @@ class GlossDataset(Dataset):
         self.label_map  = label_map
         self.n_classes  = len(label_map)
         self.max_frames = model_cfg["max_frames"]
-        self.feat_dirs  = [
+
+        # Build feature search path — always include the two core dirs,
+        # plus non-detection dir if enabled
+        self.feat_dirs = [
             Path(data_cfg["auslan_daily_features_dir"]),
             Path(data_cfg["annotated_features_dir"]),
         ]
+        if data_cfg.get("use_non_detection", False):
+            self.feat_dirs.append(Path(data_cfg["non_detection_features_dir"]))
+
         self.records = []
         missing = 0
 

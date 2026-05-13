@@ -5,6 +5,7 @@ description: >
   Baseline for what the PGen-annotated Auslan Daily data can do alone.
 
 data:
+  exclude_glosses: ["FINISH", "BYE", "LOOK"]
   use_auslan_daily: true
   use_annotated_clips: false
   filter_to_manual_glosses: false    # full vocabulary

@@ -1,0 +1,48 @@
+{
+  "run_id": "20260512_200429__exp_clean_with_nondet",
+  "experiment_name": "exp_clean_with_nondet",
+  "timestamp": "2026-05-12T20:04:29.335441",
+  "config": {
+    "description": "Train on hand-annotated clean gloss clips + augmented variants, with a NON_DETECTION class added from the non-detection manifest. Stratified 20% test holdout from originals.\n",
+    "data": {
+      "use_annotated_clips": true,
+      "annotated_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/gloss_clips_manifest.xlsx",
+      "annotated_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/gloss_clips_features",
+      "use_non_detection": true,
+      "non_detection_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/non_detection_manifest.xlsx",
+      "non_detection_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/non_detection_clips_features",
+      "use_auslan_daily": false,
+      "auslan_daily_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx",
+      "auslan_daily_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/features",
+      "gloss_col": "gloss",
+      "split_col": "Split",
+      "filter_to_manual_glosses": false,
+      "clean_clips_as_test": true,
+      "test_split_strategy": "stratified",
+      "test_fraction": 0.2,
+      "split_seed": 42,
+      "exclude_glosses": [
+        "FINISH",
+        "BYE",
+        "LOOK"
+      ]
+    },
+    "model": {
+      "frame_feat_dim": 258,
+      "proj_dim": 128,
+      "n_heads": 4,
+      "n_layers": 3,
+      "dropout": 0.2,
+      "max_frames": 300
+    },
+    "training": {
+      "epochs": 40,
+      "batch_size": 32,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "min_gloss_freq": 1,
+      "confidence_threshold": 0.35
+    },
+    "n_classes": 11
+  }
+}

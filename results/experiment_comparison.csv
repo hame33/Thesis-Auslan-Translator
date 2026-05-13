@@ -1,6 +1,6 @@
 experiment,test_f1_macro,test_f1_micro,best_dev_f1_macro,best_epoch,n_classes,n_train,duration
-exp01_clean_only,0.3988,0.5233,0.8333,32,12,3456,13m 4s
-exp02_auslan_daily_manual_glosses,0.009,0.1284,0.0324,45,230,4045,1h 32m 44s
-exp03_full_auslan_daily,0.0267,0.1091,0.095,37,83,11299,4h 20m 30s
-exp04_manual_glosses_plus_clean,0.0056,0.1252,0.0174,55,432,4045,1h 30m 12s
-exp05_full_auslan_daily_plus_clean,0.0263,0.1122,0.0921,47,83,11299,5h 7m 47s
+exp01_clean_only,0.5087,0.5,1.0,26,10,4248,16m 3s
+exp02_auslan_daily_manual_glosses,0.0097,0.1276,0.0361,35,237,4198,1h 50m 44s
+exp03_full_auslan_daily,0.0265,0.0936,0.0909,51,83,11299,4h 17m 4s
+exp04_manual_glosses_plus_clean,0.0056,0.1176,0.0192,37,459,4198,1h 37m 34s
+exp05_full_auslan_daily_plus_clean,0.0242,0.0859,0.0873,39,83,11299,4h 25m 25s

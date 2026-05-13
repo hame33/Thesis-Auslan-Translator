@@ -6,9 +6,9 @@ from pathlib import Path
 
 # ── Config ─────────────────────────────────────────────────────
 REPO_ROOT    = Path(__file__).resolve().parents[2]
-MANIFEST_CSV = str(REPO_ROOT / "data" / "manifests" / "gloss_clips_manifest.xlsx")
-VIDEO_DIR    = REPO_ROOT / "data" / "gloss_clips"
-FEATURES_DIR = REPO_ROOT / "data" / "gloss_clips_features"
+MANIFEST_CSV = str(REPO_ROOT / "data" / "manifests" / "non_detection_manifest.xlsx")
+VIDEO_DIR    = REPO_ROOT / "data" / "non_detection_clips"
+FEATURES_DIR = REPO_ROOT / "data" / "non_detection_clips_features"
 # ───────────────────────────────────────────────────────────────
 
 FEATURES_DIR.mkdir(parents=True, exist_ok=True)
@@ -68,7 +68,7 @@ def extract_sign_features(video_path):
 
 def main():
     df = pd.read_excel(MANIFEST_CSV)
-    df = df[df['status'] == 'saved'].reset_index(drop=True)
+    df = df[df['status'] == 'accepted'].reset_index(drop=True)
 
     total    = len(df)
     success  = 0
@@ -81,7 +81,7 @@ def main():
 
     for i, (_, row) in enumerate(df.iterrows(), 1):
         clip_name  = row["output_file"]
-        gloss_name = row["gloss"]
+        #gloss_name = row["gloss"]
         video_path = VIDEO_DIR    / f"{clip_name}"
         save_path  = FEATURES_DIR / f"{Path(clip_name).stem}.npy"
 

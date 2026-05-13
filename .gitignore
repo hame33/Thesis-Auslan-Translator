@@ -1,6 +1,7 @@
 # Vidoes
 *.mp4
 *.npy
+*.icloud
 
 *.xlsx
 *.pt
