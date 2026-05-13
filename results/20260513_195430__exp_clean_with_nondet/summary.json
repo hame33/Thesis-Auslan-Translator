@@ -1,0 +1,15 @@
+{
+  "run_id": "20260513_195430__exp_clean_with_nondet",
+  "experiment_name": "exp_clean_with_nondet",
+  "duration_seconds": 902.5,
+  "duration_human": "15m 2s",
+  "test_loss": 5.4737,
+  "test_f1_micro": 0.4832,
+  "test_f1_macro": 0.48,
+  "best_dev_f1_macro": 1.0,
+  "best_epoch": 24,
+  "n_classes": 11,
+  "n_train": 5119,
+  "n_dev": 51,
+  "n_test": 223
+}

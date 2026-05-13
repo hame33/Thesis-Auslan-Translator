@@ -209,12 +209,16 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
         n_nd_test  = (nd_orig[split_col] == "test").sum()
         n_nd_train = (nd_orig[split_col] == "train").sum()
 
-        # Augmented variants for train originals only
-        aug_suffixes = {
+        # Augmented variants for train originals only.
+        # non_detection_aug_factor controls how many of the 9 augmentations to
+        # include (1-9). Default 9 = full 10x dataset; 4 = ~5x.
+        all_aug_suffixes = [
             "mirror", "slow", "fast", "crop1", "crop2",
             "noise1", "noise2", "mirror_slow", "mirror_fast",
-        }
-        nd_aug_rows = []
+        ]
+        aug_factor   = int(data_cfg.get("non_detection_aug_factor", 9))
+        aug_suffixes = all_aug_suffixes[:aug_factor]
+        nd_aug_rows  = []
         for _, row in nd_orig[nd_orig[split_col] == "train"].iterrows():
             for suffix in aug_suffixes:
                 aug_id = f"{row['clip_id']}_{suffix}"
@@ -464,17 +468,39 @@ def train_epoch(model, loader, optimizer, criterion, device):
     return total_loss / len(loader)
 
 
+def build_threshold_vector(t_cfg: dict, label_map: dict) -> np.ndarray:
+    """
+    Build a per-class threshold vector.
+    NON_DETECTION gets a higher threshold (non_detection_threshold) to reduce
+    false positives; all other glosses get confidence_threshold.
+    Falls back to a uniform scalar if non_detection_threshold is not set.
+    """
+    n = len(label_map)
+    gloss_thresh = float(t_cfg["confidence_threshold"])
+    nd_thresh    = float(t_cfg.get("non_detection_threshold", gloss_thresh))
+    vec = np.full(n, gloss_thresh, dtype=np.float32)
+    if "NON_DETECTION" in label_map:
+        vec[label_map["NON_DETECTION"]] = nd_thresh
+    return vec
+
+
 @torch.no_grad()
-def evaluate(model, loader, criterion, device, threshold):
+def evaluate(model, loader, criterion, device, threshold_vec):
+    """threshold_vec: np.ndarray of shape [n_classes] or scalar float."""
     model.eval()
     total_loss = 0.0
     all_preds, all_labels = [], []
+    thresh = torch.tensor(threshold_vec, dtype=torch.float32) if isinstance(threshold_vec, np.ndarray) else threshold_vec
     for frames, mask, labels, _ in tqdm(loader, desc="  eval ", leave=False):
         frames, mask, labels = frames.to(device), mask.to(device), labels.to(device)
         logits = model(frames, mask)
         loss = criterion(logits, labels)
         total_loss += loss.item()
-        preds = (torch.sigmoid(logits) >= threshold).cpu().numpy()
+        probs = torch.sigmoid(logits).cpu()
+        if isinstance(thresh, torch.Tensor):
+            preds = (probs >= thresh).numpy()
+        else:
+            preds = (probs >= thresh).numpy()
         all_preds.append(preds)
         all_labels.append(labels.cpu().numpy())
     all_preds  = np.vstack(all_preds)
@@ -548,7 +574,8 @@ def save_inference_results(results, run_dir: Path):
 # ── Inference ─────────────────────────────────────────────────────────────────
 
 @torch.no_grad()
-def infer(model, loader, label_map, device, threshold):
+def infer(model, loader, label_map, device, threshold_vec):
+    """threshold_vec: np.ndarray of shape [n_classes] or scalar float."""
     model.eval()
     idx_to_gloss = {v: k for k, v in label_map.items()}
     results = []
@@ -557,7 +584,10 @@ def infer(model, loader, label_map, device, threshold):
         logits = model(frames, mask)
         probs  = torch.sigmoid(logits).cpu().numpy()
         for clip_name, prob_vec, label_vec in zip(names, probs, labels.numpy()):
-            pred_idx = np.where(prob_vec >= threshold)[0]
+            if isinstance(threshold_vec, np.ndarray):
+                pred_idx = np.where(prob_vec >= threshold_vec)[0]
+            else:
+                pred_idx = np.where(prob_vec >= threshold_vec)[0]
             predictions = sorted(
                 [(idx_to_gloss[i], float(prob_vec[i])) for i in pred_idx],
                 key=lambda x: -x[1]
@@ -611,7 +641,7 @@ def main():
         test_ds     = GlossDataset(test_df, label_map, cfg)
         test_loader = DataLoader(test_ds, batch_size=t_cfg["batch_size"],
                                  collate_fn=collate_fn, num_workers=0)
-        results = infer(model, test_loader, label_map, device, t_cfg["confidence_threshold"])
+        results = infer(model, test_loader, label_map, device, threshold_vec)
         save_inference_results(results, run_dir)
         print(f"Inference results saved to: {run_dir}/inference_results.csv")
         return
@@ -668,6 +698,11 @@ def main():
         optimizer, T_max=t_cfg["epochs"]
     )
 
+    # Build per-class threshold vector (NON_DETECTION gets higher threshold)
+    threshold_vec = build_threshold_vector(t_cfg, label_map)
+    nd_thresh = float(t_cfg.get("non_detection_threshold", t_cfg["confidence_threshold"]))
+    print(f"Thresholds — gloss: {t_cfg['confidence_threshold']}  NON_DETECTION: {nd_thresh}")
+
     best_f1    = 0.0
     best_epoch = 0
     best_preds = None
@@ -677,7 +712,7 @@ def main():
     for epoch in range(1, t_cfg["epochs"] + 1):
         train_loss = train_epoch(model, train_loader, optimizer, criterion, device)
         dev_loss, dev_f1_micro, dev_f1_macro, dev_preds, dev_labels = evaluate(
-            model, dev_loader, criterion, device, t_cfg["confidence_threshold"]
+            model, dev_loader, criterion, device, threshold_vec
         )
         scheduler.step()
 
@@ -709,7 +744,7 @@ def main():
     print("\nLoading best model for test evaluation...")
     model.load_state_dict(torch.load(run_dir / "best_model.pt", map_location=device))
     test_loss, test_f1_micro, test_f1_macro, test_preds, test_labels = evaluate(
-        model, test_loader, criterion, device, t_cfg["confidence_threshold"]
+        model, test_loader, criterion, device, threshold_vec
     )
     print(f"Test — loss={test_loss:.4f}  "
           f"f1_micro={test_f1_micro:.4f}  "
@@ -719,7 +754,7 @@ def main():
     save_per_class_results(test_labels, test_preds, label_map, run_dir)
     save_confusion_matrix(test_labels, test_preds, label_map, run_dir)
 
-    results = infer(model, test_loader, label_map, device, t_cfg["confidence_threshold"])
+    results = infer(model, test_loader, label_map, device, threshold_vec)
     save_inference_results(results, run_dir)
 
     logger.finish(

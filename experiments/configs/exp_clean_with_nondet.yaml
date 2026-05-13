@@ -1,8 +1,8 @@
-experiment_name: exp_clean_with_nondet
+experiment_name: exp_clean_with_nondet_v2
 description: >
-  Train on hand-annotated clean gloss clips + augmented variants,
-  with a NON_DETECTION class added from the non-detection manifest.
-  Stratified 20% test holdout from originals.
+  Clean clips + NON_DETECTION class. Dual confidence threshold (lower for
+  glosses, higher for NON_DETECTION to reduce false non-detection firing).
+  5x augmentation for non-detection instead of 10x to reduce its dominance.
 
 data:
   # ── Annotated gloss clips ─────────────────────────────────────────────────
@@ -14,6 +14,7 @@ data:
   use_non_detection: true
   non_detection_manifest: data/manifests/non_detection_manifest.xlsx
   non_detection_features_dir: data/non_detection_clips_features
+  non_detection_aug_factor: 5   # 5x instead of 10x — reduces NON_DETECTION dominance
 
   # ── Auslan Daily (not used here) ──────────────────────────────────────────
   use_auslan_daily: false
@@ -31,7 +32,7 @@ data:
   exclude_glosses: ["FINISH", "BYE", "LOOK"]
 
 model:
-  frame_feat_dim: 258        # 33×4 pose + 21×3 left hand + 21×3 right hand
+  frame_feat_dim: 258
   proj_dim: 128
   n_heads: 4
   n_layers: 3
@@ -43,8 +44,9 @@ training:
   batch_size: 32
   lr: 0.001
   weight_decay: 0.0001
-  min_gloss_freq: 1          # NON_DETECTION must always pass this threshold
-  confidence_threshold: 0.35
+  min_gloss_freq: 1
+  confidence_threshold: 0.25          # lower threshold for gloss classes
+  non_detection_threshold: 0.55       # higher threshold so NON_DETECTION needs more confidence to fire
 
 output:
   results_dir: results
