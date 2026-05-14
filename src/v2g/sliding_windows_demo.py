@@ -130,66 +130,136 @@ class FrameExtractor:
 
 # ── Classifier ────────────────────────────────────────────────────────────────
 
-class SlidingWindowClassifier:
+class SingleWindowClassifier:
+    """One sliding window buffer — classify every `stride` frames."""
     def __init__(self, model, label_map, cfg, device, threshold, window, stride):
         self.model      = model
         self.label_map  = label_map
         self.idx2gloss  = {v: k for k, v in label_map.items()}
-        self.cfg        = cfg
         self.device     = device
         self.threshold  = threshold
         self.window     = window
         self.stride     = stride
         self.max_frames = cfg["model"]["max_frames"]
-
-        self.buffer     = collections.deque(maxlen=window)
+        self.buffer      = collections.deque(maxlen=window)
         self.frame_count = 0
-        self.last_result = {"gloss": None, "confidence": 0.0, "all": []}
+        self.last_top    = None   # (gloss, confidence) or None
+        self.full_probs  = {}     # {gloss: prob} updated each classify call
 
     def push(self, feat: np.ndarray):
-        """Add one frame of features; run classifier every `stride` frames."""
         self.buffer.append(feat)
         self.frame_count += 1
         if self.frame_count % self.stride == 0 and len(self.buffer) >= max(2, self.window // 4):
             self._classify()
-        return self.last_result
+        return self.last_top
 
     def _classify(self):
-        frames = np.stack(list(self.buffer)).astype(np.float32)  # [T, 258]
+        frames = np.stack(list(self.buffer)).astype(np.float32)
         T = len(frames)
         if T > self.max_frames:
             idx = np.linspace(0, T - 1, self.max_frames, dtype=int)
-            frames = frames[idx]
-            T = self.max_frames
-
-        t = torch.from_numpy(frames).unsqueeze(0).to(self.device)   # [1, T, 258]
+            frames = frames[idx]; T = self.max_frames
+        t    = torch.from_numpy(frames).unsqueeze(0).to(self.device)
         mask = torch.zeros(1, T, dtype=torch.bool, device=self.device)
-
         with torch.no_grad():
-            logits = self.model(t, mask)
-            probs  = torch.sigmoid(logits).squeeze(0).cpu().numpy()
-
-        all_preds = sorted(
+            probs = torch.sigmoid(self.model(t, mask)).squeeze(0).cpu().numpy()
+        preds = sorted(
             [(self.idx2gloss[i], float(probs[i])) for i in range(len(probs))
-             if probs[i] >= self.threshold],
+             if probs[i] >= self.threshold and self.idx2gloss[i] != "NON_DETECTION"],
             key=lambda x: -x[1],
         )
-        # Filter out NON_DETECTION from display (it's an internal class)
-        display = [(g, c) for g, c in all_preds if g != "NON_DETECTION"]
+        nd_prob = float(probs[self.label_map["NON_DETECTION"]]) if "NON_DETECTION" in self.label_map else 0.0
+        # full_probs: dict {gloss: prob} for all classes including NON_DETECTION
+        self.full_probs = {self.idx2gloss[i]: round(float(probs[i]), 3) for i in range(len(probs))}
+        self.last_top = (preds[0][0], round(preds[0][1], 3), round(nd_prob, 3)) if preds else (None, 0.0, round(nd_prob, 3))
 
-        top = display[0] if display else (None, 0.0)
-        self.last_result = {
-            "gloss":      top[0],
-            "confidence": round(top[1], 3),
-            "all":        [(g, round(c, 3)) for g, c in display],
-            "nondet":     round(float(probs[self.label_map.get("NON_DETECTION", 0)]), 3)
-                          if "NON_DETECTION" in self.label_map else 0.0,
+    def reset(self):
+        self.buffer.clear()
+        self.frame_count = 0
+        self.last_top = None
+
+
+class DualWindowClassifier:
+    """
+    Two-stage sliding window detector.
+
+    fast_window  (short)  — nominates a candidate gloss quickly.
+    slow_window  (long)   — must agree before the gloss is confirmed.
+
+    A gloss is committed to the transcript only when both windows
+    independently predict the same non-NON_DETECTION gloss in the same
+    stride cycle. This eliminates single-window jitter.
+    """
+    def __init__(self, model, label_map, cfg, device, threshold,
+                 fast_window, slow_window, stride):
+        self.fast = SingleWindowClassifier(model, label_map, cfg, device, threshold, fast_window, stride)
+        self.slow = SingleWindowClassifier(model, label_map, cfg, device, threshold, slow_window, stride)
+        self.threshold   = threshold
+        self.fast_window = fast_window
+        self.slow_window = slow_window
+        self.stride      = stride
+        # State
+        self.candidate   = None   # gloss nominated by fast window
+        self.confirmed   = None   # gloss agreed by both windows
+        self.fast_conf   = 0.0
+        self.slow_conf   = 0.0
+        self.nondet      = 0.0
+
+    def push(self, feat: np.ndarray) -> dict:
+        fast_result = self.fast.push(feat)
+        slow_result = self.slow.push(feat)
+
+        fast_gloss = fast_result[0] if fast_result else None
+        slow_gloss = slow_result[0] if slow_result else None
+        self.nondet = max(
+            fast_result[2] if fast_result else 0.0,
+            slow_result[2] if slow_result else 0.0,
+        )
+
+        # Both windows must agree on the same non-None gloss
+        if fast_gloss and slow_gloss and fast_gloss == slow_gloss:
+            self.candidate = fast_gloss
+            self.confirmed = fast_gloss
+            self.fast_conf = fast_result[1]
+            self.slow_conf = slow_result[1]
+        else:
+            # Nomination without confirmation
+            self.candidate = fast_gloss
+            self.confirmed = None
+            self.fast_conf = fast_result[1] if fast_result else 0.0
+            self.slow_conf = slow_result[1] if slow_result else 0.0
+
+        return {
+            "candidate":   self.candidate,
+            "confirmed":   self.confirmed,
+            "fast_conf":   round(self.fast_conf, 3),
+            "slow_conf":   round(self.slow_conf, 3),
+            "nondet":      round(self.nondet, 3),
+            "fast_probs":  self.fast.full_probs,
+            "slow_probs":  self.slow.full_probs,
+            "fast_window": self.fast_window,
+            "slow_window": self.slow_window,
+            "n_fast":      len(self.fast.buffer),
+            "n_slow":      len(self.slow.buffer),
         }
 
-    def update_params(self, window=None, stride=None, threshold=None):
-        if window    is not None: self.window    = window;    self.buffer = collections.deque(maxlen=window)
-        if stride    is not None: self.stride    = stride
-        if threshold is not None: self.threshold = threshold
+    def update_params(self, fast_window=None, slow_window=None, stride=None, threshold=None):
+        if stride is not None:
+            self.stride = stride
+            self.fast.stride = stride
+            self.slow.stride = stride
+        if threshold is not None:
+            self.threshold = threshold
+            self.fast.threshold = threshold
+            self.slow.threshold = threshold
+        if fast_window is not None:
+            self.fast_window = fast_window
+            self.fast.window = fast_window
+            self.fast.buffer = collections.deque(maxlen=fast_window)
+        if slow_window is not None:
+            self.slow_window = slow_window
+            self.slow.window = slow_window
+            self.slow.buffer = collections.deque(maxlen=slow_window)
 
 
 # ── Flask / SocketIO app ──────────────────────────────────────────────────────
@@ -219,21 +289,31 @@ def handle_frame(data):
         feat   = G["extractor"].extract(frame)
         result = G["classifier"].push(feat)
 
-        # Append to rolling transcript if confident gloss detected
-        gloss = result["gloss"]
-        if gloss and result["confidence"] >= G["classifier"].threshold:
+        # Only commit to transcript when BOTH windows agree (confirmed)
+        confirmed = result["confirmed"]
+        if confirmed:
             transcript = G["transcript"]
-            if not transcript or transcript[-1]["gloss"] != gloss:
-                transcript.append({"gloss": gloss, "conf": result["confidence"]})
+            if not transcript or transcript[-1]["gloss"] != confirmed:
+                transcript.append({
+                    "gloss": confirmed,
+                    "conf":  max(result["fast_conf"], result["slow_conf"]),
+                })
                 if len(transcript) > 50:
                     transcript.pop(0)
 
         emit("prediction", {
-            "gloss":      result["gloss"],
-            "confidence": result["confidence"],
-            "all":        result["all"],
-            "nondet":     result["nondet"],
-            "transcript": G["transcript"][-10:],  # last 10 entries
+            "candidate":   result["candidate"],
+            "confirmed":   result["confirmed"],
+            "fast_conf":   result["fast_conf"],
+            "slow_conf":   result["slow_conf"],
+            "nondet":      result["nondet"],
+            "fast_probs":  result["fast_probs"],
+            "slow_probs":  result["slow_probs"],
+            "fast_window": result["fast_window"],
+            "slow_window": result["slow_window"],
+            "n_fast":      result["n_fast"],
+            "n_slow":      result["n_slow"],
+            "transcript":  G["transcript"][-10:],
         })
 
     except Exception as e:
@@ -243,14 +323,16 @@ def handle_frame(data):
 @socketio.on("update_params")
 def handle_params(data):
     G["classifier"].update_params(
-        window=data.get("window"),
+        fast_window=data.get("fast_window"),
+        slow_window=data.get("slow_window"),
         stride=data.get("stride"),
         threshold=data.get("threshold"),
     )
     emit("params_updated", {
-        "window":    G["classifier"].window,
-        "stride":    G["classifier"].stride,
-        "threshold": G["classifier"].threshold,
+        "fast_window": G["classifier"].fast_window,
+        "slow_window": G["classifier"].slow_window,
+        "stride":      G["classifier"].stride,
+        "threshold":   G["classifier"].threshold,
     })
 
 
@@ -279,6 +361,7 @@ HTML = """<!DOCTYPE html>
     --accent:  #00ffc8;
     --accent2: #7b5ea7;
     --warn:    #ff6b6b;
+    --yellow:  #f6c343;
     --text:    #e8e8f0;
     --muted:   #55556a;
     --radius:  12px;
@@ -563,6 +646,149 @@ HTML = """<!DOCTYPE html>
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── Debug panel ── */
+  .debug-toggle {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 28px;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    user-select: none;
+  }
+  .debug-toggle:hover { color: var(--text); }
+  .debug-toggle .arrow { transition: transform 0.2s; }
+  .debug-toggle.open .arrow { transform: rotate(90deg); }
+
+  .debug-panel {
+    display: none;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 28px;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .debug-panel.visible { display: grid; }
+
+  .debug-section-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .debug-section-title span {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    font-size: 0.68rem;
+  }
+
+  /* Probability bars */
+  .prob-rows { display: flex; flex-direction: column; gap: 5px; }
+  .prob-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 52px 52px;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+  }
+  .prob-label { color: var(--text); font-weight: 600; letter-spacing: 0.04em; }
+  .prob-label.nondet { color: var(--warn); }
+  .bar-wrap {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.15s ease;
+  }
+  .bar-fill.fast { background: #5b8cff; }
+  .bar-fill.slow { background: var(--accent2); }
+  .bar-fill.nondet-fast { background: var(--warn); }
+  .bar-fill.nondet-slow { background: #ff9999; }
+  .prob-val { color: var(--muted); text-align: right; }
+  .prob-val.hot { color: var(--accent); font-weight: 700; }
+
+  /* Window fill meters */
+  .window-meters { display: flex; flex-direction: column; gap: 16px; }
+  .meter-group { display: flex; flex-direction: column; gap: 6px; }
+  .meter-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  .meter-label .count { font-family: 'Space Mono', monospace; color: var(--text); }
+  .meter-bar-wrap {
+    height: 10px;
+    background: var(--border);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .meter-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.1s ease;
+  }
+  .meter-bar-fill.fast { background: #5b8cff; }
+  .meter-bar-fill.slow { background: var(--accent2); }
+
+  .state-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-top: 10px;
+  }
+  .state-badge.confirmed { background: rgba(0,255,200,0.15); color: var(--accent); border: 1px solid var(--accent); }
+  .state-badge.nominated { background: rgba(246,195,67,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+  .state-badge.silent { background: var(--border); color: var(--muted); border: 1px solid var(--border); }
+
+  /* History log */
+  .history-log {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .log-row {
+    display: grid;
+    grid-template-columns: 36px 1fr 1fr 60px;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    border: 1px solid transparent;
+    animation: slide-in 0.15s ease;
+  }
+  .log-row.confirmed-row { background: rgba(0,255,200,0.05); border-color: rgba(0,255,200,0.2); color: var(--text); }
+  .log-row .log-fast { color: #5b8cff; }
+  .log-row .log-slow { color: var(--accent2); }
+  .log-row .log-tick { color: var(--muted); }
+  .log-row .log-badge { font-weight: 700; }
+  .log-row.confirmed-row .log-badge { color: var(--accent); }
 </style>
 </head>
 <body>
@@ -595,8 +821,12 @@ HTML = """<!DOCTYPE html>
   <div class="right-panel">
     <div class="controls">
       <div>
-        <div class="ctrl-label">Window size <span class="val" id="window-val">60 frames</span></div>
-        <input type="range" id="sl-window" min="15" max="150" step="5" value="60">
+        <div class="ctrl-label">Fast window <span class="val" id="fast-window-val">30 frames</span></div>
+        <input type="range" id="sl-fast-window" min="10" max="90" step="5" value="30">
+      </div>
+      <div>
+        <div class="ctrl-label">Slow window <span class="val" id="slow-window-val">90 frames</span></div>
+        <input type="range" id="sl-slow-window" min="30" max="180" step="5" value="90">
       </div>
       <div>
         <div class="ctrl-label">Stride <span class="val" id="stride-val">10 frames</span></div>
@@ -628,6 +858,72 @@ HTML = """<!DOCTYPE html>
   </div>
 </main>
 
+<!-- Debug toggle -->
+<div class="debug-toggle" id="debug-toggle" onclick="toggleDebug()">
+  <span class="arrow">▶</span>
+  Debug panel
+  <span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--accent2)">fast=<span id="dt-fast">—</span> &nbsp; slow=<span id="dt-slow">—</span></span>
+</div>
+
+<!-- Debug panel -->
+<div class="debug-panel" id="debug-panel">
+
+  <!-- Left: probability bars -->
+  <div>
+    <div class="debug-section-title">
+      Class probabilities
+      <span><span style="color:#5b8cff">■</span> fast &nbsp;<span style="color:var(--accent2)">■</span> slow</span>
+    </div>
+    <div class="prob-rows" id="prob-rows"></div>
+  </div>
+
+  <!-- Middle: window fill + state -->
+  <div>
+    <div class="debug-section-title">Window fill</div>
+    <div class="window-meters">
+      <div class="meter-group">
+        <div class="meter-label">
+          Fast window
+          <span class="count"><span id="n-fast">0</span> / <span id="cap-fast">30</span> frames</span>
+        </div>
+        <div class="meter-bar-wrap">
+          <div class="meter-bar-fill fast" id="meter-fast" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="meter-group">
+        <div class="meter-label">
+          Slow window
+          <span class="count"><span id="n-slow">0</span> / <span id="cap-slow">90</span> frames</span>
+        </div>
+        <div class="meter-bar-wrap">
+          <div class="meter-bar-fill slow" id="meter-slow" style="width:0%"></div>
+        </div>
+      </div>
+      <div id="state-badge-wrap" style="margin-top:12px"></div>
+      <div style="margin-top:16px">
+        <div class="debug-section-title" style="margin-bottom:8px">Last stride</div>
+        <div style="font-family:'Space Mono',monospace;font-size:0.68rem;line-height:1.9;color:var(--muted)">
+          <div>Fast top: <span id="dbg-fast-top" style="color:#5b8cff">—</span></div>
+          <div>Slow top: <span id="dbg-slow-top" style="color:var(--accent2)">—</span></div>
+          <div>NON-DET: <span id="dbg-nondet" style="color:var(--warn)">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: rolling history -->
+  <div>
+    <div class="debug-section-title">
+      Stride history
+      <span style="cursor:pointer;color:var(--warn);font-size:0.65rem" onclick="clearHistory()">clear</span>
+    </div>
+    <div class="history-log" id="history-log">
+      <div style="color:var(--muted);font-size:0.7rem;text-align:center;margin-top:16px">Waiting for first stride…</div>
+    </div>
+  </div>
+
+</div>
+
 <script>
 const socket = io();
 let running  = false;
@@ -652,9 +948,10 @@ function setupSlider(id, valId, suffix, socketKey) {
     socket.emit('update_params', params);
   });
 }
-setupSlider('sl-window', 'window-val', ' frames', 'window');
-setupSlider('sl-stride', 'stride-val', ' frames', 'stride');
-setupSlider('sl-thresh', 'thresh-val', '',        'threshold');
+setupSlider('sl-fast-window', 'fast-window-val', ' frames', 'fast_window');
+setupSlider('sl-slow-window', 'slow-window-val', ' frames', 'slow_window');
+setupSlider('sl-stride',      'stride-val',      ' frames', 'stride');
+setupSlider('sl-thresh',      'thresh-val',      '',        'threshold');
 
 // ── Camera ────────────────────────────────────────────────────────────────────
 async function toggleCamera() {
@@ -703,12 +1000,112 @@ function sendFrame() {
 }
 
 // ── Socket events ─────────────────────────────────────────────────────────────
+let strideCount = 0;
+const historyRows = [];
+const MAX_HISTORY = 80;
+
 socket.on('prediction', data => {
-  updateOverlay(data.gloss, data.confidence);
+  updateOverlay(data.candidate, data.confirmed, data.fast_conf, data.slow_conf);
   document.getElementById('nondet-val').textContent =
     data.nondet > 0 ? (data.nondet * 100).toFixed(0) + '%' : '—';
   updateTranscript(data.transcript);
+  updateDebug(data);
 });
+
+function updateDebug(data) {
+  if (!document.getElementById('debug-panel').classList.contains('visible')) return;
+
+  strideCount++;
+
+  // ── Header quick view ──
+  document.getElementById('dt-fast').textContent = data.candidate
+    ? data.candidate + ' ' + (data.fast_conf*100).toFixed(0) + '%' : '—';
+  document.getElementById('dt-slow').textContent = data.confirmed
+    ? data.confirmed + ' ' + (data.slow_conf*100).toFixed(0) + '%' : (
+        data.candidate ? 'waiting' : '—');
+
+  // ── Probability bars ──
+  const allGlosses = data.fast_probs ? Object.keys(data.fast_probs).sort() : [];
+  const probRows = document.getElementById('prob-rows');
+  probRows.innerHTML = allGlosses.map(g => {
+    const fp = data.fast_probs ? (data.fast_probs[g] || 0) : 0;
+    const sp = data.slow_probs ? (data.slow_probs[g] || 0) : 0;
+    const isNd = g === 'NON_DETECTION';
+    const isHot = g === data.confirmed;
+    const fpPct = (fp * 100).toFixed(0);
+    const spPct = (sp * 100).toFixed(0);
+    return `<div class="prob-row">
+      <span class="prob-label${isNd ? ' nondet' : ''}">${g.replace('_',' ')}</span>
+      <div class="bar-wrap"><div class="bar-fill ${isNd ? 'nondet-fast' : 'fast'}" style="width:${fpPct}%"></div></div>
+      <div class="bar-wrap"><div class="bar-fill ${isNd ? 'nondet-slow' : 'slow'}" style="width:${spPct}%"></div></div>
+      <span class="prob-val${isHot ? ' hot' : ''}">${fpPct}%</span>
+      <span class="prob-val${isHot ? ' hot' : ''}">${spPct}%</span>
+    </div>`;
+  }).join('');
+
+  // ── Window fill meters ──
+  const nFast = data.n_fast || 0;
+  const nSlow = data.n_slow || 0;
+  const capFast = data.fast_window || 30;
+  const capSlow = data.slow_window || 90;
+  document.getElementById('n-fast').textContent = nFast;
+  document.getElementById('n-slow').textContent = nSlow;
+  document.getElementById('cap-fast').textContent = capFast;
+  document.getElementById('cap-slow').textContent = capSlow;
+  document.getElementById('meter-fast').style.width = (nFast/capFast*100) + '%';
+  document.getElementById('meter-slow').style.width = (nSlow/capSlow*100) + '%';
+
+  // ── State badge ──
+  const badgeWrap = document.getElementById('state-badge-wrap');
+  if (data.confirmed) {
+    badgeWrap.innerHTML = `<span class="state-badge confirmed">✓ CONFIRMED: ${data.confirmed}</span>`;
+  } else if (data.candidate) {
+    badgeWrap.innerHTML = `<span class="state-badge nominated">? NOMINATED: ${data.candidate}</span>`;
+  } else {
+    badgeWrap.innerHTML = '<span class="state-badge silent">— silent</span>';
+  }
+
+  // ── Last stride summary ──
+  const fastTop = data.candidate ? `${data.candidate} ${(data.fast_conf*100).toFixed(0)}%` : '—';
+  const slowTop = data.confirmed ? `${data.confirmed} ${(data.slow_conf*100).toFixed(0)}%` : (data.candidate ? 'no match' : '—');
+  document.getElementById('dbg-fast-top').textContent = fastTop;
+  document.getElementById('dbg-slow-top').textContent = slowTop;
+  document.getElementById('dbg-nondet').textContent = data.nondet > 0
+    ? (data.nondet * 100).toFixed(1) + '%' : '—';
+
+  // ── Rolling history ──
+  historyRows.unshift({
+    tick:      strideCount,
+    fast:      data.candidate,
+    fastConf:  data.fast_conf,
+    slow:      data.confirmed ? data.confirmed : null,
+    slowConf:  data.slow_conf,
+    confirmed: !!data.confirmed,
+  });
+  if (historyRows.length > MAX_HISTORY) historyRows.pop();
+
+  const log = document.getElementById('history-log');
+  log.innerHTML = historyRows.map(r => `
+    <div class="log-row${r.confirmed ? ' confirmed-row' : ''}">
+      <span class="log-tick">#${r.tick}</span>
+      <span class="log-fast">${r.fast ? r.fast + ' ' + (r.fastConf*100).toFixed(0)+'%' : '—'}</span>
+      <span class="log-slow">${r.slow ? r.slow + ' ' + (r.slowConf*100).toFixed(0)+'%' : '—'}</span>
+      <span class="log-badge">${r.confirmed ? '✓' : ''}</span>
+    </div>`).join('');
+}
+
+function toggleDebug() {
+  const panel = document.getElementById('debug-panel');
+  const toggle = document.getElementById('debug-toggle');
+  panel.classList.toggle('visible');
+  toggle.classList.toggle('open');
+}
+
+function clearHistory() {
+  historyRows.length = 0;
+  document.getElementById('history-log').innerHTML =
+    '<div style="color:var(--muted);font-size:0.7rem;text-align:center;margin-top:16px">Cleared.</div>';
+}
 
 socket.on('transcript_cleared', () => {
   document.getElementById('transcript-body').innerHTML =
@@ -716,20 +1113,33 @@ socket.on('transcript_cleared', () => {
 });
 
 // ── Display ───────────────────────────────────────────────────────────────────
-function updateOverlay(gloss, conf) {
+function updateOverlay(candidate, confirmed, fastConf, slowConf) {
   const gd = document.getElementById('gloss-display');
   const cb = document.getElementById('conf-bar');
   const cl = document.getElementById('conf-label');
 
-  if (gloss) {
-    gd.textContent = gloss;
+  if (confirmed) {
+    // Both windows agree — show confirmed state in accent colour
+    gd.textContent = confirmed;
     gd.classList.remove('empty');
-    cb.style.width = (conf * 100) + '%';
-    cl.textContent = (conf * 100).toFixed(1) + '% confidence';
+    gd.style.color = 'var(--accent)';
+    cb.style.width = (Math.max(fastConf, slowConf) * 100) + '%';
+    cb.style.background = 'var(--accent)';
+    cl.textContent = `✓ confirmed · fast ${(fastConf*100).toFixed(0)}% · slow ${(slowConf*100).toFixed(0)}%`;
+  } else if (candidate) {
+    // Fast window nominated but slow window hasn't confirmed yet
+    gd.textContent = candidate + '?';
+    gd.classList.remove('empty');
+    gd.style.color = 'var(--yellow)';
+    cb.style.width = (fastConf * 100) + '%';
+    cb.style.background = 'var(--yellow)';
+    cl.textContent = `nominated · waiting for slow window…`;
   } else {
     gd.textContent = '—';
     gd.classList.add('empty');
+    gd.style.color = '';
     cb.style.width = '0%';
+    cb.style.background = 'var(--accent)';
     cl.textContent = 'No sign detected';
   }
 }
@@ -754,7 +1164,7 @@ function clearTranscript() {
 }
 
 function resetDisplay() {
-  updateOverlay(null, 0);
+  updateOverlay(null, null, 0, 0);
   document.getElementById('nondet-val').textContent = '—';
 }
 
@@ -777,9 +1187,10 @@ def main():
     parser.add_argument("--label-map",  default=DEFAULTS["label_map"], help="Path to label_map.json")
     parser.add_argument("--config",     default=DEFAULTS["config"],    help="Path to experiment YAML config")
     parser.add_argument("--port",       type=int,   default=DEFAULTS["port"])
-    parser.add_argument("--threshold",  type=float, default=DEFAULTS["threshold"])
-    parser.add_argument("--window",     type=int,   default=DEFAULTS["window"])
-    parser.add_argument("--stride",     type=int,   default=DEFAULTS["stride"])
+    parser.add_argument("--threshold",   type=float, default=DEFAULTS["threshold"])
+    parser.add_argument("--fast-window", type=int,   default=30,  help="Fast (nominating) window size in frames")
+    parser.add_argument("--slow-window", type=int,   default=90,  help="Slow (confirming) window size in frames")
+    parser.add_argument("--stride",      type=int,   default=DEFAULTS["stride"])
     args = parser.parse_args()
 
     # ── Load config ───────────────────────────────────────────────────────────
@@ -805,18 +1216,22 @@ def main():
 
     # ── Init globals ──────────────────────────────────────────────────────────
     G["extractor"]  = FrameExtractor()
-    G["classifier"] = SlidingWindowClassifier(
+    G["classifier"] = DualWindowClassifier(
         model=model, label_map=label_map, cfg=cfg, device=device,
-        threshold=args.threshold, window=args.window, stride=args.stride,
+        threshold=args.threshold,
+        fast_window=args.fast_window,
+        slow_window=args.slow_window,
+        stride=args.stride,
     )
     G["transcript"] = []
 
     print(f"\n{'='*50}")
-    print(f"  Auslan Live Detector")
+    print(f"  Auslan Live Detector (Dual Window)")
     print(f"{'='*50}")
-    print(f"  Window:    {args.window} frames")
-    print(f"  Stride:    {args.stride} frames")
-    print(f"  Threshold: {args.threshold}")
+    print(f"  Fast window: {args.fast_window} frames")
+    print(f"  Slow window: {args.slow_window} frames")
+    print(f"  Stride:      {args.stride} frames")
+    print(f"  Threshold:   {args.threshold}")
     print(f"  → Open http://localhost:{args.port}")
     print(f"{'='*50}\n")
 
