@@ -1,0 +1,13 @@
+{
+  "GO": 0,
+  "GOOD": 1,
+  "HELLO": 2,
+  "KNOW": 3,
+  "NON_DETECTION": 4,
+  "ONE": 5,
+  "READY": 6,
+  "THINK": 7,
+  "TIME": 8,
+  "WHAT": 9,
+  "YES": 10
+}

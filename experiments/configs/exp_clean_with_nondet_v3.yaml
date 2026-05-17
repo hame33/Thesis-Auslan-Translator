@@ -1,8 +1,8 @@
-experiment_name: exp_clean_with_nondet_16_epoch
+experiment_name: exp_clean_with_nondet_v3
 description: >
-  Clean clips + NON_DETECTION class. Dual confidence threshold (lower for
-  glosses, higher for NON_DETECTION to reduce false non-detection firing).
-  5x augmentation for non-detection instead of 10x to reduce its dominance.
+  Clean clips + NON_DETECTION (inter-sign transitions + resting poses).
+  Dual threshold, 5x non-detection aug, larger dev set (20%), 30 epochs
+  to avoid runaway overfitting on a tiny dev set.
 
 data:
   # ── Annotated gloss clips ─────────────────────────────────────────────────
@@ -14,9 +14,9 @@ data:
   use_non_detection: true
   non_detection_manifest: data/manifests/non_detection_manifest.xlsx
   non_detection_features_dir: data/non_detection_clips_features
-  non_detection_aug_factor: 5   # 5x instead of 10x — reduces NON_DETECTION dominance
+  non_detection_aug_factor: 5
 
-  # ── Auslan Daily (not used here) ──────────────────────────────────────────
+  # ── Auslan Daily (not used) ───────────────────────────────────────────────
   use_auslan_daily: false
   auslan_daily_manifest: data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx
   auslan_daily_features_dir: data/features
@@ -31,6 +31,11 @@ data:
   split_seed: 42
   exclude_glosses: ["FINISH", "BYE", "LOOK"]
 
+  # ── Dev set — carve 20% of non-augmented train clips ─────────────────────
+  # Gives ~100 dev clips vs ~55 with the old 10% default.
+  # More dev clips = much more reliable best-epoch selection.
+  dev_fraction: 0.20
+
 model:
   frame_feat_dim: 258
   proj_dim: 128
@@ -40,13 +45,13 @@ model:
   max_frames: 300
 
 training:
-  epochs: 16
+  epochs: 30
   batch_size: 32
   lr: 0.001
   weight_decay: 0.0001
   min_gloss_freq: 1
-  confidence_threshold: 0.25          # lower threshold for gloss classes
-  non_detection_threshold: 0.55       # higher threshold so NON_DETECTION needs more confidence to fire
+  confidence_threshold: 0.25
+  non_detection_threshold: 0.55
 
 output:
   results_dir: results

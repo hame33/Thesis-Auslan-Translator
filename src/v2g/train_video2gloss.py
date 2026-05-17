@@ -295,7 +295,7 @@ def load_combined_manifest(cfg: dict) -> tuple[pd.DataFrame, pd.DataFrame, pd.Da
         non_aug = train_df[train_df["source"].isin(["annotated", "non_detection"])]
         if len(non_aug) >= 10:
             dev_sample = non_aug.groupby(gloss_col, group_keys=False).apply(
-                lambda g: g.sample(frac=0.10, random_state=42) if len(g) >= 5 else g.iloc[:0]
+                lambda g: g.sample(frac=data_cfg.get("dev_fraction", 0.10), random_state=42) if len(g) >= 5 else g.iloc[:0]
             )
             dev_df   = dev_sample.copy()
             train_df = train_df.drop(dev_sample.index).copy()

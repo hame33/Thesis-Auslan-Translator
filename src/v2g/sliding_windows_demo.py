@@ -108,21 +108,44 @@ class FrameExtractor:
             min_tracking_confidence=0.5,
         )
 
-    def extract(self, bgr_frame: np.ndarray) -> np.ndarray:
+    def extract(self, bgr_frame: np.ndarray):
+        """Returns (feat_vector, landmarks_dict) where landmarks_dict has
+        normalised x/y coords for pose, left_hand, right_hand."""
         rgb = cv2.cvtColor(bgr_frame, cv2.COLOR_BGR2RGB)
         r   = self.holistic.process(rgb)
 
-        def pose(lms):
+        def pose_feat(lms):
             if lms is None: return np.zeros(POSE_DIMS, np.float32)
             return np.array([v for lm in lms.landmark for v in (lm.x, lm.y, lm.z, lm.visibility)], np.float32)
 
-        def hand(lms):
+        def hand_feat(lms):
             if lms is None: return np.zeros(LHAND_DIMS, np.float32)
             return np.array([v for lm in lms.landmark for v in (lm.x, lm.y, lm.z)], np.float32)
 
-        return np.concatenate([pose(r.pose_landmarks),
-                                hand(r.left_hand_landmarks),
-                                hand(r.right_hand_landmarks)])
+        feat = np.concatenate([pose_feat(r.pose_landmarks),
+                                hand_feat(r.left_hand_landmarks),
+                                hand_feat(r.right_hand_landmarks)])
+
+        # Build landmark overlay data (only upper-body pose indices 0-24)
+        # Pose: filter low-visibility landmarks (they have a real visibility score)
+        def pose_lms(lms, indices):
+            if lms is None: return []
+            pts = lms.landmark
+            return [[round(pts[i].x, 4), round(pts[i].y, 4)]
+                    for i in indices if pts[i].visibility > 0.25]
+
+        # Hands: always return all 21 points — visibility is not meaningful for hands
+        def hand_lms(lms):
+            if lms is None: return []
+            return [[round(lm.x, 4), round(lm.y, 4)] for lm in lms.landmark]
+
+        UPPER_POSE = list(range(25))  # head + upper body
+        landmarks = {
+            "pose":  pose_lms(r.pose_landmarks, UPPER_POSE),
+            "lhand": hand_lms(r.left_hand_landmarks),
+            "rhand": hand_lms(r.right_hand_landmarks),
+        }
+        return feat, landmarks
 
     def close(self):
         self.holistic.close()
@@ -132,24 +155,28 @@ class FrameExtractor:
 
 class SingleWindowClassifier:
     """One sliding window buffer — classify every `stride` frames."""
-    def __init__(self, model, label_map, cfg, device, threshold, window, stride):
-        self.model      = model
-        self.label_map  = label_map
-        self.idx2gloss  = {v: k for k, v in label_map.items()}
-        self.device     = device
-        self.threshold  = threshold
-        self.window     = window
-        self.stride     = stride
-        self.max_frames = cfg["model"]["max_frames"]
-        self.buffer      = collections.deque(maxlen=window)
-        self.frame_count = 0
-        self.last_top    = None   # (gloss, confidence) or None
-        self.full_probs  = {}     # {gloss: prob} updated each classify call
+    def __init__(self, model, label_map, cfg, device, threshold, window, stride,
+                 nd_threshold=None):
+        self.model        = model
+        self.label_map    = label_map
+        self.idx2gloss    = {v: k for k, v in label_map.items()}
+        self.device       = device
+        self.threshold    = threshold
+        self.nd_threshold = nd_threshold if nd_threshold is not None else threshold
+        self.window       = window
+        self.stride       = stride
+        self.max_frames   = cfg["model"]["max_frames"]
+        self.buffer       = collections.deque(maxlen=window)
+        self.frame_count  = 0
+        self.last_top     = None   # (gloss, confidence, nd_prob) or None
+        self.full_probs   = {}     # {gloss: prob} updated each classify call
 
     def push(self, feat: np.ndarray):
         self.buffer.append(feat)
         self.frame_count += 1
-        if self.frame_count % self.stride == 0 and len(self.buffer) >= max(2, self.window // 4):
+        # Minimum fill: 5 frames for fast window, else window//8 — lets short signs like READY fire
+        min_fill = max(5, self.window // 8)
+        if self.frame_count % self.stride == 0 and len(self.buffer) >= min_fill:
             self._classify()
         return self.last_top
 
@@ -171,7 +198,19 @@ class SingleWindowClassifier:
         nd_prob = float(probs[self.label_map["NON_DETECTION"]]) if "NON_DETECTION" in self.label_map else 0.0
         # full_probs: dict {gloss: prob} for all classes including NON_DETECTION
         self.full_probs = {self.idx2gloss[i]: round(float(probs[i]), 3) for i in range(len(probs))}
-        self.last_top = (preds[0][0], round(preds[0][1], 3), round(nd_prob, 3)) if preds else (None, 0.0, round(nd_prob, 3))
+        # If NON_DETECTION fires above its threshold, suppress all gloss predictions
+        if nd_prob >= self.nd_threshold:
+            self.last_top = (None, 0.0, round(nd_prob, 3))
+        else:
+            self.last_top = (preds[0][0], round(preds[0][1], 3), round(nd_prob, 3)) if preds else (None, 0.0, round(nd_prob, 3))
+
+        # Console diagnostics every 20 strides so you can see raw probs in terminal
+        if self.frame_count % (self.stride * 20) == 0:
+            top3 = sorted(self.full_probs.items(), key=lambda x: -x[1])[:4]
+            top3_str = "  ".join(f"{g}={v:.2f}" for g, v in top3)
+            nd_str = f"NON_DET={nd_prob:.2f}(thr={self.nd_threshold:.2f})"
+            result = self.last_top[0] if self.last_top and self.last_top[0] else "—"
+            print(f"  [W{self.window}] top: {top3_str}  {nd_str}  → {result}")
 
     def reset(self):
         self.buffer.clear()
@@ -191,19 +230,21 @@ class DualWindowClassifier:
     stride cycle. This eliminates single-window jitter.
     """
     def __init__(self, model, label_map, cfg, device, threshold,
-                 fast_window, slow_window, stride):
-        self.fast = SingleWindowClassifier(model, label_map, cfg, device, threshold, fast_window, stride)
-        self.slow = SingleWindowClassifier(model, label_map, cfg, device, threshold, slow_window, stride)
-        self.threshold   = threshold
+                 fast_window, slow_window, stride, nd_threshold=None):
+        nd_t = nd_threshold if nd_threshold is not None else threshold
+        self.fast = SingleWindowClassifier(model, label_map, cfg, device, threshold, fast_window, stride, nd_threshold=nd_t)
+        self.slow = SingleWindowClassifier(model, label_map, cfg, device, threshold, slow_window, stride, nd_threshold=nd_t)
+        self.threshold    = threshold
+        self.nd_threshold = nd_t
         self.fast_window = fast_window
         self.slow_window = slow_window
         self.stride      = stride
         # State
-        self.candidate   = None   # gloss nominated by fast window
-        self.confirmed   = None   # gloss agreed by both windows
-        self.fast_conf   = 0.0
-        self.slow_conf   = 0.0
-        self.nondet      = 0.0
+        self.candidate = None
+        self.confirmed = None
+        self.fast_conf = 0.0
+        self.slow_conf = 0.0
+        self.nondet    = 0.0
 
     def push(self, feat: np.ndarray) -> dict:
         fast_result = self.fast.push(feat)
@@ -211,20 +252,41 @@ class DualWindowClassifier:
 
         fast_gloss = fast_result[0] if fast_result else None
         slow_gloss = slow_result[0] if slow_result else None
-        self.nondet = max(
-            fast_result[2] if fast_result else 0.0,
-            slow_result[2] if slow_result else 0.0,
-        )
+        nd_fast    = fast_result[2] if fast_result else 0.0
+        nd_slow    = slow_result[2] if slow_result else 0.0
+        self.nondet = max(nd_fast, nd_slow)
 
-        # Both windows must agree on the same non-None gloss
-        if fast_gloss and slow_gloss and fast_gloss == slow_gloss:
-            self.candidate = fast_gloss
-            self.confirmed = fast_gloss
-            self.fast_conf = fast_result[1]
-            self.slow_conf = slow_result[1]
+        self.candidate = fast_gloss
+
+        # Confirmation rule:
+        #   Fast window predicts a real non-YES gloss  → CANDIDATE
+        #   Slow window may say YES or None (resting)  → IGNORE (background class)
+        #   Slow window says a DIFFERENT real gloss with high confidence → BLOCK
+        #   Otherwise → CONFIRM from fast window alone
+        #
+        # This fixes the core problem: the slow window averages over several
+        # seconds including resting frames and almost always outputs YES or
+        # NON_DETECTION, which should never block a confident fast prediction.
+        BACKGROUND = {None, "YES"}
+
+        if fast_gloss and fast_gloss != "YES":
+            slow_contradicts = (
+                slow_gloss is not None
+                and slow_gloss not in BACKGROUND
+                and slow_gloss != fast_gloss
+                and (slow_result[1] if slow_result else 0.0) > 0.6
+            )
+            if not slow_contradicts:
+                self.confirmed = fast_gloss
+                self.fast_conf = fast_result[1]
+                self.slow_conf = slow_result[1] if slow_gloss == fast_gloss else 0.0
+            else:
+                # Slow window strongly disagrees with a real different gloss
+                self.confirmed = None
+                self.fast_conf = fast_result[1]
+                self.slow_conf = slow_result[1] if slow_result else 0.0
         else:
-            # Nomination without confirmation
-            self.candidate = fast_gloss
+            # Fast says YES (resting) or None — nothing to confirm
             self.confirmed = None
             self.fast_conf = fast_result[1] if fast_result else 0.0
             self.slow_conf = slow_result[1] if slow_result else 0.0
@@ -243,7 +305,8 @@ class DualWindowClassifier:
             "n_slow":      len(self.slow.buffer),
         }
 
-    def update_params(self, fast_window=None, slow_window=None, stride=None, threshold=None):
+    def update_params(self, fast_window=None, slow_window=None, stride=None,
+                      threshold=None, nd_threshold=None):
         if stride is not None:
             self.stride = stride
             self.fast.stride = stride
@@ -252,6 +315,10 @@ class DualWindowClassifier:
             self.threshold = threshold
             self.fast.threshold = threshold
             self.slow.threshold = threshold
+        if nd_threshold is not None:
+            self.nd_threshold = nd_threshold
+            self.fast.nd_threshold = nd_threshold
+            self.slow.nd_threshold = nd_threshold
         if fast_window is not None:
             self.fast_window = fast_window
             self.fast.window = fast_window
@@ -260,6 +327,7 @@ class DualWindowClassifier:
             self.slow_window = slow_window
             self.slow.window = slow_window
             self.slow.buffer = collections.deque(maxlen=slow_window)
+
 
 
 # ── Flask / SocketIO app ──────────────────────────────────────────────────────
@@ -286,7 +354,7 @@ def handle_frame(data):
         if frame is None:
             return
 
-        feat   = G["extractor"].extract(frame)
+        feat, landmarks = G["extractor"].extract(frame)
         result = G["classifier"].push(feat)
 
         # Only commit to transcript when BOTH windows agree (confirmed)
@@ -314,6 +382,7 @@ def handle_frame(data):
             "n_fast":      result["n_fast"],
             "n_slow":      result["n_slow"],
             "transcript":  G["transcript"][-10:],
+            "landmarks":   landmarks,
         })
 
     except Exception as e:
@@ -327,12 +396,14 @@ def handle_params(data):
         slow_window=data.get("slow_window"),
         stride=data.get("stride"),
         threshold=data.get("threshold"),
+        nd_threshold=data.get("nd_threshold"),
     )
     emit("params_updated", {
-        "fast_window": G["classifier"].fast_window,
-        "slow_window": G["classifier"].slow_window,
-        "stride":      G["classifier"].stride,
-        "threshold":   G["classifier"].threshold,
+        "fast_window":  G["classifier"].fast_window,
+        "slow_window":  G["classifier"].slow_window,
+        "stride":       G["classifier"].stride,
+        "threshold":    G["classifier"].threshold,
+        "nd_threshold": G["classifier"].nd_threshold,
     })
 
 
@@ -438,7 +509,7 @@ HTML = """<!DOCTYPE html>
   }
   #webcam {
     width: 100%; height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transform: scaleX(-1);  /* mirror */
   }
 
@@ -647,34 +718,40 @@ HTML = """<!DOCTYPE html>
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-  /* ── Debug panel ── */
-  .debug-toggle {
-    display: flex; align-items: center; gap: 10px;
-    padding: 8px 28px;
-    background: var(--panel);
-    border-top: 1px solid var(--border);
+  /* ── Tab bar ── */
+  .tab-bar {
+    display: flex;
     border-bottom: 1px solid var(--border);
-    cursor: pointer;
-    font-size: 0.75rem;
-    font-weight: 600;
+    background: var(--surface2, #16161f);
+    flex-shrink: 0;
+  }
+  .tab-btn {
+    flex: 1;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--muted);
-    user-select: none;
+    cursor: pointer;
+    transition: all 0.15s;
   }
-  .debug-toggle:hover { color: var(--text); }
-  .debug-toggle .arrow { transition: transform 0.2s; }
-  .debug-toggle.open .arrow { transform: rotate(90deg); }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-  .debug-panel {
-    display: none;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 28px;
-    gap: 24px;
-    grid-template-columns: 1fr 1fr 1fr;
+  .tab-pane {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
   }
-  .debug-panel.visible { display: grid; }
+
+  /* ── Debug panel ── */
+
 
   .debug-section-title {
     font-size: 0.68rem;
@@ -805,6 +882,8 @@ HTML = """<!DOCTYPE html>
   <!-- Video -->
   <div class="video-wrap">
     <video id="webcam" autoplay playsinline muted></video>
+    <!-- Landmark overlay canvas (debug mode only) -->
+    <canvas id="lm-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;display:none"></canvas>
     <div class="overlay-badge">
       <div class="gloss-display empty" id="gloss-display">WAITING</div>
       <div class="conf-bar-wrap">
@@ -819,35 +898,105 @@ HTML = """<!DOCTYPE html>
 
   <!-- Right panel -->
   <div class="right-panel">
-    <div class="controls">
-      <div>
-        <div class="ctrl-label">Fast window <span class="val" id="fast-window-val">30 frames</span></div>
-        <input type="range" id="sl-fast-window" min="10" max="90" step="5" value="30">
+
+    <!-- Tab bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" id="tab-controls" onclick="switchTab('controls')">Controls</button>
+      <button class="tab-btn" id="tab-debug" onclick="switchTab('debug')">Debug</button>
+    </div>
+
+    <!-- Controls tab -->
+    <div class="tab-pane" id="pane-controls">
+      <div class="controls">
+        <div>
+          <div class="ctrl-label">Fast window <span class="val" id="fast-window-val">30 frames</span></div>
+          <input type="range" id="sl-fast-window" min="10" max="90" step="5" value="30">
+        </div>
+        <div>
+          <div class="ctrl-label">Slow window <span class="val" id="slow-window-val">90 frames</span></div>
+          <input type="range" id="sl-slow-window" min="30" max="180" step="5" value="90">
+        </div>
+        <div>
+          <div class="ctrl-label">Stride <span class="val" id="stride-val">10 frames</span></div>
+          <input type="range" id="sl-stride" min="1" max="30" step="1" value="10">
+        </div>
+        <div>
+          <div class="ctrl-label">Gloss threshold <span class="val" id="thresh-val">0.25</span></div>
+          <input type="range" id="sl-thresh" min="0.10" max="0.90" step="0.05" value="0.25">
+        </div>
+        <div>
+          <div class="ctrl-label">NON-DET threshold <span class="val" id="ndthresh-val">0.55</span></div>
+          <input type="range" id="sl-ndthresh" min="0.10" max="0.95" step="0.05" value="0.55">
+        </div>
+
       </div>
       <div>
-        <div class="ctrl-label">Slow window <span class="val" id="slow-window-val">90 frames</span></div>
-        <input type="range" id="sl-slow-window" min="30" max="180" step="5" value="90">
-      </div>
-      <div>
-        <div class="ctrl-label">Stride <span class="val" id="stride-val">10 frames</span></div>
-        <input type="range" id="sl-stride" min="1" max="30" step="1" value="10">
-      </div>
-      <div>
-        <div class="ctrl-label">Threshold <span class="val" id="thresh-val">0.35</span></div>
-        <input type="range" id="sl-thresh" min="0.10" max="0.90" step="0.05" value="0.35">
+        <div class="transcript-header">
+          Running Transcript
+          <button class="btn-clear" onclick="clearTranscript()">Clear</button>
+        </div>
+        <div class="transcript-body" id="transcript-body">
+          <div class="transcript-empty" id="transcript-empty">
+            Start the camera to begin<br>detecting Auslan signs.
+          </div>
+        </div>
       </div>
     </div>
 
-    <div>
-      <div class="transcript-header">
-        Running Transcript
-        <button class="btn-clear" onclick="clearTranscript()">Clear</button>
+    <!-- Debug tab -->
+    <div class="tab-pane" id="pane-debug" style="display:none;gap:16px;overflow-y:auto;padding:14px 16px;">
+
+      <!-- Prob bars -->
+      <div>
+        <div class="debug-section-title">
+          Class probabilities
+          <span><span style="color:#5b8cff">■</span> fast &nbsp;<span style="color:var(--accent2)">■</span> slow</span>
+        </div>
+        <div class="prob-rows" id="prob-rows"></div>
       </div>
-      <div class="transcript-body" id="transcript-body">
-        <div class="transcript-empty" id="transcript-empty">
-          Start the camera to begin<br>detecting Auslan signs.
+
+      <!-- Window fill + state -->
+      <div>
+        <div class="debug-section-title">Window fill</div>
+        <div class="window-meters">
+          <div class="meter-group">
+            <div class="meter-label">Fast <span class="count"><span id="n-fast">0</span>/<span id="cap-fast">30</span></span></div>
+            <div class="meter-bar-wrap"><div class="meter-bar-fill fast" id="meter-fast" style="width:0%"></div></div>
+          </div>
+          <div class="meter-group">
+            <div class="meter-label">Slow <span class="count"><span id="n-slow">0</span>/<span id="cap-slow">90</span></span></div>
+            <div class="meter-bar-wrap"><div class="meter-bar-fill slow" id="meter-slow" style="width:0%"></div></div>
+          </div>
+          <div id="state-badge-wrap" style="margin-top:8px"></div>
+          <div style="margin-top:12px;font-family:'Space Mono',monospace;font-size:0.66rem;line-height:1.9;color:var(--muted)">
+            <div>Fast: <span id="dbg-fast-top" style="color:#5b8cff">—</span></div>
+            <div>Slow: <span id="dbg-slow-top" style="color:var(--accent2)">—</span></div>
+            <div>NON-DET: <span id="dbg-nondet" style="color:var(--warn)">—</span></div>
+          </div>
         </div>
       </div>
+
+      <!-- Landmark toggle -->
+      <div>
+        <div class="debug-section-title">Pose overlay</div>
+        <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.78rem;color:var(--muted)">
+          <input type="checkbox" id="lm-toggle" onchange="toggleLandmarks(this.checked)"
+            style="accent-color:var(--accent);width:16px;height:16px">
+          Show MediaPipe landmarks on video
+        </label>
+      </div>
+
+      <!-- Stride history -->
+      <div style="flex:1;min-height:0">
+        <div class="debug-section-title">
+          Stride history
+          <span style="cursor:pointer;color:var(--warn);font-size:0.65rem" onclick="clearHistory()">clear</span>
+        </div>
+        <div class="history-log" id="history-log" style="max-height:200px">
+          <div style="color:var(--muted);font-size:0.7rem;text-align:center;margin-top:16px">Waiting for first stride…</div>
+        </div>
+      </div>
+
     </div>
 
     <div class="bottom-bar">
@@ -857,72 +1006,6 @@ HTML = """<!DOCTYPE html>
     </div>
   </div>
 </main>
-
-<!-- Debug toggle -->
-<div class="debug-toggle" id="debug-toggle" onclick="toggleDebug()">
-  <span class="arrow">▶</span>
-  Debug panel
-  <span style="margin-left:auto;font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--accent2)">fast=<span id="dt-fast">—</span> &nbsp; slow=<span id="dt-slow">—</span></span>
-</div>
-
-<!-- Debug panel -->
-<div class="debug-panel" id="debug-panel">
-
-  <!-- Left: probability bars -->
-  <div>
-    <div class="debug-section-title">
-      Class probabilities
-      <span><span style="color:#5b8cff">■</span> fast &nbsp;<span style="color:var(--accent2)">■</span> slow</span>
-    </div>
-    <div class="prob-rows" id="prob-rows"></div>
-  </div>
-
-  <!-- Middle: window fill + state -->
-  <div>
-    <div class="debug-section-title">Window fill</div>
-    <div class="window-meters">
-      <div class="meter-group">
-        <div class="meter-label">
-          Fast window
-          <span class="count"><span id="n-fast">0</span> / <span id="cap-fast">30</span> frames</span>
-        </div>
-        <div class="meter-bar-wrap">
-          <div class="meter-bar-fill fast" id="meter-fast" style="width:0%"></div>
-        </div>
-      </div>
-      <div class="meter-group">
-        <div class="meter-label">
-          Slow window
-          <span class="count"><span id="n-slow">0</span> / <span id="cap-slow">90</span> frames</span>
-        </div>
-        <div class="meter-bar-wrap">
-          <div class="meter-bar-fill slow" id="meter-slow" style="width:0%"></div>
-        </div>
-      </div>
-      <div id="state-badge-wrap" style="margin-top:12px"></div>
-      <div style="margin-top:16px">
-        <div class="debug-section-title" style="margin-bottom:8px">Last stride</div>
-        <div style="font-family:'Space Mono',monospace;font-size:0.68rem;line-height:1.9;color:var(--muted)">
-          <div>Fast top: <span id="dbg-fast-top" style="color:#5b8cff">—</span></div>
-          <div>Slow top: <span id="dbg-slow-top" style="color:var(--accent2)">—</span></div>
-          <div>NON-DET: <span id="dbg-nondet" style="color:var(--warn)">—</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right: rolling history -->
-  <div>
-    <div class="debug-section-title">
-      Stride history
-      <span style="cursor:pointer;color:var(--warn);font-size:0.65rem" onclick="clearHistory()">clear</span>
-    </div>
-    <div class="history-log" id="history-log">
-      <div style="color:var(--muted);font-size:0.7rem;text-align:center;margin-top:16px">Waiting for first stride…</div>
-    </div>
-  </div>
-
-</div>
 
 <script>
 const socket = io();
@@ -952,6 +1035,8 @@ setupSlider('sl-fast-window', 'fast-window-val', ' frames', 'fast_window');
 setupSlider('sl-slow-window', 'slow-window-val', ' frames', 'slow_window');
 setupSlider('sl-stride',      'stride-val',      ' frames', 'stride');
 setupSlider('sl-thresh',      'thresh-val',      '',        'threshold');
+setupSlider('sl-ndthresh',    'ndthresh-val',    '',        'nd_threshold');
+
 
 // ── Camera ────────────────────────────────────────────────────────────────────
 async function toggleCamera() {
@@ -990,11 +1075,10 @@ function sendFrame() {
   if (!video.videoWidth) return;
   canvas.width  = 320;
   canvas.height = 240;
-  // Mirror-flip to match webcam display
-  ctx.save();
-  ctx.scale(-1, 1);
-  ctx.drawImage(video, -320, 0, 320, 240);
-  ctx.restore();
+  // Do NOT flip — training was done on natural unflipped videos.
+  // The video display is CSS-mirrored for the user, but we send natural frames
+  // to MediaPipe so coordinates match the training distribution.
+  ctx.drawImage(video, 0, 0, 320, 240);
   const b64 = canvas.toDataURL('image/jpeg', 0.7);
   socket.emit('frame', { image: b64 });
 }
@@ -1003,26 +1087,133 @@ function sendFrame() {
 let strideCount = 0;
 const historyRows = [];
 const MAX_HISTORY = 80;
+let showLandmarks = false;
+let activeTab = 'controls';
 
 socket.on('prediction', data => {
   updateOverlay(data.candidate, data.confirmed, data.fast_conf, data.slow_conf);
   document.getElementById('nondet-val').textContent =
     data.nondet > 0 ? (data.nondet * 100).toFixed(0) + '%' : '—';
   updateTranscript(data.transcript);
-  updateDebug(data);
+  updateDebug(data);  // always update so data is ready when tab is opened
+  if (showLandmarks && data.landmarks) drawLandmarks(data.landmarks);
 });
 
+// ── Tab switching ──────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  activeTab = tab;
+  // Controls pane
+  const cp = document.getElementById('pane-controls');
+  cp.style.display = tab === 'controls' ? '' : 'none';
+  // Debug pane — use flex so the column layout works
+  const dp = document.getElementById('pane-debug');
+  dp.style.display = tab === 'debug' ? 'flex' : 'none';
+  dp.style.flexDirection = 'column';
+  document.getElementById('tab-controls').classList.toggle('active', tab === 'controls');
+  document.getElementById('tab-debug').classList.toggle('active', tab === 'debug');
+  // Show/hide landmark canvas based on checkbox state when switching tabs
+  if (tab === 'debug') {
+    const checked = document.getElementById('lm-toggle');
+    if (checked && checked.checked) document.getElementById('lm-canvas').style.display = 'block';
+  }
+}
+
+// ── Landmark overlay ───────────────────────────────────────────────────────────
+function toggleLandmarks(on) {
+  showLandmarks = on;
+  const c = document.getElementById('lm-canvas');
+  c.style.display = on ? 'block' : 'none';
+  if (!on) {
+    const ctx = c.getContext('2d');
+    ctx.clearRect(0, 0, c.width, c.height);
+  }
+}
+
+function drawLandmarks(lm) {
+  const c   = document.getElementById('lm-canvas');
+  const vid = document.getElementById('webcam');
+  if (!vid.videoWidth) return;
+
+  // Size canvas to the container (not native video res)
+  const vw = vid.clientWidth  || vid.offsetWidth;
+  const vh = vid.clientHeight || vid.offsetHeight;
+  if (!vw || !vh) return;
+  c.width  = vw;
+  c.height = vh;
+
+  const ctx = c.getContext('2d');
+  ctx.clearRect(0, 0, vw, vh);
+
+  // Compute letterbox offsets — video uses object-fit:contain so it may have
+  // black bars. MediaPipe coords are relative to the actual video frame, not
+  // the container, so we need to offset into the rendered area.
+  const nw = vid.videoWidth, nh = vid.videoHeight;
+  // object-fit:contain — scale to fit, letterboxed (may have black bars)
+  const scale = Math.min(vw / nw, vh / nh);
+  const dw = nw * scale, dh = nh * scale;
+  const ox = (vw - dw) / 2, oy = (vh - dh) / 2;
+
+  // Video is CSS scaleX(-1), MediaPipe coords are natural — flip x for display
+  function px(pt) { return [ox + (1 - pt[0]) * dw, oy + pt[1] * dh]; }
+
+  function dot(pt, color, r) {
+    const [x, y] = px(pt);
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  function line(pts, color) {
+    if (pts.length < 2) return;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    const [x0, y0] = px(pts[0]);
+    ctx.moveTo(x0, y0);
+    for (let i = 1; i < pts.length; i++) {
+      const [xi, yi] = px(pts[i]);
+      ctx.lineTo(xi, yi);
+    }
+    ctx.stroke();
+  }
+
+  // Pose dots (upper body, white)
+  (lm.pose || []).forEach(pt => dot(pt, 'rgba(255,255,255,0.7)', 4));
+
+  // Hand connections + dots
+  const HAND_CONNECTIONS = [
+    [0,1],[1,2],[2,3],[3,4],
+    [0,5],[5,6],[6,7],[7,8],
+    [0,9],[9,10],[10,11],[11,12],
+    [0,13],[13,14],[14,15],[15,16],
+    [0,17],[17,18],[18,19],[19,20],
+    [5,9],[9,13],[13,17]
+  ];
+  function drawHand(pts, color) {
+    if (!pts || pts.length === 0) return;
+    HAND_CONNECTIONS.forEach(([a, b]) => {
+      if (pts[a] && pts[b]) line([pts[a], pts[b]], color + '99');
+    });
+    pts.forEach(pt => dot(pt, color, 3));
+  }
+  drawHand(lm.lhand, '#5b8cff');  // left hand blue
+  drawHand(lm.rhand, '#00ffc8');  // right hand green
+}
+
 function updateDebug(data) {
-  if (!document.getElementById('debug-panel').classList.contains('visible')) return;
-
+  // Always accumulate history; only paint DOM when debug tab is active
   strideCount++;
+  historyRows.unshift({
+    tick:      strideCount,
+    fast:      data.candidate,
+    fastConf:  data.fast_conf,
+    slow:      data.confirmed ? data.confirmed : null,
+    slowConf:  data.slow_conf,
+    confirmed: !!data.confirmed,
+  });
+  if (historyRows.length > MAX_HISTORY) historyRows.pop();
 
-  // ── Header quick view ──
-  document.getElementById('dt-fast').textContent = data.candidate
-    ? data.candidate + ' ' + (data.fast_conf*100).toFixed(0) + '%' : '—';
-  document.getElementById('dt-slow').textContent = data.confirmed
-    ? data.confirmed + ' ' + (data.slow_conf*100).toFixed(0) + '%' : (
-        data.candidate ? 'waiting' : '—');
+  if (activeTab !== 'debug') return;  // skip DOM paint when tab hidden
 
   // ── Probability bars ──
   const allGlosses = data.fast_probs ? Object.keys(data.fast_probs).sort() : [];
@@ -1055,12 +1246,12 @@ function updateDebug(data) {
   document.getElementById('meter-fast').style.width = (nFast/capFast*100) + '%';
   document.getElementById('meter-slow').style.width = (nSlow/capSlow*100) + '%';
 
-  // ── State badge ──
+  // ── State badge + streak progress ──
   const badgeWrap = document.getElementById('state-badge-wrap');
   if (data.confirmed) {
     badgeWrap.innerHTML = `<span class="state-badge confirmed">✓ CONFIRMED: ${data.confirmed}</span>`;
-  } else if (data.candidate) {
-    badgeWrap.innerHTML = `<span class="state-badge nominated">? NOMINATED: ${data.candidate}</span>`;
+  } else if (data.candidate && data.candidate !== 'YES') {
+    badgeWrap.innerHTML = `<span class="state-badge nominated">→ ${data.candidate} ${(data.fast_conf*100).toFixed(0)}%</span>`;
   } else {
     badgeWrap.innerHTML = '<span class="state-badge silent">— silent</span>';
   }
@@ -1073,17 +1264,7 @@ function updateDebug(data) {
   document.getElementById('dbg-nondet').textContent = data.nondet > 0
     ? (data.nondet * 100).toFixed(1) + '%' : '—';
 
-  // ── Rolling history ──
-  historyRows.unshift({
-    tick:      strideCount,
-    fast:      data.candidate,
-    fastConf:  data.fast_conf,
-    slow:      data.confirmed ? data.confirmed : null,
-    slowConf:  data.slow_conf,
-    confirmed: !!data.confirmed,
-  });
-  if (historyRows.length > MAX_HISTORY) historyRows.pop();
-
+  // ── Rolling history render ──
   const log = document.getElementById('history-log');
   log.innerHTML = historyRows.map(r => `
     <div class="log-row${r.confirmed ? ' confirmed-row' : ''}">
@@ -1094,12 +1275,7 @@ function updateDebug(data) {
     </div>`).join('');
 }
 
-function toggleDebug() {
-  const panel = document.getElementById('debug-panel');
-  const toggle = document.getElementById('debug-toggle');
-  panel.classList.toggle('visible');
-  toggle.classList.toggle('open');
-}
+// toggleDebug replaced by switchTab()
 
 function clearHistory() {
   historyRows.length = 0;
@@ -1125,15 +1301,17 @@ function updateOverlay(candidate, confirmed, fastConf, slowConf) {
     gd.style.color = 'var(--accent)';
     cb.style.width = (Math.max(fastConf, slowConf) * 100) + '%';
     cb.style.background = 'var(--accent)';
-    cl.textContent = `✓ confirmed · fast ${(fastConf*100).toFixed(0)}% · slow ${(slowConf*100).toFixed(0)}%`;
+    cl.textContent = slowConf > 0
+      ? `✓ fast ${(fastConf*100).toFixed(0)}% · slow ${(slowConf*100).toFixed(0)}%`
+      : `✓ fast ${(fastConf*100).toFixed(0)}% · slow neutral`;
   } else if (candidate) {
-    // Fast window nominated but slow window hasn't confirmed yet
+    // Fast window nominated a non-YES gloss — show streak progress
     gd.textContent = candidate + '?';
     gd.classList.remove('empty');
     gd.style.color = 'var(--yellow)';
     cb.style.width = (fastConf * 100) + '%';
     cb.style.background = 'var(--yellow)';
-    cl.textContent = `nominated · waiting for slow window…`;
+    cl.textContent = `nominated · building streak…`;
   } else {
     gd.textContent = '—';
     gd.classList.add('empty');
@@ -1187,10 +1365,12 @@ def main():
     parser.add_argument("--label-map",  default=DEFAULTS["label_map"], help="Path to label_map.json")
     parser.add_argument("--config",     default=DEFAULTS["config"],    help="Path to experiment YAML config")
     parser.add_argument("--port",       type=int,   default=DEFAULTS["port"])
-    parser.add_argument("--threshold",   type=float, default=DEFAULTS["threshold"])
-    parser.add_argument("--fast-window", type=int,   default=30,  help="Fast (nominating) window size in frames")
-    parser.add_argument("--slow-window", type=int,   default=90,  help="Slow (confirming) window size in frames")
-    parser.add_argument("--stride",      type=int,   default=DEFAULTS["stride"])
+    parser.add_argument("--threshold",    type=float, default=DEFAULTS["threshold"])
+    parser.add_argument("--nd-threshold", type=float, default=None,
+                        help="Confidence threshold for NON_DETECTION (default: read from config or same as --threshold)")
+    parser.add_argument("--fast-window",  type=int,   default=30,  help="Fast (nominating) window size in frames")
+    parser.add_argument("--slow-window",  type=int,   default=90,  help="Slow (confirming) window size in frames")
+    parser.add_argument("--stride",       type=int,   default=DEFAULTS["stride"])
     args = parser.parse_args()
 
     # ── Load config ───────────────────────────────────────────────────────────
@@ -1216,12 +1396,20 @@ def main():
 
     # ── Init globals ──────────────────────────────────────────────────────────
     G["extractor"]  = FrameExtractor()
+    # Read NON_DETECTION threshold — CLI > config > same as gloss threshold
+    nd_thresh = args.nd_threshold
+    if nd_thresh is None:
+        nd_thresh = float(cfg.get("training", {}).get("non_detection_threshold", args.threshold))
+    print(f"  Gloss threshold:  {args.threshold}")
+    print(f"  NON_DET threshold: {nd_thresh}")
+
     G["classifier"] = DualWindowClassifier(
         model=model, label_map=label_map, cfg=cfg, device=device,
         threshold=args.threshold,
         fast_window=args.fast_window,
         slow_window=args.slow_window,
         stride=args.stride,
+        nd_threshold=nd_thresh,
     )
     G["transcript"] = []
 

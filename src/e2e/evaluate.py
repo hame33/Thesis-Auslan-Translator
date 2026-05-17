@@ -17,7 +17,7 @@ import pandas as pd
 import torch
 from torch.utils.data import DataLoader
 
-from src.g2t.dataset import AuslanDataset, Vocabulary, collate_fn, BOS_IDX, EOS_IDX, PAD_IDX
+from src.e2e.dataset import AuslanDataset, Vocabulary, collate_fn, BOS_IDX, EOS_IDX, PAD_IDX
 
 
 # ---------------------------------------------------------------------------
@@ -185,7 +185,7 @@ def parse_args():
 
 
 def main():
-    from auslan_transformer.model import AuslanTransformer
+    from e2e.model import AuslanTransformer
 
     args = parse_args()
     device = torch.device(args.device)

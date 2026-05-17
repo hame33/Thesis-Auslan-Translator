@@ -21,8 +21,10 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from src.g2t.dataset import AuslanDataset, Vocabulary, collate_fn, BOS_IDX, EOS_IDX, PAD_IDX
-from src.g2t.model import AuslanTransformer
+import sys, os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+from src.e2e.dataset import AuslanDataset, Vocabulary, collate_fn, BOS_IDX, EOS_IDX, PAD_IDX
+from src.e2e.model import AuslanTransformer
 from evaluate import compute_bleu
 
 
@@ -184,7 +186,7 @@ def main():
     # ------------------------------------------------------------------
     # Load manifest
     # ------------------------------------------------------------------
-    manifest = pd.read_csv(args.manifest, sep=';')
+    manifest = pd.read_excel(args.manifest)
     features_dir = Path(args.features_dir)
 
     # ------------------------------------------------------------------

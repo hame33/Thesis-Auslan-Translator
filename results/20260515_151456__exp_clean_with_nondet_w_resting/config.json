@@ -1,0 +1,50 @@
+{
+  "run_id": "20260515_151456__exp_clean_with_nondet_w_resting",
+  "experiment_name": "exp_clean_with_nondet_w_resting",
+  "timestamp": "2026-05-15T15:14:56.983082",
+  "config": {
+    "description": "Clean clips + NON_DETECTION class. Dual confidence threshold (lower for glosses, higher for NON_DETECTION to reduce false non-detection firing). 5x augmentation for non-detection instead of 10x to reduce its dominance.\n",
+    "data": {
+      "use_annotated_clips": true,
+      "annotated_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/gloss_clips_manifest.xlsx",
+      "annotated_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/gloss_clips_features",
+      "use_non_detection": true,
+      "non_detection_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/non_detection_manifest.xlsx",
+      "non_detection_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/non_detection_clips_features",
+      "non_detection_aug_factor": 5,
+      "use_auslan_daily": false,
+      "auslan_daily_manifest": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/manifests/Auslan-Daily_Communication_with_gloss_fixed_v2.xlsx",
+      "auslan_daily_features_dir": "/Users/hamishdawson/Desktop/Thesis/Thesis-Auslan-Translator/data/features",
+      "gloss_col": "gloss",
+      "split_col": "Split",
+      "filter_to_manual_glosses": false,
+      "clean_clips_as_test": true,
+      "test_split_strategy": "stratified",
+      "test_fraction": 0.2,
+      "split_seed": 42,
+      "exclude_glosses": [
+        "FINISH",
+        "BYE",
+        "LOOK"
+      ]
+    },
+    "model": {
+      "frame_feat_dim": 258,
+      "proj_dim": 128,
+      "n_heads": 4,
+      "n_layers": 3,
+      "dropout": 0.2,
+      "max_frames": 300
+    },
+    "training": {
+      "epochs": 40,
+      "batch_size": 32,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "min_gloss_freq": 1,
+      "confidence_threshold": 0.25,
+      "non_detection_threshold": 0.55
+    },
+    "n_classes": 11
+  }
+}
