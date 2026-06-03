@@ -1,0 +1,101 @@
+id	gloss	text
+1	TOMORROW PT_PRO3 MUST CLEAN	They must clean tomorrow.
+2	NIGHT PT_PRO1 READ KEY	I read my keys at night.
+3	LAST-WEEK NEIGHBOUR LISTEN MOVIE	The neighbour listened to a movie last week.
+4	IF NEXT-WEEK PT_PRO1 RUN THEN PT_PRO1 COLD	If I run, then I am cold next week.
+5	TODAY FRIEND WANT NOT BUY CAR SLOW	My friend does not want to buy a car today slowly.
+6	TODAY WOMAN GO SCHOOL	The woman goes to school today.
+7	PT_PRO1 WATCH PODCAST	I watch a podcast.
+8	PT_PRO2 RUN	You run.
+9	WEEKEND PT_PRO2 TRAIN Q	Do you train on the weekend?
+10	WHAT PT_PRO1 BUY Q	What Do I buy at night?
+11	MORNING PT_PRO2 WAKE-UP Q	Do you wake up in the morning?
+12	AFTERNOON TEACHER WANT STUDY	The teacher wants to study in the afternoon.
+13	YESTERDAY PT_PRO2 WATCH PODCAST	You watched a podcast yesterday.
+14	PT_PRO1 COLD	I am cold.
+15	MORNING WOMAN RUN	The woman runs in the morning.
+16	LAST-WEEK PT_PRO3 NOT PRACTISE	They did not practise last week.
+17	TOMORROW PT_PRO1 LISTEN PODCAST Q	Will I listen to a podcast tomorrow?
+18	MORNING PT_PRO1 DRINK COFFEE	I drink coffee in the morning.
+19	IF PT_PRO3 WALK THEN PT_PRO3 HAPPY	If they walk, then they are happy.
+20	NOW MAN EAT APPLE	The man eats an apple now.
+21	NOW STUDENT PRACTISE	The student practises now.
+22	LAST-WEEK PT_PRO1 TRAIN ALWAYS	I trained last week always.
+23	NOW PT_PRO3 CLEAN	They clean now.
+24	NIGHT PT_PRO3 BAD	They are bad at night.
+25	NIGHT PT_PRO2 CAN HELP COACH	You can help my coach at night.
+26	WHEN PT_PRO2 EMAIL Q	When Do you email in the afternoon?
+27	AFTERNOON DOCTOR CALL MUM	The doctor calls my mum in the afternoon.
+28	MORNING PT_PRO2 EAT RICE	You eat rice in the morning.
+29	WEEKEND PT_PRO1 NOT EMAIL MUM	I do not email my mum on the weekend.
+30	YESTERDAY PT_PRO2 GO GYM	You went to the gym yesterday.
+31	PT_PRO2 SEE EMAIL Q	Do you see an email?
+32	WHAT PT_PRO3 READ Q	What Do they read?
+33	WHAT WOMAN DRINK Q	What Will the woman drink tomorrow?
+34	AFTERNOON NEIGHBOUR WANT LISTEN MOVIE RARELY	The neighbour wants to listen to a movie in the afternoon rarely.
+35	NIGHT PT_PRO1 COOK	I cook at night.
+36	WHERE PT_PRO2 COME Q	Where Do you come in the afternoon?
+37	YESTERDAY PT_PRO2 NOT DRINK JUICE	You did not drink juice yesterday.
+38	WHAT PT_PRO3 WATCH Q	What Will they watch tomorrow?
+39	LAST-WEEK PT_PRO2 HELP DAD	You helped my dad last week.
+40	LAST-WEEK PT_PRO1 NOT SEE MESSAGE	I did not see a message last week.
+41	AFTERNOON PT_PRO2 HELP DAD	You help my dad in the afternoon.
+42	PT_PRO3 READ BAG	They read my bag.
+43	MORNING PT_PRO1 NOT BUY MESSAGE	I do not buy a message in the morning.
+44	PT_PRO1 COOK FAST	I cook quickly.
+45	NIGHT PT_PRO3 STUDY	They study at night.
+46	WHY NEIGHBOUR PRACTISE Q	Why Did the neighbour practise yesterday?
+47	NOW PT_PRO2 HOT	You are hot now.
+48	TODAY PT_PRO2 WATCH MUSIC	You watch music today.
+49	WHO PT_PRO2 TEXT Q	Who Will you text next week?
+50	NEXT-WEEK PT_PRO3 COOK	They will cook next week.
+51	WHERE PT_PRO2 COME Q	Where Do you come on the weekend?
+52	NIGHT PT_PRO1 SLEEP	I sleep at night.
+53	AFTERNOON PT_PRO2 PRACTISE	You practise in the afternoon.
+54	WEEKEND PT_PRO1 NOT SLEEP	I do not sleep on the weekend.
+55	NIGHT PT_PRO1 NOT WAKE-UP ALWAYS	I do not wake up at night always.
+56	NEXT-WEEK NEIGHBOUR NOT CLEAN ALWAYS	The neighbour will not clean next week always.
+57	NOW WOMAN NOT BUY SHOES ALWAYS	The woman does not buy shoes now always.
+58	MORNING PT_PRO2 SLEEP	You sleep in the morning.
+59	AFTERNOON PT_PRO1 NOT WAKE-UP	I do not wake up in the afternoon.
+60	TOMORROW PT_PRO2 MUST CLEAN Q	You must clean tomorrow?
+61	TODAY NEIGHBOUR MUST WAKE-UP	The neighbour must wake up today.
+62	AFTERNOON PT_PRO2 CAN NOT CALL COACH	You cannot call my coach in the afternoon.
+63	NEXT-WEEK PT_PRO1 MUST NOT HELP NEIGHBOUR	I must not help my neighbour next week.
+64	MORNING PT_PRO3 DRINK WATER Q	Do they drink water in the morning?
+65	NEXT-WEEK PT_PRO2 NOT TEXT COACH	You will not text my coach next week.
+66	TOMORROW PT_PRO2 RUN OFTEN Q	Will you run tomorrow often?
+67	YESTERDAY PT_PRO2 COME HOME	You came to home yesterday.
+68	NEXT-WEEK PT_PRO3 CAN TEXT DAD	They can text my dad next week.
+69	MORNING TEACHER NOT TRAIN	The teacher does not train in the morning.
+70	IF PT_PRO3 GO HOME THEN PT_PRO3 READY	If they go to home, then they are ready.
+71	YESTERDAY PT_PRO1 SEE BOOK SOMETIMES	I saw a book yesterday sometimes.
+72	NIGHT DOCTOR WALK	The doctor walks at night.
+73	AFTERNOON PT_PRO2 TRAIN	You train in the afternoon.
+74	NIGHT PT_PRO1 NOT STUDY	I do not study at night.
+75	NOW PT_PRO1 LISTEN MOVIE Q	Do I listen to a movie now?
+76	PT_PRO2 READ PHONE OFTEN	You read my phone often.
+77	LAST-WEEK PT_PRO1 TEXT FRIEND	I texted my friend last week.
+78	YESTERDAY DOCTOR TRAIN	The doctor trained yesterday.
+79	WHO TEACHER MEET Q	Who Will the teacher meet next week?
+80	TOMORROW PT_PRO3 CALL NEIGHBOUR	They will call my neighbour tomorrow.
+81	LAST-WEEK PT_PRO3 COOK	They cooked last week.
+82	TOMORROW PT_PRO1 CAN MEET TEACHER	I can meet my teacher tomorrow.
+83	TOMORROW PT_PRO2 TRAIN Q	Will you train tomorrow?
+84	LAST-WEEK PT_PRO1 WORK Q	Did I work last week?
+85	WOMAN MUST SEE EMAIL OFTEN	The woman must see an email often.
+86	IF PT_PRO2 RUN THEN PT_PRO2 HAPPY	If you run, then you are happy.
+87	NEXT-WEEK PT_PRO1 HOT	I will be hot next week.
+88	WHY TEACHER GO Q	Why Does the teacher go at night?
+89	WEEKEND PT_PRO2 SEE BAG	You see my bag on the weekend.
+90	NOW WOMAN CALL TEACHER	The woman calls my teacher now.
+91	NEXT-WEEK PT_PRO3 GO PARK	They will go to the park next week.
+92	WEEKEND NEIGHBOUR EMAIL TEACHER	The neighbour emails my teacher on the weekend.
+93	WEEKEND PT_PRO3 SEE MESSAGE	They see a message on the weekend.
+94	TODAY PT_PRO1 NOT STUDY	I do not study today.
+95	WEEKEND STUDENT BUY CAR	The student buys a car on the weekend.
+96	AFTERNOON PT_PRO3 LISTEN MUSIC	They listen to music in the afternoon.
+97	AFTERNOON PT_PRO2 CAN SLEEP FAST	You can sleep in the afternoon quickly.
+98	IF PT_PRO2 RUN THEN PT_PRO2 BAD	If you run, then you are bad.
+99	YESTERDAY PT_PRO1 NOT WORK ALWAYS	I did not work yesterday always.
+100	NIGHT PT_PRO3 WANT BUY BAG Q	They want to buy my bag at night?

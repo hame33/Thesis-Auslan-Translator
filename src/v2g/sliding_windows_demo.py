@@ -45,7 +45,7 @@ DEFAULTS = {
                   if list((REPO_ROOT / "results").glob("**/best_model.pt")) else "",
     "label_map":  str(sorted((REPO_ROOT / "results").glob("**/label_map.json"))[-1])
                   if list((REPO_ROOT / "results").glob("**/label_map.json")) else "",
-    "config":     str(REPO_ROOT / "experiments" / "configs" / "exp_clean_with_nondet.yaml"),
+    "config":     str(REPO_ROOT / "experiments" / "configs" / "exp_clean_with_nondet_v3.yaml"),
     "port":       5050,
     "threshold":  0.35,
     "window":     60,

@@ -1,0 +1,2001 @@
+id	gloss	text
+1	YESTERDAY PT_PRO1 WALK FAST Q	Did I walk yesterday quickly?
+2	TODAY PT_PRO3 NOT CALL DAD	They do not call my dad today.
+3	NIGHT PT_PRO3 NOT SEE PHONE	They do not see my phone at night.
+4	PT_PRO1 LISTEN MUSIC Q	Do I listen to music?
+5	CHILD BUSY	The child is busy.
+6	TOMORROW FRIEND MUST SEE CAR	My friend must see a car tomorrow.
+7	WHEN STUDENT MEET COACH Q	When Does the student meet on the weekend?
+8	NIGHT DOCTOR WAKE-UP	The doctor wakes up at night.
+9	NEIGHBOUR WORK	The neighbour works.
+10	HOW PT_PRO1 RUN Q	How Will I run next week?
+11	NOW PT_PRO1 TEXT MUM OFTEN	I text my mum now often.
+12	IF PT_PRO1 TRAIN THEN PT_PRO1 COLD	If I train, then I am cold last week.
+13	WHO COACH MEET Q	Who Does the coach meet in the morning?
+14	NEXT-WEEK FRIEND NOT CLEAN	My friend will not clean next week.
+15	WEEKEND PT_PRO3 READ SHOES	They read shoes on the weekend.
+16	YESTERDAY PT_PRO1 STUDY Q	Did I study yesterday?
+17	NIGHT PT_PRO3 HELP FRIEND SLOW	They help my friend at night slowly.
+18	TOMORROW PT_PRO3 CAN WATCH MOVIE	They can watch a movie tomorrow.
+19	NIGHT NEIGHBOUR TRAIN Q	Does the neighbour train at night?
+20	TOMORROW PT_PRO2 WATCH MUSIC Q	Will you watch music tomorrow?
+21	NOW PT_PRO3 CAN WORK	They can work now.
+22	TODAY PT_PRO2 LISTEN MUSIC	You listen to music today.
+23	PT_PRO3 BUY BAG FAST	They buy my bag quickly.
+24	LAST-WEEK PT_PRO3 NOT RUN ALWAYS	They did not run last week always.
+25	NOW PT_PRO3 MUST SEE CAR Q	They must see a car now?
+26	NOW COACH WATCH PODCAST	The coach watches a podcast now.
+27	WHERE PT_PRO2 GO Q	Where Do you go on the weekend?
+28	AFTERNOON PT_PRO3 EAT FOOD OFTEN	They eat food in the afternoon often.
+29	YESTERDAY PT_PRO2 NOT SLEEP	You did not sleep yesterday.
+30	PT_PRO3 WANT NOT CALL TEACHER	They do not want to call my teacher.
+31	WEEKEND PT_PRO2 WORK	You work on the weekend.
+32	WHAT PT_PRO3 DRINK Q	What Do they drink in the afternoon?
+33	NIGHT PT_PRO3 STUDY FAST	They study at night quickly.
+34	AFTERNOON PT_PRO1 TEXT DAD Q	Do I text my dad in the afternoon?
+35	MORNING PT_PRO2 SEE EMAIL	You see an email in the morning.
+36	NIGHT PT_PRO3 NOT EAT PIZZA	They do not eat pizza at night.
+37	YESTERDAY DOCTOR WAKE-UP	The doctor woke up yesterday.
+38	AFTERNOON PT_PRO1 TRAIN Q	Do I train in the afternoon?
+39	NIGHT PT_PRO2 STUDY	You study at night.
+40	LAST-WEEK PT_PRO2 EAT APPLE	You ate an apple last week.
+41	CHILD MUST SLEEP SOMETIMES	The child must sleep sometimes.
+42	WEEKEND STUDENT WANT CALL FRIEND	The student wants to call my friend on the weekend.
+43	NOW PT_PRO1 READ MESSAGE	I read a message now.
+44	MORNING PT_PRO1 LISTEN MUSIC	I listen to music in the morning.
+45	AFTERNOON PT_PRO1 TIRED	I am tired in the afternoon.
+46	MORNING PT_PRO1 NOT BUY EMAIL OFTEN	I do not buy an email in the morning often.
+47	TODAY PT_PRO1 WATCH PODCAST RARELY	I watch a podcast today rarely.
+48	MORNING PT_PRO1 NOT SLEEP	I do not sleep in the morning.
+49	PT_PRO1 WANT NOT COOK	I do not want to cook.
+50	NOW PT_PRO3 GO BEACH	They go to the beach now.
+51	NIGHT PT_PRO1 NOT HELP MUM	I do not help my mum at night.
+52	LAST-WEEK PT_PRO1 EMAIL NEIGHBOUR	I emailed my neighbour last week.
+53	MORNING PT_PRO2 RUN	You run in the morning.
+54	LAST-WEEK DOCTOR TEXT COACH FAST	The doctor texted my coach last week quickly.
+55	YESTERDAY PT_PRO3 COOK Q	Did they cook yesterday?
+56	WHY STUDENT TRAIN Q	Why Does the student train in the morning?
+57	IF PT_PRO1 WALK THEN PT_PRO1 HAPPY	If I walk, then I am happy today.
+58	NIGHT FRIEND READ CAR	My friend reads a car at night.
+59	PT_PRO1 HELP FRIEND FAST Q	Do I help my friend quickly?
+60	NEXT-WEEK PT_PRO2 NOT CLEAN	You will not clean next week.
+61	WEEKEND PT_PRO1 NOT TRAIN	I do not train on the weekend.
+62	WEEKEND PT_PRO2 CAN SEE EMAIL	You can see an email on the weekend.
+63	TODAY PT_PRO1 DRINK JUICE	I drink juice today.
+64	TOMORROW PT_PRO1 MEET FRIEND	I will meet my friend tomorrow.
+65	LAST-WEEK PT_PRO1 GO SCHOOL	I went to school last week.
+66	WHERE PT_PRO2 GO Q	Where Do you go in the afternoon?
+67	WHO TEACHER TEXT Q	Who Will the teacher text next week?
+68	NOW PT_PRO2 SEE CAR	You see a car now.
+69	NOW TEACHER PRACTISE Q	Does the teacher practise now?
+70	WHERE PT_PRO3 COME Q	Where Do they come now?
+71	AFTERNOON WOMAN TRAIN	The woman trains in the afternoon.
+72	HOW PT_PRO2 TRAIN Q	How Did you train last week?
+73	AFTERNOON TEACHER NOT READ CAR	The teacher does not read a car in the afternoon.
+74	TODAY PT_PRO2 TRAIN	You train today.
+75	WHY COACH STUDY Q	Why Did the coach study last week?
+76	WEEKEND PT_PRO1 DRINK COFFEE Q	Do I drink coffee on the weekend?
+77	MORNING PT_PRO2 LISTEN MUSIC	You listen to music in the morning.
+78	WHO PT_PRO3 CALL Q	Who Do they call on the weekend?
+79	TOMORROW PT_PRO2 SICK	You will be sick tomorrow.
+80	NEXT-WEEK PT_PRO2 WAKE-UP Q	Will you wake up next week?
+81	AFTERNOON PT_PRO1 EAT PIZZA	I eat pizza in the afternoon.
+82	AFTERNOON PT_PRO3 DRINK COFFEE	They drink coffee in the afternoon.
+83	LAST-WEEK PT_PRO3 NOT PRACTISE SOMETIMES	They did not practise last week sometimes.
+84	NOW PT_PRO3 WANT NOT GO PARK	They do not want to go to the park now.
+85	NEXT-WEEK PT_PRO1 WANT MEET COACH	I want to meet my coach next week.
+86	NOW PT_PRO3 TRAIN	They train now.
+87	WEEKEND DOCTOR MUST TRAIN	The doctor must train on the weekend.
+88	NIGHT PT_PRO3 CAN DRINK TEA Q	They can drink tea at night?
+89	WEEKEND MAN CLEAN	The man cleans on the weekend.
+90	WEEKEND PT_PRO2 RUN	You run on the weekend.
+91	HOW STUDENT STUDY Q	How Does the student study in the morning?
+92	NIGHT MAN SLEEP Q	Does the man sleep at night?
+93	MORNING PT_PRO2 GO GYM Q	Do you go to the gym in the morning?
+94	NEXT-WEEK PT_PRO1 HELP COACH	I will help my coach next week.
+95	WEEKEND PT_PRO2 WANT NOT COME GYM	You do not want to come to the gym on the weekend.
+96	MORNING PT_PRO3 CAN NOT WAKE-UP SOMETIMES	They cannot wake up in the morning sometimes.
+97	MAN NOT PRACTISE	The man does not practise.
+98	NIGHT PT_PRO3 GO HOME	They go to home at night.
+99	TOMORROW MAN SLEEP Q	Will the man sleep tomorrow?
+100	MORNING PT_PRO2 HELP COACH	You help my coach in the morning.
+101	IF PT_PRO3 RUN THEN PT_PRO3 BAD	If they run, then they are bad.
+102	NEXT-WEEK FRIEND GO CITY	My friend will go to the city next week.
+103	MORNING PT_PRO1 CAN NOT EMAIL TEACHER	I cannot email my teacher in the morning.
+104	MORNING PT_PRO1 WANT NOT READ MONEY	I do not want to read money in the morning.
+105	AFTERNOON PT_PRO2 DRINK TEA	You drink tea in the afternoon.
+106	LAST-WEEK PT_PRO1 RUN SOMETIMES	I ran last week sometimes.
+107	WHO PT_PRO2 TEXT Q	Who Will you text tomorrow?
+108	WHO PT_PRO3 MEET Q	Who Do they meet?
+109	LAST-WEEK PT_PRO2 BUY MONEY	You bought money last week.
+110	WHERE TEACHER COME Q	Where Does the teacher come at night?
+111	WHAT PT_PRO3 BUY Q	What Did they buy last week?
+112	MORNING PT_PRO2 WANT NOT TRAIN	You do not want to train in the morning.
+113	WEEKEND PT_PRO3 BAD	They are bad on the weekend.
+114	WHEN PT_PRO2 RUN Q	When Do you run?
+115	TODAY PT_PRO3 READ MESSAGE	They read a message today.
+116	HOW PT_PRO3 STUDY Q	How Do they study?
+117	HOW PT_PRO1 RUN Q	How Do I run in the morning?
+118	WHO CHILD HELP Q	Who Does the child help on the weekend?
+119	NIGHT PT_PRO2 MEET NEIGHBOUR	You meet my neighbour at night.
+120	NOW PT_PRO3 WORK FAST	They work now quickly.
+121	WEEKEND DOCTOR TEXT COACH	The doctor texts my coach on the weekend.
+122	AFTERNOON PT_PRO2 NOT WALK SOMETIMES	You do not walk in the afternoon sometimes.
+123	NIGHT PT_PRO1 WALK	I walk at night.
+124	NEXT-WEEK NEIGHBOUR RUN	The neighbour will run next week.
+125	TODAY PT_PRO1 CAN WALK	I can walk today.
+126	WEEKEND MAN WANT COOK ALWAYS	The man wants to cook on the weekend always.
+127	MORNING PT_PRO3 CAN GO BUS-STOP	They can go to the bus stop in the morning.
+128	WEEKEND PT_PRO1 WANT SEE SHOES FAST Q	I want to see shoes on the weekend quickly?
+129	YESTERDAY PT_PRO1 LISTEN PODCAST	I listened to a podcast yesterday.
+130	PT_PRO2 CALL FRIEND Q	Do you call my friend?
+131	NEXT-WEEK DOCTOR EAT PIZZA Q	Will the doctor eat pizza next week?
+132	NIGHT PT_PRO1 SEE MONEY Q	Do I see money at night?
+133	WEEKEND NEIGHBOUR WALK	The neighbour walks on the weekend.
+134	NEXT-WEEK PT_PRO2 RUN	You will run next week.
+135	IF PT_PRO1 WORK THEN PT_PRO1 TIRED	If I work, then I am tired in the afternoon.
+136	NOW COACH NOT WATCH PODCAST SOMETIMES	The coach does not watch a podcast now sometimes.
+137	NOW PT_PRO2 SEE PHONE	You see my phone now.
+138	NOW NEIGHBOUR NOT READ SHOES	The neighbour does not read shoes now.
+139	TODAY PT_PRO2 NOT BUY SHOES	You do not buy shoes today.
+140	MORNING PT_PRO1 MUST NOT CALL DAD	I must not call my dad in the morning.
+141	NOW PT_PRO3 MEET COACH	They meet my coach now.
+142	AFTERNOON CHILD CLEAN	The child cleans in the afternoon.
+143	NIGHT PT_PRO3 COLD	They are cold at night.
+144	NEXT-WEEK NEIGHBOUR LISTEN MUSIC	The neighbour will listen to music next week.
+145	TOMORROW PT_PRO2 EMAIL DAD Q	Will you email my dad tomorrow?
+146	NOW PT_PRO2 WANT WALK	You want to walk now.
+147	WHY PT_PRO2 GO Q	Why Do you go now?
+148	NIGHT WOMAN NOT CLEAN	The woman does not clean at night.
+149	IF PT_PRO2 STUDY THEN PT_PRO2 HOT	If you study, then you are hot.
+150	WHEN PT_PRO3 EAT Q	When Will they eat tomorrow?
+151	TODAY MAN NOT WORK	The man does not work today.
+152	IF LAST-WEEK PT_PRO2 GO BEACH THEN PT_PRO2 COLD	If you go to the beach, then you are cold.
+153	PT_PRO3 LISTEN PODCAST	They listen to a podcast.
+154	TODAY WOMAN LISTEN MUSIC	The woman listens to music today.
+155	AFTERNOON PT_PRO3 WANT SEE CAR SLOW	They want to see a car in the afternoon slowly.
+156	WEEKEND PT_PRO3 WORK	They work on the weekend.
+157	WEEKEND PT_PRO1 BAD	I am bad on the weekend.
+158	TODAY NEIGHBOUR TEXT NEIGHBOUR	The neighbour texts my neighbour today.
+159	MORNING PT_PRO2 NOT SEE EMAIL	You do not see an email in the morning.
+160	TOMORROW PT_PRO3 READY	They will be ready tomorrow.
+161	PT_PRO1 NOT READ MONEY	I do not read money.
+162	HOW PT_PRO3 COOK Q	How Will they cook next week?
+163	YESTERDAY PT_PRO2 LISTEN PODCAST	You listened to a podcast yesterday.
+164	NOW PT_PRO1 WATCH PODCAST	I watch a podcast now.
+165	LAST-WEEK PT_PRO1 NOT EMAIL FRIEND ALWAYS	I did not email my friend last week always.
+166	WEEKEND PT_PRO3 CAN WATCH PODCAST	They can watch a podcast on the weekend.
+167	NOW PT_PRO1 MUST NOT COME CITY OFTEN	I must not come to the city now often.
+168	NEXT-WEEK DOCTOR COOK Q	Will the doctor cook next week?
+169	AFTERNOON TEACHER WANT NOT EMAIL FRIEND	The teacher does not want to email my friend in the afternoon.
+170	LAST-WEEK CHILD CALL DAD SLOW Q	Did the child call my dad last week slowly?
+171	TOMORROW DOCTOR SEE KEY Q	Will the doctor see my keys tomorrow?
+172	NEXT-WEEK PT_PRO1 STUDY	I will study next week.
+173	HOW STUDENT CLEAN Q	How Does the student clean at night?
+174	NIGHT PT_PRO3 SEE EMAIL Q	Do they see an email at night?
+175	WHEN TEACHER EAT FOOD Q	When Will the teacher eat next week?
+176	MORNING PT_PRO3 EMAIL NEIGHBOUR	They email my neighbour in the morning.
+177	WEEKEND PT_PRO1 TRAIN	I train on the weekend.
+178	MORNING FRIEND SLEEP Q	Does my friend sleep in the morning?
+179	PT_PRO3 CAN NOT READ MESSAGE	They cannot read a message.
+180	TODAY NEIGHBOUR WANT READ MESSAGE	The neighbour wants to read a message today.
+181	PT_PRO2 WATCH MOVIE Q	Do you watch a movie?
+182	NEXT-WEEK PT_PRO1 TRAIN Q	Will I train next week?
+183	LAST-WEEK PT_PRO1 PRACTISE	I practised last week.
+184	WEEKEND WOMAN BAD	The woman is bad on the weekend.
+185	NIGHT PT_PRO3 PRACTISE FAST Q	Do they practise at night quickly?
+186	CHILD STUDY	The child studies.
+187	NEXT-WEEK PT_PRO1 MUST COME SHOP	I must come to the shop next week.
+188	AFTERNOON WOMAN NOT CLEAN	The woman does not clean in the afternoon.
+189	PT_PRO1 GO PARK	I go to the park.
+190	MORNING PT_PRO3 READ SHOES SOMETIMES Q	Do they read shoes in the morning sometimes?
+191	NIGHT PT_PRO1 NOT SEE KEY	I do not see my keys at night.
+192	NEXT-WEEK CHILD STUDY	The child will study next week.
+193	NIGHT PT_PRO2 EMAIL DAD	You email my dad at night.
+194	WHAT PT_PRO1 BUY Q	What Do I buy?
+195	IF NEIGHBOUR WORK THEN NEIGHBOUR READY	If the neighbour works, then the neighbour is ready in the afternoon.
+196	NOW CHILD RUN	The child runs now.
+197	NEXT-WEEK PT_PRO1 NOT TRAIN FAST	I will not train next week quickly.
+198	NEXT-WEEK PT_PRO3 MUST TEXT NEIGHBOUR	They must text my neighbour next week.
+199	WHY COACH WORK Q	Why Does the coach work in the morning?
+200	AFTERNOON PT_PRO3 WORK FAST	They work in the afternoon quickly.
+201	AFTERNOON PT_PRO3 CAN EMAIL COACH	They can email my coach in the afternoon.
+202	NIGHT COACH NOT EAT APPLE	The coach does not eat an apple at night.
+203	TODAY PT_PRO1 MUST EMAIL TEACHER	I must email my teacher today.
+204	NIGHT PT_PRO1 CAN WATCH MUSIC FAST	I can watch music at night quickly.
+205	NIGHT NEIGHBOUR READ EMAIL RARELY Q	Does the neighbour read an email at night rarely?
+206	NIGHT PT_PRO1 TEXT FRIEND	I text my friend at night.
+207	NIGHT WOMAN SICK	The woman is sick at night.
+208	WHO PT_PRO3 HELP Q	Who Do they help at night?
+209	NIGHT COACH WAKE-UP	The coach wakes up at night.
+210	WEEKEND PT_PRO2 CAN NOT DRINK COFFEE SLOW	You cannot drink coffee on the weekend slowly.
+211	WHY NEIGHBOUR GO Q	Why Will the neighbour go tomorrow?
+212	NEXT-WEEK PT_PRO1 EAT FOOD	I will eat food next week.
+213	PT_PRO3 TEXT COACH	They text my coach.
+214	NEXT-WEEK PT_PRO2 PRACTISE	You will practise next week.
+215	LAST-WEEK PT_PRO3 BUY SHOES	They bought shoes last week.
+216	TOMORROW PT_PRO3 CAN DRINK JUICE	They can drink juice tomorrow.
+217	TOMORROW PT_PRO2 NOT WALK	You will not walk tomorrow.
+218	NIGHT PT_PRO1 NOT CLEAN	I do not clean at night.
+219	NIGHT PT_PRO2 GO BUS-STOP	You go to the bus stop at night.
+220	MORNING PT_PRO2 WORK	You work in the morning.
+221	YESTERDAY FRIEND NOT READ MONEY	My friend did not read money yesterday.
+222	NIGHT PT_PRO1 READY	I am ready at night.
+223	NEXT-WEEK PT_PRO2 STUDY	You will study next week.
+224	TODAY NEIGHBOUR WAKE-UP RARELY	The neighbour wakes up today rarely.
+225	TODAY CHILD CAN TRAIN	The child can train today.
+226	TOMORROW STUDENT CAN DRINK JUICE Q	The student can drink juice tomorrow?
+227	NOW PT_PRO1 TEXT NEIGHBOUR	I text my neighbour now.
+228	TODAY PT_PRO2 STUDY SLOW	You study today slowly.
+229	NOW PT_PRO3 WALK FAST	They walk now quickly.
+230	NOW PT_PRO1 HOT	I am hot now.
+231	WHEN PT_PRO2 SLEEP Q	When Do you sleep now?
+232	LAST-WEEK PT_PRO2 BUSY	You were busy last week.
+233	WHAT PT_PRO3 DRINK Q	What Do they drink now?
+234	TOMORROW STUDENT WATCH MUSIC ALWAYS	The student will watch music tomorrow always.
+235	PT_PRO3 NOT CALL MUM	They do not call my mum.
+236	NEXT-WEEK PT_PRO1 CLEAN Q	Will I clean next week?
+237	WEEKEND PT_PRO1 BUY BOOK	I buy a book on the weekend.
+238	TODAY PT_PRO1 MUST BUY BAG	I must buy my bag today.
+239	NIGHT PT_PRO1 WALK Q	Do I walk at night?
+240	TODAY PT_PRO2 NOT SEE BOOK	You do not see a book today.
+241	WHEN PT_PRO2 GO Q	When Do you go in the afternoon?
+242	IF PT_PRO2 WORK THEN PT_PRO2 TIRED	If you work, then you are tired.
+243	NOW PT_PRO1 SEE BAG ALWAYS	I see my bag now always.
+244	MORNING STUDENT NOT DRINK WATER	The student does not drink water in the morning.
+245	TOMORROW PT_PRO2 COOK	You will cook tomorrow.
+246	PT_PRO2 WORK RARELY	You work rarely.
+247	PT_PRO1 EAT RICE Q	Do I eat rice?
+248	AFTERNOON PT_PRO1 SLEEP	I sleep in the afternoon.
+249	YESTERDAY PT_PRO3 WORK Q	Did they work yesterday?
+250	MORNING PT_PRO3 EMAIL COACH	They email my coach in the morning.
+251	NOW PT_PRO2 PRACTISE RARELY	You practise now rarely.
+252	MORNING PT_PRO1 NOT TRAIN	I do not train in the morning.
+253	NOW CHILD SEE SHOES	The child sees shoes now.
+254	TOMORROW DOCTOR CAN STUDY	The doctor can study tomorrow.
+255	WEEKEND CHILD NOT BUY MESSAGE	The child does not buy a message on the weekend.
+256	WEEKEND PT_PRO1 NOT PRACTISE	I do not practise on the weekend.
+257	WHERE PT_PRO1 GO Q	Where Do I go in the morning?
+258	NEXT-WEEK PT_PRO1 WORK RARELY Q	Will I work next week rarely?
+259	TODAY PT_PRO3 BAD	They are bad today.
+260	TODAY MAN STUDY	The man studies today.
+261	PT_PRO1 EAT APPLE Q	Do I eat an apple?
+262	NOW PT_PRO2 MUST NOT EAT RICE SOMETIMES	You must not eat rice now sometimes.
+263	TEACHER NOT CALL FRIEND	The teacher does not call my friend.
+264	WHEN PT_PRO2 STUDY Q	When Did you study yesterday?
+265	MORNING PT_PRO1 CAN HELP DAD	I can help my dad in the morning.
+266	HOW PT_PRO1 WALK Q	How Did I walk yesterday?
+267	NIGHT PT_PRO3 TEXT DAD	They text my dad at night.
+268	WHY FRIEND STUDY Q	Why Does my friend study?
+269	YESTERDAY CHILD NOT TRAIN	The child did not train yesterday.
+270	NOW DOCTOR NOT TRAIN	The doctor does not train now.
+271	NEXT-WEEK PT_PRO1 EMAIL TEACHER	I will email my teacher next week.
+272	TODAY PT_PRO3 TRAIN Q	Do they train today?
+273	TODAY PT_PRO1 GO WORK	I go to work today.
+274	NEXT-WEEK PT_PRO3 NOT MEET MUM ALWAYS	They will not meet my mum next week always.
+275	WEEKEND MAN NOT SEE CAR	The man does not see a car on the weekend.
+276	TODAY PT_PRO1 NOT WALK	I do not walk today.
+277	TODAY PT_PRO3 SEE KEY	They see my keys today.
+278	TOMORROW PT_PRO2 LISTEN MOVIE	You will listen to a movie tomorrow.
+279	WHY PT_PRO1 TRAIN Q	Why Do I train in the morning?
+280	NIGHT PT_PRO3 HAPPY	They are happy at night.
+281	MORNING PT_PRO1 SEE EMAIL	I see an email in the morning.
+282	IF PT_PRO1 TRAIN THEN PT_PRO1 HAPPY	If I train, then I am happy.
+283	AFTERNOON PT_PRO2 WANT DRINK TEA	You want to drink tea in the afternoon.
+284	PT_PRO2 NOT RUN	You do not run.
+285	MORNING PT_PRO2 NOT EAT NOODLE	You do not eat noodles in the morning.
+286	WHEN PT_PRO2 COOK Q	When Did you cook yesterday?
+287	PT_PRO2 WANT EAT FOOD	You want to eat food.
+288	YESTERDAY DOCTOR BAD	The doctor was bad yesterday.
+289	AFTERNOON PT_PRO1 COOK	I cook in the afternoon.
+290	WEEKEND PT_PRO2 MUST CLEAN SOMETIMES Q	You must clean on the weekend sometimes?
+291	NEXT-WEEK PT_PRO2 NOT TRAIN	You will not train next week.
+292	AFTERNOON PT_PRO2 NOT TEXT TEACHER	You do not text my teacher in the afternoon.
+293	YESTERDAY PT_PRO1 READY	I was ready yesterday.
+294	TODAY PT_PRO1 READ MESSAGE	I read a message today.
+295	LAST-WEEK PT_PRO2 SEE CAR	You saw a car last week.
+296	WOMAN LISTEN MUSIC	The woman listens to music.
+297	WHY PT_PRO2 STUDY Q	Why Do you study on the weekend?
+298	TODAY PT_PRO1 COOK Q	Do I cook today?
+299	HOW PT_PRO1 WALK Q	How Do I walk in the afternoon?
+300	FRIEND TEXT DAD	My friend texts my dad.
+301	NOW PT_PRO2 WANT GO PARK SOMETIMES	You want to go to the park now sometimes.
+302	LAST-WEEK MAN COLD	The man was cold last week.
+303	YESTERDAY PT_PRO1 GO CITY	I went to the city yesterday.
+304	NOW PT_PRO1 EMAIL NEIGHBOUR ALWAYS Q	Do I email my neighbour now always?
+305	PT_PRO2 HELP COACH	You help my coach.
+306	MORNING PT_PRO3 HELP DAD OFTEN	They help my dad in the morning often.
+307	NOW PT_PRO1 MUST LISTEN MUSIC Q	I must listen to music now?
+308	WHY COACH PRACTISE Q	Why Does the coach practise on the weekend?
+309	WHAT STUDENT DRINK Q	What Does the student drink today?
+310	WEEKEND PT_PRO1 CAN READ KEY	I can read my keys on the weekend.
+311	PT_PRO3 NOT TEXT MUM	They do not text my mum.
+312	PT_PRO3 EMAIL DAD SOMETIMES Q	Do they email my dad sometimes?
+313	TOMORROW PT_PRO2 TEXT COACH	You will text my coach tomorrow.
+314	IF PT_PRO2 WORK THEN PT_PRO2 SAD	If you work, then you are sad.
+315	NEXT-WEEK PT_PRO3 WAKE-UP FAST	They will wake up next week quickly.
+316	WEEKEND STUDENT WANT TRAIN Q	The student wants to train on the weekend?
+317	NEXT-WEEK PT_PRO2 EAT PIZZA	You will eat pizza next week.
+318	PT_PRO3 NOT COOK	They do not cook.
+319	WHO PT_PRO1 HELP Q	Who Do I help in the morning?
+320	AFTERNOON PT_PRO2 RUN RARELY	You run in the afternoon rarely.
+321	NIGHT PT_PRO1 LISTEN MOVIE	I listen to a movie at night.
+322	MORNING PT_PRO1 CALL NEIGHBOUR	I call my neighbour in the morning.
+323	TODAY NEIGHBOUR STUDY	The neighbour studies today.
+324	PT_PRO3 COLD	They are cold.
+325	PT_PRO2 GO SHOP	You go to the shop.
+326	MORNING CHILD PRACTISE	The child practises in the morning.
+327	NIGHT PT_PRO2 TRAIN	You train at night.
+328	YESTERDAY PT_PRO2 COME WORK	You came to work yesterday.
+329	MORNING PT_PRO1 WANT NOT WATCH PODCAST	I do not want to watch a podcast in the morning.
+330	WHY WOMAN STUDY Q	Why Does the woman study in the afternoon?
+331	YESTERDAY PT_PRO1 WATCH MOVIE Q	Did I watch a movie yesterday?
+332	WHO PT_PRO1 CALL Q	Who Do I call now?
+333	LAST-WEEK PT_PRO3 READ MESSAGE	They read a message last week.
+334	NOW PT_PRO2 CAN COOK	You can cook now.
+335	AFTERNOON MAN NOT RUN	The man does not run in the afternoon.
+336	MORNING MAN EAT APPLE Q	Does the man eat an apple in the morning?
+337	AFTERNOON PT_PRO1 CAN WAKE-UP	I can wake up in the afternoon.
+338	TOMORROW PT_PRO1 NOT TRAIN	I will not train tomorrow.
+339	PT_PRO3 COOK	They cook.
+340	NOW PT_PRO2 READ BOOK	You read a book now.
+341	NOW TEACHER GO PARK	The teacher goes to the park now.
+342	TODAY PT_PRO1 TRAIN Q	Do I train today?
+343	LAST-WEEK PT_PRO1 EMAIL DAD	I emailed my dad last week.
+344	NEXT-WEEK PT_PRO1 NOT CALL TEACHER SLOW	I will not call my teacher next week slowly.
+345	WHAT PT_PRO2 DRINK Q	What Did you drink yesterday?
+346	LAST-WEEK FRIEND PRACTISE	My friend practised last week.
+347	NIGHT PT_PRO2 COME HOME	You come to home at night.
+348	IF DOCTOR WORK THEN DOCTOR GOOD	If the doctor works, then the doctor is good in the morning.
+349	AFTERNOON FRIEND BUY EMAIL	My friend buys an email in the afternoon.
+350	NIGHT PT_PRO2 NOT RUN	You do not run at night.
+351	TODAY PT_PRO2 WORK Q	Do you work today?
+352	YESTERDAY PT_PRO3 NOT SLEEP SLOW	They did not sleep yesterday slowly.
+353	TODAY FRIEND RUN	My friend runs today.
+354	NEXT-WEEK PT_PRO3 EAT RICE	They will eat rice next week.
+355	PT_PRO2 TEXT COACH Q	Do you text my coach?
+356	WEEKEND PT_PRO2 NOT SEE BAG	You do not see my bag on the weekend.
+357	NEXT-WEEK TEACHER BUSY	The teacher will be busy next week.
+358	WEEKEND WOMAN CAN STUDY ALWAYS	The woman can study on the weekend always.
+359	FRIEND MUST NOT MEET COACH SOMETIMES	My friend must not meet my coach sometimes.
+360	MORNING PT_PRO2 STUDY	You study in the morning.
+361	WHO PT_PRO1 MEET Q	Who Do I meet on the weekend?
+362	YESTERDAY PT_PRO1 WALK	I walked yesterday.
+363	TODAY PT_PRO2 READ MESSAGE Q	Do you read a message today?
+364	NOW PT_PRO1 WANT CLEAN	I want to clean now.
+365	HOW PT_PRO2 GO Q	How Do you go?
+366	WHY PT_PRO2 STUDY Q	Why Do you study today?
+367	TODAY DOCTOR MEET FRIEND	The doctor meets my friend today.
+368	PT_PRO1 NOT STUDY	I do not study.
+369	NOW PT_PRO2 MEET FRIEND RARELY Q	Do you meet my friend now rarely?
+370	NEXT-WEEK PT_PRO1 GO WORK Q	Will I go to work next week?
+371	NEXT-WEEK PT_PRO2 COOK	You will cook next week.
+372	WEEKEND STUDENT RUN SLOW	The student runs on the weekend slowly.
+373	NOW PT_PRO2 DRINK WATER	You drink water now.
+374	NOW PT_PRO3 HAPPY	They are happy now.
+375	WEEKEND PT_PRO3 CAN COOK ALWAYS	They can cook on the weekend always.
+376	NEXT-WEEK CHILD WANT READ CAR Q	The child wants to read a car next week?
+377	LAST-WEEK PT_PRO2 COOK	You cooked last week.
+378	AFTERNOON PT_PRO2 EMAIL COACH Q	Do you email my coach in the afternoon?
+379	WHEN PT_PRO1 CALL FRIEND Q	When Do I call now?
+380	MORNING PT_PRO1 NOT COOK	I do not cook in the morning.
+381	IF NIGHT PT_PRO1 GO WORK THEN PT_PRO1 READY	If I go to work, then I am ready at night.
+382	NEXT-WEEK PT_PRO1 MUST HELP FRIEND	I must help my friend next week.
+383	LAST-WEEK PT_PRO3 WATCH PODCAST Q	Did they watch a podcast last week?
+384	PT_PRO3 GO BUS-STOP Q	Do they go to the bus stop?
+385	AFTERNOON PT_PRO3 NOT READ MONEY	They do not read money in the afternoon.
+386	PT_PRO3 WANT EMAIL FRIEND SOMETIMES	They want to email my friend sometimes.
+387	WHO PT_PRO1 CALL Q	Who Did I call last week?
+388	WHO COACH TEXT Q	Who Does the coach text?
+389	IF PT_PRO1 TRAIN THEN PT_PRO1 SAD	If I train, then I am sad in the afternoon.
+390	NOW PT_PRO1 WALK	I walk now.
+391	AFTERNOON PT_PRO2 RUN Q	Do you run in the afternoon?
+392	NIGHT COACH CAN NOT DRINK TEA SOMETIMES	The coach cannot drink tea at night sometimes.
+393	HOW PT_PRO3 RUN Q	How Do they run?
+394	WEEKEND PT_PRO2 NOT SLEEP	You do not sleep on the weekend.
+395	IF TODAY WOMAN STUDY THEN WOMAN BUSY	If the woman studies, then the woman is busy today.
+396	AFTERNOON PT_PRO2 NOT CALL NEIGHBOUR	You do not call my neighbour in the afternoon.
+397	MORNING PT_PRO3 PRACTISE Q	Do they practise in the morning?
+398	LAST-WEEK COACH NOT DRINK TEA	The coach did not drink tea last week.
+399	TOMORROW PT_PRO1 WANT WALK	I want to walk tomorrow.
+400	WHO PT_PRO3 MEET Q	Who Do they meet today?
+401	WEEKEND PT_PRO1 WAKE-UP Q	Do I wake up on the weekend?
+402	YESTERDAY PT_PRO3 TEXT COACH	They texted my coach yesterday.
+403	TODAY CHILD WAKE-UP	The child wakes up today.
+404	NEXT-WEEK PT_PRO1 CALL NEIGHBOUR	I will call my neighbour next week.
+405	MORNING PT_PRO2 LISTEN MUSIC Q	Do you listen to music in the morning?
+406	NIGHT PT_PRO1 SEE KEY	I see my keys at night.
+407	LAST-WEEK PT_PRO3 NOT BUY KEY OFTEN	They did not buy my keys last week often.
+408	TOMORROW PT_PRO1 CLEAN SOMETIMES Q	Will I clean tomorrow sometimes?
+409	WHERE PT_PRO3 COME Q	Where Did they come last week?
+410	TODAY MAN DRINK COFFEE	The man drinks coffee today.
+411	NOW PT_PRO2 MEET NEIGHBOUR SLOW	You meet my neighbour now slowly.
+412	NOW PT_PRO3 READ PHONE SOMETIMES	They read my phone now sometimes.
+413	TODAY PT_PRO3 CAN CALL FRIEND Q	They can call my friend today?
+414	TODAY PT_PRO2 GO SHOP	You go to the shop today.
+415	YESTERDAY PT_PRO3 NOT WORK	They did not work yesterday.
+416	TODAY PT_PRO1 GO CITY Q	Do I go to the city today?
+417	AFTERNOON PT_PRO2 CALL MUM	You call my mum in the afternoon.
+418	YESTERDAY CHILD COME HOME	The child came to home yesterday.
+419	TOMORROW PT_PRO1 MUST PRACTISE Q	I must practise tomorrow?
+420	WEEKEND MAN TRAIN	The man trains on the weekend.
+421	YESTERDAY PT_PRO2 SLEEP	You slept yesterday.
+422	LAST-WEEK PT_PRO1 NOT BUY CAR	I did not buy a car last week.
+423	PT_PRO3 RUN SLOW Q	Do they run slowly?
+424	MORNING PT_PRO1 NOT MEET DAD FAST	I do not meet my dad in the morning quickly.
+425	MORNING PT_PRO1 NOT HELP TEACHER	I do not help my teacher in the morning.
+426	LAST-WEEK WOMAN SICK	The woman was sick last week.
+427	NIGHT PT_PRO1 SEE MONEY ALWAYS	I see money at night always.
+428	NOW PT_PRO3 CALL COACH	They call my coach now.
+429	MORNING PT_PRO3 RUN Q	Do they run in the morning?
+430	NOW PT_PRO2 CAN DRINK JUICE	You can drink juice now.
+431	AFTERNOON PT_PRO1 CALL FRIEND	I call my friend in the afternoon.
+432	YESTERDAY STUDENT TRAIN	The student trained yesterday.
+433	TODAY PT_PRO1 TEXT COACH Q	Do I text my coach today?
+434	WHERE NEIGHBOUR GO Q	Where Does the neighbour go in the afternoon?
+435	WEEKEND PT_PRO1 TEXT DAD	I text my dad on the weekend.
+436	WEEKEND PT_PRO2 NOT COME HOME	You do not come to home on the weekend.
+437	TODAY PT_PRO2 CAN CALL COACH	You can call my coach today.
+438	NIGHT PT_PRO2 MUST WALK	You must walk at night.
+439	NOW PT_PRO1 NOT MEET DAD	I do not meet my dad now.
+440	YESTERDAY TEACHER HELP NEIGHBOUR	The teacher helped my neighbour yesterday.
+441	NIGHT DOCTOR NOT LISTEN PODCAST	The doctor does not listen to a podcast at night.
+442	WHY PT_PRO1 WORK Q	Why Will I work tomorrow?
+443	NOW COACH STUDY	The coach studies now.
+444	TODAY CHILD WAKE-UP Q	Does the child wake up today?
+445	NIGHT STUDENT BUSY	The student is busy at night.
+446	NOW PT_PRO1 COME SCHOOL	I come to school now.
+447	NEXT-WEEK PT_PRO2 MEET FRIEND	You will meet my friend next week.
+448	YESTERDAY PT_PRO3 WATCH PODCAST Q	Did they watch a podcast yesterday?
+449	NEXT-WEEK PT_PRO3 COME BEACH	They will come to the beach next week.
+450	TOMORROW PT_PRO3 CAN SEE BAG SOMETIMES	They can see my bag tomorrow sometimes.
+451	NOW PT_PRO2 WALK Q	Do you walk now?
+452	NIGHT COACH TEXT FRIEND	The coach texts my friend at night.
+453	WHY TEACHER GO Q	Why Did the teacher go yesterday?
+454	LAST-WEEK PT_PRO2 NOT GO HOME	You did not go to home last week.
+455	WEEKEND PT_PRO3 NOT MEET FRIEND	They do not meet my friend on the weekend.
+456	TODAY PT_PRO3 DRINK COFFEE	They drink coffee today.
+457	NIGHT PT_PRO1 NOT LISTEN PODCAST RARELY	I do not listen to a podcast at night rarely.
+458	MORNING PT_PRO2 COME BEACH RARELY	You come to the beach in the morning rarely.
+459	WEEKEND PT_PRO1 NOT EAT NOODLE	I do not eat noodles on the weekend.
+460	LAST-WEEK PT_PRO1 TRAIN	I trained last week.
+461	MORNING MAN WATCH PODCAST RARELY	The man watches a podcast in the morning rarely.
+462	WHEN PT_PRO1 LISTEN MOVIE Q	When Do I listen in the afternoon?
+463	WEEKEND PT_PRO3 NOT STUDY	They do not study on the weekend.
+464	WEEKEND PT_PRO1 CAN WATCH MOVIE RARELY Q	I can watch a movie on the weekend rarely?
+465	WHY PT_PRO2 TRAIN Q	Why Do you train today?
+466	NIGHT PT_PRO1 NOT WATCH PODCAST	I do not watch a podcast at night.
+467	WHAT TEACHER BUY Q	What Does the teacher buy?
+468	LAST-WEEK PT_PRO2 EMAIL COACH	You emailed my coach last week.
+469	MORNING CHILD COOK	The child cooks in the morning.
+470	LAST-WEEK PT_PRO2 DRINK TEA	You drank tea last week.
+471	TOMORROW PT_PRO2 NOT EAT RICE	You will not eat rice tomorrow.
+472	LAST-WEEK MAN RUN	The man ran last week.
+473	TOMORROW PT_PRO1 WANT EMAIL FRIEND OFTEN Q	I want to email my friend tomorrow often?
+474	NEXT-WEEK PT_PRO2 COME BEACH Q	Will you come to the beach next week?
+475	WHEN PT_PRO1 WORK Q	When Do I work?
+476	LAST-WEEK COACH NOT SLEEP	The coach did not sleep last week.
+477	WHAT TEACHER READ Q	What Does the teacher read?
+478	NIGHT PT_PRO1 NOT DRINK JUICE	I do not drink juice at night.
+479	AFTERNOON PT_PRO1 WANT NOT BUY MESSAGE	I do not want to buy a message in the afternoon.
+480	WHEN PT_PRO1 MEET MUM Q	When Do I meet on the weekend?
+481	NIGHT PT_PRO2 WANT EMAIL COACH	You want to email my coach at night.
+482	NIGHT NEIGHBOUR LISTEN PODCAST	The neighbour listens to a podcast at night.
+483	WEEKEND PT_PRO2 TEXT MUM SOMETIMES	You text my mum on the weekend sometimes.
+484	YESTERDAY PT_PRO3 BUY BOOK OFTEN	They bought a book yesterday often.
+485	PT_PRO3 CAN SLEEP	They can sleep.
+486	PT_PRO3 PRACTISE	They practise.
+487	YESTERDAY PT_PRO1 WORK	I worked yesterday.
+488	TOMORROW PT_PRO1 COOK	I will cook tomorrow.
+489	WHERE PT_PRO3 COME Q	Where Do they come today?
+490	NEXT-WEEK PT_PRO2 TEXT DAD	You will text my dad next week.
+491	TOMORROW PT_PRO1 EAT FOOD	I will eat food tomorrow.
+492	TODAY PT_PRO1 PRACTISE	I practise today.
+493	IF NOW PT_PRO2 GO CITY THEN PT_PRO2 BUSY	If you go to the city, then you are busy now.
+494	NOW PT_PRO3 STUDY	They study now.
+495	AFTERNOON PT_PRO3 COME PARK OFTEN	They come to the park in the afternoon often.
+496	LAST-WEEK PT_PRO3 MEET COACH	They met my coach last week.
+497	TOMORROW MAN WAKE-UP	The man will wake up tomorrow.
+498	NOW NEIGHBOUR NOT WORK	The neighbour does not work now.
+499	WEEKEND PT_PRO1 CAN NOT COOK OFTEN	I cannot cook on the weekend often.
+500	TOMORROW FRIEND READ EMAIL ALWAYS	My friend will read an email tomorrow always.
+501	YESTERDAY PT_PRO2 NOT SEE MONEY	You did not see money yesterday.
+502	MORNING FRIEND LISTEN PODCAST	My friend listens to a podcast in the morning.
+503	AFTERNOON TEACHER NOT WAKE-UP SOMETIMES	The teacher does not wake up in the afternoon sometimes.
+504	NIGHT COACH PRACTISE	The coach practises at night.
+505	YESTERDAY CHILD GO HOME	The child went to home yesterday.
+506	TODAY PT_PRO2 WANT WAKE-UP	You want to wake up today.
+507	TOMORROW PT_PRO1 READ MONEY	I will read money tomorrow.
+508	MORNING PT_PRO2 WANT NOT RUN ALWAYS	You do not want to run in the morning always.
+509	DOCTOR SLEEP FAST	The doctor sleeps quickly.
+510	TODAY PT_PRO2 PRACTISE	You practise today.
+511	NOW PT_PRO1 SLEEP SLOW	I sleep now slowly.
+512	WHY PT_PRO2 STUDY Q	Why Do you study?
+513	AFTERNOON PT_PRO1 NOT CLEAN	I do not clean in the afternoon.
+514	AFTERNOON PT_PRO1 EAT FOOD	I eat food in the afternoon.
+515	WHAT PT_PRO3 BUY Q	What Do they buy in the afternoon?
+516	YESTERDAY PT_PRO3 TIRED	They were tired yesterday.
+517	TOMORROW PT_PRO3 CLEAN	They will clean tomorrow.
+518	YESTERDAY PT_PRO1 CLEAN	I cleaned yesterday.
+519	MORNING PT_PRO3 SAD	They are sad in the morning.
+520	COACH SLEEP	The coach sleeps.
+521	MORNING PT_PRO3 GO BEACH	They go to the beach in the morning.
+522	PT_PRO2 MEET COACH	You meet my coach.
+523	WEEKEND DOCTOR STUDY	The doctor studies on the weekend.
+524	TOMORROW PT_PRO2 RUN	You will run tomorrow.
+525	TOMORROW PT_PRO2 NOT DRINK WATER	You will not drink water tomorrow.
+526	TODAY CHILD STUDY	The child studies today.
+527	YESTERDAY WOMAN EMAIL TEACHER	The woman emailed my teacher yesterday.
+528	NOW PT_PRO3 SEE MONEY	They see money now.
+529	WEEKEND PT_PRO1 BUSY	I am busy on the weekend.
+530	IF PT_PRO3 WORK THEN PT_PRO3 GOOD	If they work, then they are good in the afternoon.
+531	WHERE NEIGHBOUR GO Q	Where Does the neighbour go?
+532	AFTERNOON CHILD SLEEP	The child sleeps in the afternoon.
+533	WHERE PT_PRO3 GO Q	Where Will they go next week?
+534	YESTERDAY PT_PRO3 WALK	They walked yesterday.
+535	LAST-WEEK PT_PRO3 WAKE-UP	They woke up last week.
+536	YESTERDAY PT_PRO3 READY	They were ready yesterday.
+537	YESTERDAY PT_PRO2 NOT LISTEN PODCAST	You did not listen to a podcast yesterday.
+538	YESTERDAY PT_PRO3 TEXT NEIGHBOUR	They texted my neighbour yesterday.
+539	NEXT-WEEK PT_PRO2 SICK	You will be sick next week.
+540	AFTERNOON COACH SEE BAG	The coach sees my bag in the afternoon.
+541	WEEKEND CHILD GO PARK Q	Does the child go to the park on the weekend?
+542	NIGHT DOCTOR EAT NOODLE	The doctor eats noodles at night.
+543	CHILD TRAIN	The child trains.
+544	TODAY CHILD NOT SEE EMAIL	The child does not see an email today.
+545	MORNING PT_PRO3 COOK Q	Do they cook in the morning?
+546	WHY COACH STUDY Q	Why Does the coach study on the weekend?
+547	LAST-WEEK PT_PRO2 WORK	You worked last week.
+548	AFTERNOON PT_PRO2 NOT CLEAN	You do not clean in the afternoon.
+549	TODAY PT_PRO2 CLEAN	You clean today.
+550	WHEN CHILD EAT NOODLE Q	When Will the child eat tomorrow?
+551	NEXT-WEEK PT_PRO3 NOT COME GYM	They will not come to the gym next week.
+552	YESTERDAY PT_PRO2 TEXT NEIGHBOUR RARELY Q	Did you text my neighbour yesterday rarely?
+553	TODAY PT_PRO1 BUY BAG	I buy my bag today.
+554	TODAY PT_PRO2 LISTEN PODCAST	You listen to a podcast today.
+555	TODAY PT_PRO3 RUN	They run today.
+556	TOMORROW PT_PRO2 NOT PRACTISE	You will not practise tomorrow.
+557	NEXT-WEEK PT_PRO2 COME SHOP Q	Will you come to the shop next week?
+558	IF MORNING PT_PRO3 WORK THEN PT_PRO3 HOT	If they work, then they are hot.
+559	AFTERNOON PT_PRO3 DRINK JUICE	They drink juice in the afternoon.
+560	AFTERNOON MAN RUN	The man runs in the afternoon.
+561	TODAY WOMAN TEXT MUM SLOW Q	Does the woman text my mum today slowly?
+562	TODAY PT_PRO3 NOT EAT NOODLE	They do not eat noodles today.
+563	TOMORROW PT_PRO3 GO GYM ALWAYS	They will go to the gym tomorrow always.
+564	LAST-WEEK CHILD NOT EAT APPLE	The child did not eat an apple last week.
+565	WHEN PT_PRO2 WALK Q	When Do you walk now?
+566	NEXT-WEEK PT_PRO3 CLEAN	They will clean next week.
+567	WHO CHILD CALL Q	Who Does the child call?
+568	MORNING PT_PRO1 CLEAN	I clean in the morning.
+569	PT_PRO3 WANT SEE SHOES RARELY	They want to see shoes rarely.
+570	WEEKEND NEIGHBOUR GO HOME	The neighbour goes to home on the weekend.
+571	MORNING STUDENT READY	The student is ready in the morning.
+572	WEEKEND PT_PRO3 EMAIL COACH	They email my coach on the weekend.
+573	HOW PT_PRO2 CLEAN Q	How Will you clean tomorrow?
+574	PT_PRO1 CALL MUM	I call my mum.
+575	WHAT PT_PRO3 EAT Q	What Do they eat in the afternoon?
+576	LAST-WEEK PT_PRO2 NOT BUY KEY	You did not buy my keys last week.
+577	NIGHT PT_PRO2 BUY BOOK Q	Do you buy a book at night?
+578	NIGHT PT_PRO3 NOT HELP DAD	They do not help my dad at night.
+579	WHEN NEIGHBOUR LISTEN PODCAST Q	When Does the neighbour listen in the afternoon?
+580	YESTERDAY PT_PRO3 NOT COME WORK	They did not come to work yesterday.
+581	PT_PRO1 WANT EAT NOODLE RARELY	I want to eat noodles rarely.
+582	MORNING PT_PRO3 CAN PRACTISE	They can practise in the morning.
+583	MORNING PT_PRO1 MEET DAD	I meet my dad in the morning.
+584	NIGHT DOCTOR EMAIL FRIEND FAST	The doctor emails my friend at night quickly.
+585	NIGHT PT_PRO1 STUDY	I study at night.
+586	IF PT_PRO1 STUDY THEN PT_PRO1 TIRED	If I study, then I am tired.
+587	YESTERDAY WOMAN DRINK JUICE	The woman drank juice yesterday.
+588	AFTERNOON PT_PRO2 NOT MEET DAD FAST	You do not meet my dad in the afternoon quickly.
+589	NIGHT PT_PRO2 WATCH MOVIE	You watch a movie at night.
+590	WHEN PT_PRO1 CLEAN Q	When Do I clean at night?
+591	NOW PT_PRO1 BUY SHOES	I buy shoes now.
+592	NIGHT PT_PRO2 LISTEN MUSIC	You listen to music at night.
+593	LAST-WEEK PT_PRO3 TEXT TEACHER	They texted my teacher last week.
+594	NIGHT PT_PRO2 WAKE-UP	You wake up at night.
+595	AFTERNOON PT_PRO3 NOT WAKE-UP	They do not wake up in the afternoon.
+596	NOW PT_PRO3 NOT COOK SOMETIMES	They do not cook now sometimes.
+597	NOW NEIGHBOUR EAT APPLE	The neighbour eats an apple now.
+598	YESTERDAY PT_PRO3 GO SCHOOL SOMETIMES	They went to school yesterday sometimes.
+599	YESTERDAY STUDENT HELP FRIEND	The student helped my friend yesterday.
+600	HOW CHILD WALK Q	How Does the child walk?
+601	NEXT-WEEK PT_PRO3 SEE KEY	They will see my keys next week.
+602	NOW PT_PRO3 NOT COOK	They do not cook now.
+603	PT_PRO2 NOT EMAIL NEIGHBOUR	You do not email my neighbour.
+604	YESTERDAY PT_PRO3 SLEEP FAST	They slept yesterday quickly.
+605	TOMORROW PT_PRO2 TEXT MUM	You will text my mum tomorrow.
+606	NOW FRIEND CLEAN SOMETIMES Q	Does my friend clean now sometimes?
+607	LAST-WEEK PT_PRO1 LISTEN MUSIC	I listened to music last week.
+608	AFTERNOON PT_PRO1 STUDY	I study in the afternoon.
+609	PT_PRO1 CLEAN Q	Do I clean?
+610	NIGHT PT_PRO1 SEE KEY SOMETIMES	I see my keys at night sometimes.
+611	WHERE PT_PRO3 GO Q	Where Will they go tomorrow?
+612	NIGHT MAN BUY MONEY ALWAYS	The man buys money at night always.
+613	TODAY PT_PRO1 RUN Q	Do I run today?
+614	WEEKEND NEIGHBOUR COME BEACH	The neighbour comes to the beach on the weekend.
+615	AFTERNOON PT_PRO3 RUN FAST Q	Do they run in the afternoon quickly?
+616	NEXT-WEEK PT_PRO3 WATCH MUSIC Q	Will they watch music next week?
+617	MORNING PT_PRO2 NOT GO CITY	You do not go to the city in the morning.
+618	PT_PRO2 MEET FRIEND	You meet my friend.
+619	WEEKEND PT_PRO1 WATCH PODCAST	I watch a podcast on the weekend.
+620	YESTERDAY PT_PRO2 NOT CLEAN SOMETIMES	You did not clean yesterday sometimes.
+621	TODAY PT_PRO2 TIRED	You are tired today.
+622	WEEKEND PT_PRO3 COOK	They cook on the weekend.
+623	WHY PT_PRO1 WORK Q	Why Do I work today?
+624	MORNING PT_PRO3 HELP FRIEND	They help my friend in the morning.
+625	NIGHT PT_PRO2 CAN NOT WATCH MOVIE RARELY	You cannot watch a movie at night rarely.
+626	NIGHT PT_PRO2 BUY CAR	You buy a car at night.
+627	TODAY PT_PRO3 WANT NOT SEE EMAIL	They do not want to see an email today.
+628	WHEN PT_PRO1 WAKE-UP Q	When Do I wake up on the weekend?
+629	TOMORROW PT_PRO3 CALL FRIEND	They will call my friend tomorrow.
+630	WHEN PT_PRO2 WORK Q	When Will you work next week?
+631	NOW PT_PRO3 WATCH PODCAST	They watch a podcast now.
+632	AFTERNOON PT_PRO3 CALL NEIGHBOUR	They call my neighbour in the afternoon.
+633	WEEKEND DOCTOR TRAIN OFTEN Q	Does the doctor train on the weekend often?
+634	WEEKEND PT_PRO2 READ SHOES	You read shoes on the weekend.
+635	WEEKEND PT_PRO2 LISTEN MUSIC	You listen to music on the weekend.
+636	AFTERNOON STUDENT PRACTISE	The student practises in the afternoon.
+637	LAST-WEEK PT_PRO3 MEET MUM Q	Did they meet my mum last week?
+638	WHAT PT_PRO2 SEE Q	What Do you see in the afternoon?
+639	YESTERDAY PT_PRO3 WAKE-UP FAST	They woke up yesterday quickly.
+640	NEXT-WEEK DOCTOR SLEEP	The doctor will sleep next week.
+641	TOMORROW PT_PRO2 EAT APPLE	You will eat an apple tomorrow.
+642	TODAY PT_PRO2 CAN GO BUS-STOP	You can go to the bus stop today.
+643	TODAY DOCTOR EMAIL FRIEND	The doctor emails my friend today.
+644	NEXT-WEEK DOCTOR GO SCHOOL	The doctor will go to school next week.
+645	PT_PRO3 EAT RICE FAST	They eat rice quickly.
+646	LAST-WEEK PT_PRO1 HOT	I was hot last week.
+647	LAST-WEEK PT_PRO1 NOT MEET DAD	I did not meet my dad last week.
+648	NIGHT PT_PRO3 BUSY	They are busy at night.
+649	TODAY DOCTOR NOT WALK	The doctor does not walk today.
+650	TODAY CHILD SAD	The child is sad today.
+651	LAST-WEEK PT_PRO2 WATCH MUSIC RARELY Q	Did you watch music last week rarely?
+652	TOMORROW NEIGHBOUR NOT RUN	The neighbour will not run tomorrow.
+653	PT_PRO3 MUST EAT NOODLE ALWAYS	They must eat noodles always.
+654	TOMORROW PT_PRO1 CAN PRACTISE	I can practise tomorrow.
+655	WEEKEND PT_PRO1 WANT NOT BUY BOOK	I do not want to buy a book on the weekend.
+656	HOW PT_PRO2 STUDY Q	How Do you study in the afternoon?
+657	AFTERNOON PT_PRO2 NOT SEE MESSAGE	You do not see a message in the afternoon.
+658	TODAY COACH STUDY Q	Does the coach study today?
+659	LAST-WEEK PT_PRO2 BUY EMAIL FAST	You bought an email last week quickly.
+660	AFTERNOON PT_PRO2 READ BOOK	You read a book in the afternoon.
+661	AFTERNOON PT_PRO3 SLEEP Q	Do they sleep in the afternoon?
+662	WEEKEND PT_PRO2 CALL FRIEND	You call my friend on the weekend.
+663	PT_PRO1 MEET DAD Q	Do I meet my dad?
+664	WHERE PT_PRO1 COME Q	Where Do I come now?
+665	WEEKEND PT_PRO3 CALL TEACHER	They call my teacher on the weekend.
+666	TOMORROW PT_PRO3 EAT RICE	They will eat rice tomorrow.
+667	LAST-WEEK MAN NOT PRACTISE	The man did not practise last week.
+668	AFTERNOON PT_PRO1 WORK Q	Do I work in the afternoon?
+669	LAST-WEEK PT_PRO1 WAKE-UP	I woke up last week.
+670	IF WEEKEND PT_PRO3 TRAIN THEN PT_PRO3 BUSY	If they train, then they are busy on the weekend.
+671	NEXT-WEEK PT_PRO3 GO WORK	They will go to work next week.
+672	LAST-WEEK PT_PRO1 DRINK WATER FAST	I drank water last week quickly.
+673	YESTERDAY PT_PRO2 BAD	You were bad yesterday.
+674	LAST-WEEK PT_PRO1 STUDY	I studied last week.
+675	TOMORROW WOMAN NOT MEET NEIGHBOUR	The woman will not meet my neighbour tomorrow.
+676	NOW NEIGHBOUR NOT SEE PHONE SLOW	The neighbour does not see my phone now slowly.
+677	NOW PT_PRO1 WALK Q	Do I walk now?
+678	AFTERNOON PT_PRO3 COOK	They cook in the afternoon.
+679	MAN NOT SLEEP RARELY	The man does not sleep rarely.
+680	AFTERNOON PT_PRO1 WANT NOT TEXT DAD	I do not want to text my dad in the afternoon.
+681	MORNING WOMAN SLEEP Q	Does the woman sleep in the morning?
+682	AFTERNOON DOCTOR READ BAG	The doctor reads my bag in the afternoon.
+683	TODAY PT_PRO3 WAKE-UP SOMETIMES	They wake up today sometimes.
+684	AFTERNOON PT_PRO2 TEXT DAD	You text my dad in the afternoon.
+685	IF PT_PRO3 WORK THEN PT_PRO3 SAD	If they work, then they are sad.
+686	TOMORROW TEACHER RUN SOMETIMES Q	Will the teacher run tomorrow sometimes?
+687	WEEKEND PT_PRO1 NOT COOK ALWAYS	I do not cook on the weekend always.
+688	TOMORROW PT_PRO3 READ SHOES	They will read shoes tomorrow.
+689	NOW PT_PRO1 BUY EMAIL	I buy an email now.
+690	WEEKEND PT_PRO2 CLEAN	You clean on the weekend.
+691	TODAY PT_PRO2 MUST EAT RICE	You must eat rice today.
+692	TOMORROW PT_PRO1 WAKE-UP SOMETIMES Q	Will I wake up tomorrow sometimes?
+693	LAST-WEEK PT_PRO2 SLEEP	You slept last week.
+694	TOMORROW PT_PRO2 CALL COACH RARELY	You will call my coach tomorrow rarely.
+695	AFTERNOON FRIEND SLEEP	My friend sleeps in the afternoon.
+696	TOMORROW PT_PRO1 RUN SOMETIMES	I will run tomorrow sometimes.
+697	LAST-WEEK PT_PRO3 TRAIN Q	Did they train last week?
+698	NOW PT_PRO2 NOT SEE CAR	You do not see a car now.
+699	TOMORROW PT_PRO2 SAD	You will be sad tomorrow.
+700	MORNING WOMAN MEET TEACHER	The woman meets my teacher in the morning.
+701	YESTERDAY PT_PRO1 READ KEY	I read my keys yesterday.
+702	AFTERNOON PT_PRO1 PRACTISE	I practise in the afternoon.
+703	STUDENT WAKE-UP	The student wakes up.
+704	LAST-WEEK PT_PRO3 NOT GO WORK	They did not go to work last week.
+705	NOW PT_PRO2 DRINK TEA Q	Do you drink tea now?
+706	WHAT PT_PRO3 READ Q	What Did they read last week?
+707	MORNING PT_PRO1 CALL TEACHER SLOW Q	Do I call my teacher in the morning slowly?
+708	WEEKEND PT_PRO1 NOT TEXT MUM	I do not text my mum on the weekend.
+709	NOW TEACHER SAD	The teacher is sad now.
+710	IF AFTERNOON MAN GO SCHOOL THEN MAN BUSY	If the man goes to school, then the man is busy.
+711	LAST-WEEK PT_PRO1 EAT FOOD	I ate food last week.
+712	NEXT-WEEK PT_PRO2 MUST HELP COACH ALWAYS	You must help my coach next week always.
+713	AFTERNOON WOMAN BUY EMAIL Q	Does the woman buy an email in the afternoon?
+714	WEEKEND TEACHER CLEAN	The teacher cleans on the weekend.
+715	NOW COACH LISTEN MOVIE Q	Does the coach listen to a movie now?
+716	NIGHT PT_PRO2 WANT NOT RUN	You do not want to run at night.
+717	WHEN STUDENT PRACTISE Q	When Does the student practise?
+718	MAN WANT NOT WATCH MOVIE	The man does not want to watch a movie.
+719	WEEKEND PT_PRO3 NOT SEE PHONE	They do not see my phone on the weekend.
+720	NIGHT PT_PRO3 NOT CLEAN	They do not clean at night.
+721	NOW PT_PRO1 CAN STUDY Q	I can study now?
+722	WHAT PT_PRO1 EAT Q	What Do I eat on the weekend?
+723	PT_PRO1 BUY SHOES	I buy shoes.
+724	IF PT_PRO3 WORK THEN PT_PRO3 TIRED	If they work, then they are tired.
+725	YESTERDAY PT_PRO3 MEET MUM Q	Did they meet my mum yesterday?
+726	LAST-WEEK FRIEND MEET COACH Q	Did my friend meet my coach last week?
+727	NOW PT_PRO3 MEET DAD	They meet my dad now.
+728	NOW STUDENT RUN	The student runs now.
+729	TODAY PT_PRO3 COME SHOP	They come to the shop today.
+730	LAST-WEEK PT_PRO1 WAKE-UP RARELY	I woke up last week rarely.
+731	WEEKEND PT_PRO3 NOT HELP MUM OFTEN	They do not help my mum on the weekend often.
+732	WHERE STUDENT GO Q	Where Does the student go in the morning?
+733	NIGHT PT_PRO1 HOT	I am hot at night.
+734	TODAY PT_PRO1 TEXT DAD	I text my dad today.
+735	MORNING PT_PRO2 CAN CALL TEACHER	You can call my teacher in the morning.
+736	NEXT-WEEK PT_PRO2 DRINK WATER Q	Will you drink water next week?
+737	YESTERDAY DOCTOR CLEAN	The doctor cleaned yesterday.
+738	WEEKEND PT_PRO2 DRINK WATER	You drink water on the weekend.
+739	PT_PRO1 READY	I am ready.
+740	AFTERNOON PT_PRO1 WANT CALL TEACHER	I want to call my teacher in the afternoon.
+741	TODAY PT_PRO2 GO BEACH	You go to the beach today.
+742	NEIGHBOUR WANT WORK	The neighbour wants to work.
+743	AFTERNOON PT_PRO3 WAKE-UP	They wake up in the afternoon.
+744	NOW CHILD GO BUS-STOP Q	Does the child go to the bus stop now?
+745	PT_PRO3 MEET DAD ALWAYS	They meet my dad always.
+746	MORNING PT_PRO2 HOT	You are hot in the morning.
+747	IF NEXT-WEEK PT_PRO2 STUDY THEN PT_PRO2 HOT	If you study, then you are hot next week.
+748	WHAT COACH WATCH Q	What Does the coach watch in the afternoon?
+749	NOW PT_PRO1 SLEEP	I sleep now.
+750	WHY PT_PRO3 WORK Q	Why Will they work next week?
+751	AFTERNOON CHILD HELP TEACHER	The child helps my teacher in the afternoon.
+752	WHY PT_PRO3 GO Q	Why Do they go in the morning?
+753	WHEN PT_PRO3 BUY BAG Q	When Do they buy at night?
+754	MORNING PT_PRO3 NOT BUY PHONE	They do not buy my phone in the morning.
+755	NEXT-WEEK PT_PRO2 NOT WATCH MOVIE RARELY	You will not watch a movie next week rarely.
+756	YESTERDAY PT_PRO3 CLEAN	They cleaned yesterday.
+757	TOMORROW DOCTOR STUDY ALWAYS	The doctor will study tomorrow always.
+758	MORNING NEIGHBOUR NOT COOK	The neighbour does not cook in the morning.
+759	WEEKEND PT_PRO1 NOT DRINK WATER	I do not drink water on the weekend.
+760	LAST-WEEK PT_PRO3 HELP COACH OFTEN	They helped my coach last week often.
+761	YESTERDAY NEIGHBOUR NOT CALL COACH	The neighbour did not call my coach yesterday.
+762	TODAY PT_PRO1 NOT HELP DAD ALWAYS	I do not help my dad today always.
+763	WHEN PT_PRO3 DRINK WATER Q	When Will they drink next week?
+764	PT_PRO2 WANT NOT PRACTISE	You do not want to practise.
+765	WHO PT_PRO3 CALL Q	Who Do they call today?
+766	MORNING PT_PRO3 WANT WATCH MUSIC OFTEN	They want to watch music in the morning often.
+767	MORNING STUDENT LISTEN PODCAST Q	Does the student listen to a podcast in the morning?
+768	NIGHT PT_PRO2 CAN HELP MUM	You can help my mum at night.
+769	WHEN PT_PRO2 WAKE-UP Q	When Do you wake up today?
+770	LAST-WEEK PT_PRO3 BUY BOOK	They bought a book last week.
+771	AFTERNOON COACH MUST TEXT NEIGHBOUR	The coach must text my neighbour in the afternoon.
+772	MORNING PT_PRO3 NOT WORK	They do not work in the morning.
+773	NIGHT PT_PRO1 WAKE-UP	I wake up at night.
+774	TODAY PT_PRO3 BUY MESSAGE	They buy a message today.
+775	IF TOMORROW PT_PRO3 GO CITY THEN PT_PRO3 TIRED	If they go to the city, then they are tired.
+776	NIGHT PT_PRO1 WANT RUN	I want to run at night.
+777	WEEKEND PT_PRO3 MEET COACH	They meet my coach on the weekend.
+778	TODAY PT_PRO1 CLEAN	I clean today.
+779	NEXT-WEEK PT_PRO3 CALL TEACHER SOMETIMES	They will call my teacher next week sometimes.
+780	TODAY PT_PRO2 NOT RUN	You do not run today.
+781	IF PT_PRO3 RUN THEN PT_PRO3 TIRED	If they run, then they are tired at night.
+782	NEXT-WEEK TEACHER CLEAN	The teacher will clean next week.
+783	WEEKEND PT_PRO1 NOT WORK	I do not work on the weekend.
+784	AFTERNOON PT_PRO1 EMAIL TEACHER FAST Q	Do I email my teacher in the afternoon quickly?
+785	WHAT DOCTOR DRINK Q	What Does the doctor drink in the afternoon?
+786	NIGHT PT_PRO1 COME SCHOOL	I come to school at night.
+787	MORNING PT_PRO3 WALK Q	Do they walk in the morning?
+788	NIGHT PT_PRO3 EMAIL FRIEND	They email my friend at night.
+789	TOMORROW PT_PRO3 LISTEN MOVIE SOMETIMES Q	Will they listen to a movie tomorrow sometimes?
+790	NEXT-WEEK PT_PRO1 CALL FRIEND Q	Will I call my friend next week?
+791	NIGHT STUDENT WANT NOT RUN RARELY	The student does not want to run at night rarely.
+792	WEEKEND PT_PRO1 MEET FRIEND	I meet my friend on the weekend.
+793	NIGHT PT_PRO3 MUST SEE CAR	They must see a car at night.
+794	LAST-WEEK PT_PRO1 PRACTISE FAST	I practised last week quickly.
+795	MAN WANT GO HOME SOMETIMES Q	The man wants to go to home sometimes?
+796	LAST-WEEK PT_PRO2 COME SCHOOL FAST	You came to school last week quickly.
+797	WHY PT_PRO1 TRAIN Q	Why Do I train in the afternoon?
+798	NEXT-WEEK WOMAN NOT COME SHOP	The woman will not come to the shop next week.
+799	NEXT-WEEK CHILD WANT RUN	The child wants to run next week.
+800	LAST-WEEK TEACHER SLEEP OFTEN	The teacher slept last week often.
+801	AFTERNOON PT_PRO1 CAN LISTEN MOVIE	I can listen to a movie in the afternoon.
+802	YESTERDAY DOCTOR STUDY Q	Did the doctor study yesterday?
+803	AFTERNOON PT_PRO3 NOT CLEAN	They do not clean in the afternoon.
+804	WEEKEND COACH NOT EMAIL MUM ALWAYS	The coach does not email my mum on the weekend always.
+805	YESTERDAY PT_PRO2 DRINK COFFEE Q	Did you drink coffee yesterday?
+806	MORNING PT_PRO3 WALK	They walk in the morning.
+807	MORNING MAN RUN SLOW	The man runs in the morning slowly.
+808	NOW TEACHER CLEAN	The teacher cleans now.
+809	YESTERDAY PT_PRO3 NOT STUDY	They did not study yesterday.
+810	HOW PT_PRO1 TRAIN Q	How Will I train next week?
+811	YESTERDAY PT_PRO2 GO HOME ALWAYS	You went to home yesterday always.
+812	TODAY PT_PRO1 EMAIL TEACHER	I email my teacher today.
+813	LAST-WEEK PT_PRO3 NOT LISTEN MOVIE	They did not listen to a movie last week.
+814	PT_PRO3 COME GYM Q	Do they come to the gym?
+815	IF CHILD WORK THEN CHILD READY	If the child works, then the child is ready.
+816	PT_PRO3 WANT COME HOME	They want to come to home.
+817	MORNING FRIEND HAPPY	My friend is happy in the morning.
+818	WHEN PT_PRO2 CLEAN Q	When Do you clean on the weekend?
+819	WEEKEND PT_PRO1 GOOD	I am good on the weekend.
+820	AFTERNOON PT_PRO3 PRACTISE	They practise in the afternoon.
+821	LAST-WEEK WOMAN SEE EMAIL	The woman saw an email last week.
+822	TODAY PT_PRO3 NOT SLEEP	They do not sleep today.
+823	WHO PT_PRO3 TEXT Q	Who Will they text tomorrow?
+824	MORNING PT_PRO1 COME BUS-STOP Q	Do I come to the bus stop in the morning?
+825	TODAY DOCTOR PRACTISE	The doctor practises today.
+826	AFTERNOON PT_PRO3 CLEAN	They clean in the afternoon.
+827	LAST-WEEK PT_PRO1 EAT RICE	I ate rice last week.
+828	LAST-WEEK PT_PRO2 COLD	You were cold last week.
+829	YESTERDAY FRIEND READ MONEY	My friend read money yesterday.
+830	PT_PRO1 WATCH MOVIE	I watch a movie.
+831	NIGHT PT_PRO1 COLD	I am cold at night.
+832	LAST-WEEK PT_PRO3 RUN OFTEN	They ran last week often.
+833	TODAY PT_PRO1 RUN	I run today.
+834	NEXT-WEEK PT_PRO2 MUST GO GYM	You must go to the gym next week.
+835	HOW PT_PRO2 CLEAN Q	How Do you clean in the morning?
+836	LAST-WEEK PT_PRO2 STUDY SOMETIMES Q	Did you study last week sometimes?
+837	NEXT-WEEK PT_PRO3 WORK	They will work next week.
+838	MORNING PT_PRO1 CAN NOT MEET FRIEND	I cannot meet my friend in the morning.
+839	MORNING TEACHER NOT RUN	The teacher does not run in the morning.
+840	NEIGHBOUR WANT HELP DAD	The neighbour wants to help my dad.
+841	WHEN PT_PRO3 READ PHONE Q	When Do they read in the morning?
+842	TOMORROW PT_PRO3 SEE KEY	They will see my keys tomorrow.
+843	WHEN PT_PRO1 DRINK Q	When Did I drink last week?
+844	YESTERDAY STUDENT STUDY	The student studied yesterday.
+845	PT_PRO2 HELP NEIGHBOUR	You help my neighbour.
+846	WEEKEND PT_PRO2 HELP MUM Q	Do you help my mum on the weekend?
+847	NIGHT PT_PRO2 WANT NOT WORK	You do not want to work at night.
+848	NOW PT_PRO3 TRAIN ALWAYS	They train now always.
+849	WEEKEND COACH SEE KEY	The coach sees my keys on the weekend.
+850	MORNING CHILD NOT RUN	The child does not run in the morning.
+851	WEEKEND PT_PRO1 TEXT TEACHER SLOW	I text my teacher on the weekend slowly.
+852	WEEKEND PT_PRO2 EMAIL COACH	You email my coach on the weekend.
+853	AFTERNOON PT_PRO2 WAKE-UP	You wake up in the afternoon.
+854	NEIGHBOUR NOT COOK	The neighbour does not cook.
+855	YESTERDAY PT_PRO1 NOT READ EMAIL	I did not read an email yesterday.
+856	NOW PT_PRO1 WORK Q	Do I work now?
+857	LAST-WEEK TEACHER NOT DRINK TEA	The teacher did not drink tea last week.
+858	TOMORROW PT_PRO3 NOT STUDY	They will not study tomorrow.
+859	AFTERNOON PT_PRO1 WANT NOT WALK	I do not want to walk in the afternoon.
+860	LAST-WEEK COACH NOT SEE MESSAGE	The coach did not see a message last week.
+861	NIGHT PT_PRO2 GOOD	You are good at night.
+862	PT_PRO1 WORK Q	Do I work?
+863	YESTERDAY PT_PRO2 NOT COME CITY	You did not come to the city yesterday.
+864	NOW PT_PRO3 GO CITY Q	Do they go to the city now?
+865	NEXT-WEEK PT_PRO1 NOT TRAIN ALWAYS	I will not train next week always.
+866	TOMORROW PT_PRO2 STUDY SOMETIMES	You will study tomorrow sometimes.
+867	LAST-WEEK PT_PRO2 WALK Q	Did you walk last week?
+868	WEEKEND PT_PRO3 WANT LISTEN PODCAST	They want to listen to a podcast on the weekend.
+869	WEEKEND FRIEND NOT CALL DAD	My friend does not call my dad on the weekend.
+870	NEXT-WEEK PT_PRO3 NOT COOK	They will not cook next week.
+871	AFTERNOON WOMAN PRACTISE	The woman practises in the afternoon.
+872	YESTERDAY PT_PRO1 NOT CLEAN	I did not clean yesterday.
+873	PT_PRO3 MEET DAD	They meet my dad.
+874	LAST-WEEK PT_PRO1 WATCH MUSIC Q	Did I watch music last week?
+875	IF DOCTOR WORK THEN DOCTOR HOT	If the doctor works, then the doctor is hot at night.
+876	HOW PT_PRO3 WALK Q	How Do they walk on the weekend?
+877	WHERE MAN GO Q	Where Will the man go next week?
+878	PT_PRO3 READ CAR ALWAYS	They read a car always.
+879	MORNING PT_PRO1 READ EMAIL	I read an email in the morning.
+880	PT_PRO2 TRAIN RARELY	You train rarely.
+881	PT_PRO3 NOT SEE KEY	They do not see my keys.
+882	NOW PT_PRO3 READ KEY	They read my keys now.
+883	AFTERNOON PT_PRO2 WANT WALK	You want to walk in the afternoon.
+884	NOW PT_PRO3 NOT TEXT MUM	They do not text my mum now.
+885	WHY PT_PRO2 PRACTISE Q	Why Do you practise in the afternoon?
+886	TOMORROW PT_PRO2 BUSY	You will be busy tomorrow.
+887	TOMORROW PT_PRO3 MUST SLEEP Q	They must sleep tomorrow?
+888	PT_PRO3 WALK Q	Do they walk?
+889	YESTERDAY PT_PRO3 NOT SEE BAG	They did not see my bag yesterday.
+890	WEEKEND TEACHER NOT CALL NEIGHBOUR	The teacher does not call my neighbour on the weekend.
+891	MORNING MAN PRACTISE	The man practises in the morning.
+892	IF WEEKEND PT_PRO2 WALK THEN PT_PRO2 BAD	If you walk, then you are bad on the weekend.
+893	LAST-WEEK DOCTOR COME PARK FAST Q	Did the doctor come to the park last week quickly?
+894	WEEKEND NEIGHBOUR WATCH MOVIE RARELY Q	Does the neighbour watch a movie on the weekend rarely?
+895	MORNING PT_PRO1 NOT TEXT COACH	I do not text my coach in the morning.
+896	TODAY PT_PRO2 MUST TRAIN SOMETIMES	You must train today sometimes.
+897	LAST-WEEK PT_PRO1 READY	I was ready last week.
+898	MORNING PT_PRO3 CLEAN	They clean in the morning.
+899	WHO PT_PRO1 MEET Q	Who Did I meet last week?
+900	AFTERNOON DOCTOR COOK ALWAYS Q	Does the doctor cook in the afternoon always?
+901	HOW PT_PRO2 COOK Q	How Do you cook?
+902	NOW PT_PRO3 CALL NEIGHBOUR Q	Do they call my neighbour now?
+903	TOMORROW PT_PRO3 READ KEY ALWAYS Q	Will they read my keys tomorrow always?
+904	WEEKEND STUDENT CLEAN OFTEN Q	Does the student clean on the weekend often?
+905	AFTERNOON PT_PRO3 NOT SEE SHOES SLOW	They do not see shoes in the afternoon slowly.
+906	PT_PRO1 RUN	I run.
+907	NOW PT_PRO1 TRAIN Q	Do I train now?
+908	NEXT-WEEK PT_PRO3 LISTEN MOVIE	They will listen to a movie next week.
+909	YESTERDAY PT_PRO2 STUDY	You studied yesterday.
+910	YESTERDAY WOMAN DRINK TEA	The woman drank tea yesterday.
+911	TODAY NEIGHBOUR BUY KEY Q	Does the neighbour buy my keys today?
+912	PT_PRO2 NOT SEE EMAIL	You do not see an email.
+913	YESTERDAY PT_PRO1 NOT EMAIL DAD	I did not email my dad yesterday.
+914	WHY PT_PRO2 PRACTISE Q	Why Did you practise last week?
+915	TOMORROW PT_PRO3 NOT COOK SOMETIMES	They will not cook tomorrow sometimes.
+916	AFTERNOON TEACHER MUST DRINK TEA	The teacher must drink tea in the afternoon.
+917	MORNING TEACHER EAT PIZZA SOMETIMES	The teacher eats pizza in the morning sometimes.
+918	AFTERNOON FRIEND NOT WAKE-UP	My friend does not wake up in the afternoon.
+919	PT_PRO3 NOT RUN	They do not run.
+920	TODAY PT_PRO2 NOT DRINK COFFEE SOMETIMES	You do not drink coffee today sometimes.
+921	TODAY PT_PRO2 NOT WATCH MOVIE	You do not watch a movie today.
+922	WEEKEND NEIGHBOUR DRINK WATER	The neighbour drinks water on the weekend.
+923	LAST-WEEK WOMAN SAD	The woman was sad last week.
+924	WEEKEND PT_PRO2 CALL COACH	You call my coach on the weekend.
+925	YESTERDAY DOCTOR NOT MEET DAD	The doctor did not meet my dad yesterday.
+926	NOW COACH WALK	The coach walks now.
+927	NEXT-WEEK PT_PRO3 WALK Q	Will they walk next week?
+928	IF AFTERNOON PT_PRO1 WALK THEN PT_PRO1 TIRED	If I walk, then I am tired.
+929	WEEKEND PT_PRO3 WATCH PODCAST SOMETIMES	They watch a podcast on the weekend sometimes.
+930	NIGHT PT_PRO1 CLEAN Q	Do I clean at night?
+931	WEEKEND PT_PRO3 GOOD	They are good on the weekend.
+932	TODAY PT_PRO1 NOT TRAIN SLOW	I do not train today slowly.
+933	MORNING PT_PRO1 GO PARK Q	Do I go to the park in the morning?
+934	AFTERNOON PT_PRO3 TEXT NEIGHBOUR Q	Do they text my neighbour in the afternoon?
+935	WEEKEND PT_PRO3 CLEAN	They clean on the weekend.
+936	NOW PT_PRO3 CAN NOT RUN ALWAYS	They cannot run now always.
+937	MORNING PT_PRO2 CAN GO PARK SOMETIMES Q	You can go to the park in the morning sometimes?
+938	NIGHT PT_PRO2 RUN	You run at night.
+939	MORNING MAN NOT WALK FAST	The man does not walk in the morning quickly.
+940	MORNING PT_PRO2 GO BUS-STOP	You go to the bus stop in the morning.
+941	TODAY DOCTOR NOT PRACTISE	The doctor does not practise today.
+942	IF PT_PRO3 TRAIN THEN PT_PRO3 COLD	If they train, then they are cold on the weekend.
+943	LAST-WEEK PT_PRO1 CALL DAD SLOW	I called my dad last week slowly.
+944	TOMORROW PT_PRO3 CAN RUN	They can run tomorrow.
+945	NEXT-WEEK PT_PRO1 WANT GO HOME	I want to go to home next week.
+946	NIGHT PT_PRO3 WATCH PODCAST	They watch a podcast at night.
+947	WEEKEND PT_PRO3 PRACTISE	They practise on the weekend.
+948	IF PT_PRO1 WALK THEN PT_PRO1 GOOD	If I walk, then I am good.
+949	AFTERNOON PT_PRO3 GO WORK RARELY	They go to work in the afternoon rarely.
+950	NIGHT PT_PRO1 BUY KEY	I buy my keys at night.
+951	WEEKEND PT_PRO2 SLEEP	You sleep on the weekend.
+952	MORNING PT_PRO3 WANT WORK SLOW	They want to work in the morning slowly.
+953	WHEN CHILD DRINK Q	When Does the child drink now?
+954	NIGHT DOCTOR NOT WORK	The doctor does not work at night.
+955	WHO PT_PRO2 CALL Q	Who Will you call tomorrow?
+956	WEEKEND FRIEND TRAIN FAST Q	Does my friend train on the weekend quickly?
+957	NOW PT_PRO1 WATCH MUSIC	I watch music now.
+958	WHERE PT_PRO1 GO Q	Where Do I go now?
+959	HOW PT_PRO3 STUDY Q	How Do they study at night?
+960	AFTERNOON PT_PRO2 MUST NOT WATCH MOVIE	You must not watch a movie in the afternoon.
+961	NIGHT PT_PRO2 WORK	You work at night.
+962	WEEKEND PT_PRO2 CLEAN Q	Do you clean on the weekend?
+963	TOMORROW PT_PRO3 RUN FAST Q	Will they run tomorrow quickly?
+964	AFTERNOON PT_PRO3 TRAIN	They train in the afternoon.
+965	HOW PT_PRO1 WALK Q	How Do I walk now?
+966	NIGHT PT_PRO1 TRAIN Q	Do I train at night?
+967	WHO PT_PRO3 MEET Q	Who Do they meet on the weekend?
+968	NOW PT_PRO2 LISTEN PODCAST	You listen to a podcast now.
+969	YESTERDAY CHILD NOT READ MONEY	The child did not read money yesterday.
+970	PT_PRO2 BUY MONEY	You buy money.
+971	NIGHT FRIEND CAN NOT WALK	My friend cannot walk at night.
+972	TOMORROW PT_PRO1 CAN READ CAR Q	I can read a car tomorrow?
+973	WHAT PT_PRO3 EAT Q	What Do they eat at night?
+974	MORNING WOMAN NOT MEET FRIEND ALWAYS	The woman does not meet my friend in the morning always.
+975	WEEKEND PT_PRO2 NOT STUDY	You do not study on the weekend.
+976	PT_PRO1 HELP COACH	I help my coach.
+977	WHY PT_PRO1 PRACTISE Q	Why Do I practise on the weekend?
+978	WHEN TEACHER TRAIN Q	When Did the teacher train last week?
+979	NIGHT NEIGHBOUR READ MONEY RARELY Q	Does the neighbour read money at night rarely?
+980	STUDENT WANT NOT CALL MUM	The student does not want to call my mum.
+981	NOW PT_PRO3 READY	They are ready now.
+982	YESTERDAY PT_PRO2 DRINK TEA	You drank tea yesterday.
+983	NOW PT_PRO2 WORK	You work now.
+984	CHILD NOT MEET NEIGHBOUR	The child does not meet my neighbour.
+985	WHY PT_PRO2 GO Q	Why Will you go tomorrow?
+986	LAST-WEEK PT_PRO3 READ KEY	They read my keys last week.
+987	NEXT-WEEK PT_PRO1 MUST COOK	I must cook next week.
+988	WEEKEND MAN SLEEP	The man sleeps on the weekend.
+989	LAST-WEEK PT_PRO1 GO HOME	I went to home last week.
+990	YESTERDAY CHILD MEET DAD Q	Did the child meet my dad yesterday?
+991	NOW CHILD CAN NOT LISTEN PODCAST	The child cannot listen to a podcast now.
+992	AFTERNOON PT_PRO3 GOOD	They are good in the afternoon.
+993	LAST-WEEK PT_PRO1 WORK	I worked last week.
+994	TOMORROW PT_PRO1 LISTEN MUSIC	I will listen to music tomorrow.
+995	NIGHT PT_PRO1 WANT NOT MEET NEIGHBOUR	I do not want to meet my neighbour at night.
+996	PT_PRO2 NOT LISTEN PODCAST	You do not listen to a podcast.
+997	WHY PT_PRO1 TRAIN Q	Why Did I train last week?
+998	LAST-WEEK PT_PRO1 TEXT COACH Q	Did I text my coach last week?
+999	WHAT FRIEND BUY Q	What Will my friend buy tomorrow?
+1000	IF PT_PRO2 WORK THEN PT_PRO2 GOOD	If you work, then you are good.
+1001	TODAY PT_PRO1 BUY BOOK Q	Do I buy a book today?
+1002	TODAY TEACHER HELP TEACHER	The teacher helps my teacher today.
+1003	HOW PT_PRO3 GO Q	How Did they go yesterday?
+1004	WHO PT_PRO1 EMAIL Q	Who Will I email tomorrow?
+1005	PT_PRO3 MUST HELP MUM RARELY	They must help my mum rarely.
+1006	TODAY TEACHER COOK SLOW	The teacher cooks today slowly.
+1007	AFTERNOON PT_PRO3 TIRED	They are tired in the afternoon.
+1008	WEEKEND PT_PRO1 NOT COOK	I do not cook on the weekend.
+1009	NEXT-WEEK MAN NOT CLEAN	The man will not clean next week.
+1010	AFTERNOON PT_PRO2 BUY KEY	You buy my keys in the afternoon.
+1011	WHEN DOCTOR BUY Q	When Did the doctor buy yesterday?
+1012	WEEKEND PT_PRO3 COME PARK	They come to the park on the weekend.
+1013	WHO PT_PRO3 EMAIL Q	Who Did they email yesterday?
+1014	WHO PT_PRO2 MEET Q	Who Do you meet in the afternoon?
+1015	WHO TEACHER TEXT Q	Who Does the teacher text?
+1016	NOW PT_PRO3 COOK	They cook now.
+1017	WEEKEND DOCTOR NOT PRACTISE	The doctor does not practise on the weekend.
+1018	WEEKEND PT_PRO1 CAN EAT RICE Q	I can eat rice on the weekend?
+1019	MORNING PT_PRO1 GO PARK	I go to the park in the morning.
+1020	LAST-WEEK PT_PRO3 CLEAN Q	Did they clean last week?
+1021	AFTERNOON PT_PRO3 BUY MONEY	They buy money in the afternoon.
+1022	NOW PT_PRO3 MUST MEET COACH Q	They must meet my coach now?
+1023	WHY PT_PRO2 PRACTISE Q	Why Will you practise next week?
+1024	TODAY PT_PRO1 CALL FRIEND	I call my friend today.
+1025	WEEKEND PT_PRO3 TRAIN	They train on the weekend.
+1026	TODAY PT_PRO3 GO GYM FAST	They go to the gym today quickly.
+1027	TOMORROW PT_PRO2 MUST EAT RICE	You must eat rice tomorrow.
+1028	LAST-WEEK PT_PRO2 WALK FAST	You walked last week quickly.
+1029	NEXT-WEEK PT_PRO1 NOT DRINK WATER	I will not drink water next week.
+1030	NOW COACH EMAIL NEIGHBOUR	The coach emails my neighbour now.
+1031	HOW COACH STUDY Q	How Does the coach study in the afternoon?
+1032	TOMORROW FRIEND SEE SHOES	My friend will see shoes tomorrow.
+1033	WHO PT_PRO3 TEXT Q	Who Did they text last week?
+1034	WHO PT_PRO2 HELP Q	Who Do you help on the weekend?
+1035	TODAY PT_PRO3 HELP FRIEND	They help my friend today.
+1036	WHEN PT_PRO2 WATCH Q	When Did you watch last week?
+1037	NOW PT_PRO1 EMAIL DAD	I email my dad now.
+1038	NIGHT PT_PRO2 READ BAG SOMETIMES	You read my bag at night sometimes.
+1039	LAST-WEEK PT_PRO3 CALL COACH	They called my coach last week.
+1040	PT_PRO2 NOT WATCH MOVIE	You do not watch a movie.
+1041	NEXT-WEEK PT_PRO1 NOT TRAIN	I will not train next week.
+1042	NIGHT PT_PRO2 BUY SHOES	You buy shoes at night.
+1043	TEACHER HELP COACH FAST	The teacher helps my coach quickly.
+1044	WEEKEND PT_PRO1 NOT EMAIL NEIGHBOUR	I do not email my neighbour on the weekend.
+1045	NIGHT PT_PRO3 GO BEACH	They go to the beach at night.
+1046	TODAY WOMAN NOT LISTEN PODCAST	The woman does not listen to a podcast today.
+1047	YESTERDAY PT_PRO3 WAKE-UP Q	Did they wake up yesterday?
+1048	NOW PT_PRO2 MUST COME PARK	You must come to the park now.
+1049	MORNING PT_PRO1 WAKE-UP Q	Do I wake up in the morning?
+1050	TODAY PT_PRO3 CALL DAD Q	Do they call my dad today?
+1051	NEXT-WEEK PT_PRO1 PRACTISE	I will practise next week.
+1052	HOW STUDENT STUDY Q	How Did the student study yesterday?
+1053	TODAY PT_PRO2 TEXT FRIEND	You text my friend today.
+1054	WHY WOMAN WORK Q	Why Did the woman work last week?
+1055	AFTERNOON PT_PRO3 MUST EMAIL DAD	They must email my dad in the afternoon.
+1056	LAST-WEEK NEIGHBOUR EMAIL COACH	The neighbour emailed my coach last week.
+1057	WEEKEND PT_PRO2 PRACTISE Q	Do you practise on the weekend?
+1058	TODAY DOCTOR GO HOME	The doctor goes to home today.
+1059	TOMORROW PT_PRO3 MEET NEIGHBOUR FAST	They will meet my neighbour tomorrow quickly.
+1060	LAST-WEEK PT_PRO2 DRINK COFFEE Q	Did you drink coffee last week?
+1061	HOW CHILD CLEAN Q	How Will the child clean next week?
+1062	WHEN FRIEND CALL Q	When Does my friend call in the morning?
+1063	IF WOMAN STUDY THEN WOMAN READY	If the woman studies, then the woman is ready on the weekend.
+1064	TOMORROW PT_PRO3 WATCH MOVIE FAST Q	Will they watch a movie tomorrow quickly?
+1065	WHO PT_PRO1 TEXT Q	Who Did I text yesterday?
+1066	TOMORROW PT_PRO2 LISTEN PODCAST	You will listen to a podcast tomorrow.
+1067	TOMORROW PT_PRO3 BUY PHONE	They will buy my phone tomorrow.
+1068	NEXT-WEEK PT_PRO1 READ KEY	I will read my keys next week.
+1069	FRIEND READ EMAIL RARELY Q	Does my friend read an email rarely?
+1070	TODAY PT_PRO1 CLEAN Q	Do I clean today?
+1071	MORNING WOMAN CAN BUY MONEY	The woman can buy money in the morning.
+1072	WEEKEND PT_PRO1 CAN WORK	I can work on the weekend.
+1073	WHAT PT_PRO1 READ Q	What Do I read in the afternoon?
+1074	NEIGHBOUR HOT	The neighbour is hot.
+1075	NOW PT_PRO2 NOT CLEAN RARELY	You do not clean now rarely.
+1076	NEXT-WEEK MAN GO SCHOOL ALWAYS	The man will go to school next week always.
+1077	NEXT-WEEK PT_PRO3 NOT COME PARK SLOW	They will not come to the park next week slowly.
+1078	NIGHT PT_PRO2 MUST READ SHOES	You must read shoes at night.
+1079	LAST-WEEK PT_PRO1 NOT EMAIL MUM	I did not email my mum last week.
+1080	NEXT-WEEK PT_PRO2 BUY EMAIL	You will buy an email next week.
+1081	WHO PT_PRO1 MEET Q	Who Do I meet at night?
+1082	TODAY PT_PRO3 DRINK JUICE Q	Do they drink juice today?
+1083	PT_PRO1 NOT LISTEN MOVIE RARELY	I do not listen to a movie rarely.
+1084	NOW MAN BAD	The man is bad now.
+1085	MORNING PT_PRO2 CALL DAD	You call my dad in the morning.
+1086	AFTERNOON PT_PRO3 RUN RARELY	They run in the afternoon rarely.
+1087	AFTERNOON PT_PRO3 EAT FOOD	They eat food in the afternoon.
+1088	PT_PRO3 WATCH PODCAST	They watch a podcast.
+1089	TODAY PT_PRO2 HELP COACH	You help my coach today.
+1090	MORNING WOMAN GO PARK	The woman goes to the park in the morning.
+1091	LAST-WEEK PT_PRO1 GO GYM	I went to the gym last week.
+1092	TOMORROW STUDENT COOK Q	Will the student cook tomorrow?
+1093	TOMORROW PT_PRO2 HELP DAD	You will help my dad tomorrow.
+1094	TODAY DOCTOR SEE BAG	The doctor sees my bag today.
+1095	NIGHT CHILD SEE KEY	The child sees my keys at night.
+1096	AFTERNOON PT_PRO1 TRAIN	I train in the afternoon.
+1097	MORNING PT_PRO3 EAT PIZZA	They eat pizza in the morning.
+1098	TOMORROW PT_PRO3 CAN SEE BOOK Q	They can see a book tomorrow?
+1099	WHEN PT_PRO3 STUDY Q	When Will they study next week?
+1100	NIGHT PT_PRO2 NOT GO HOME	You do not go to home at night.
+1101	PT_PRO3 MUST WATCH MOVIE FAST	They must watch a movie quickly.
+1102	AFTERNOON PT_PRO3 CAN PRACTISE Q	They can practise in the afternoon?
+1103	WHY PT_PRO3 TRAIN Q	Why Did they train yesterday?
+1104	WEEKEND PT_PRO3 NOT SEE MONEY	They do not see money on the weekend.
+1105	AFTERNOON COACH CAN RUN	The coach can run in the afternoon.
+1106	NIGHT PT_PRO3 GO WORK	They go to work at night.
+1107	MORNING PT_PRO1 TEXT COACH ALWAYS	I text my coach in the morning always.
+1108	WEEKEND CHILD WAKE-UP SOMETIMES	The child wakes up on the weekend sometimes.
+1109	LAST-WEEK PT_PRO1 CALL TEACHER	I called my teacher last week.
+1110	AFTERNOON PT_PRO1 WANT BUY BOOK	I want to buy a book in the afternoon.
+1111	PT_PRO3 WAKE-UP Q	Do they wake up?
+1112	NIGHT PT_PRO1 NOT LISTEN MOVIE	I do not listen to a movie at night.
+1113	HOW MAN TRAIN Q	How Does the man train in the morning?
+1114	NEXT-WEEK PT_PRO1 DRINK COFFEE	I will drink coffee next week.
+1115	NEXT-WEEK PT_PRO1 CLEAN	I will clean next week.
+1116	PT_PRO1 DRINK WATER	I drink water.
+1117	NIGHT PT_PRO3 MUST COOK	They must cook at night.
+1118	WHEN MAN MEET Q	When Does the man meet in the morning?
+1119	MORNING STUDENT BUSY	The student is busy in the morning.
+1120	TODAY COACH READ EMAIL FAST Q	Does the coach read an email today quickly?
+1121	NEXT-WEEK PT_PRO1 LISTEN MOVIE Q	Will I listen to a movie next week?
+1122	HOW DOCTOR CLEAN Q	How Does the doctor clean today?
+1123	AFTERNOON DOCTOR MEET TEACHER	The doctor meets my teacher in the afternoon.
+1124	WHO CHILD CALL Q	Who Does the child call at night?
+1125	NIGHT PT_PRO1 BUSY	I am busy at night.
+1126	TOMORROW DOCTOR GO CITY	The doctor will go to the city tomorrow.
+1127	WEEKEND PT_PRO2 CAN PRACTISE Q	You can practise on the weekend?
+1128	PT_PRO1 PRACTISE	I practise.
+1129	TOMORROW PT_PRO3 SEE PHONE	They will see my phone tomorrow.
+1130	MORNING PT_PRO2 RUN FAST	You run in the morning quickly.
+1131	NOW PT_PRO3 EMAIL DAD Q	Do they email my dad now?
+1132	NEXT-WEEK PT_PRO1 SLEEP	I will sleep next week.
+1133	TODAY PT_PRO1 LISTEN MOVIE Q	Do I listen to a movie today?
+1134	PT_PRO1 SEE EMAIL SLOW	I see an email slowly.
+1135	WHO PT_PRO3 TEXT Q	Who Do they text at night?
+1136	WHERE PT_PRO1 GO Q	Where Did I go last week?
+1137	YESTERDAY PT_PRO2 TRAIN	You trained yesterday.
+1138	TOMORROW WOMAN HOT	The woman will be hot tomorrow.
+1139	IF PT_PRO2 WALK THEN PT_PRO2 TIRED	If you walk, then you are tired.
+1140	MORNING PT_PRO3 WAKE-UP SLOW	They wake up in the morning slowly.
+1141	TOMORROW PT_PRO1 CLEAN	I will clean tomorrow.
+1142	YESTERDAY PT_PRO2 WAKE-UP	You woke up yesterday.
+1143	YESTERDAY PT_PRO1 NOT BUY CAR	I did not buy a car yesterday.
+1144	WHO TEACHER MEET Q	Who Does the teacher meet?
+1145	LAST-WEEK NEIGHBOUR NOT HELP NEIGHBOUR	The neighbour did not help my neighbour last week.
+1146	TOMORROW PT_PRO1 WATCH MUSIC	I will watch music tomorrow.
+1147	NEXT-WEEK STUDENT MUST COOK Q	The student must cook next week?
+1148	LAST-WEEK PT_PRO1 NOT WATCH MOVIE	I did not watch a movie last week.
+1149	TODAY PT_PRO1 WORK	I work today.
+1150	TOMORROW PT_PRO1 BUY MESSAGE SLOW	I will buy a message tomorrow slowly.
+1151	WEEKEND PT_PRO1 RUN Q	Do I run on the weekend?
+1152	AFTERNOON PT_PRO2 GO BEACH ALWAYS	You go to the beach in the afternoon always.
+1153	WHY COACH STUDY Q	Why Does the coach study at night?
+1154	AFTERNOON PT_PRO3 READY	They are ready in the afternoon.
+1155	WEEKEND PT_PRO2 NOT RUN	You do not run on the weekend.
+1156	LAST-WEEK PT_PRO3 COME GYM	They came to the gym last week.
+1157	AFTERNOON PT_PRO2 WANT CALL COACH	You want to call my coach in the afternoon.
+1158	NOW MAN RUN FAST	The man runs now quickly.
+1159	MORNING CHILD WANT EAT APPLE	The child wants to eat an apple in the morning.
+1160	IF NIGHT PT_PRO3 TRAIN THEN PT_PRO3 BUSY	If they train, then they are busy.
+1161	WHEN PT_PRO1 HELP TEACHER Q	When Do I help in the afternoon?
+1162	MORNING PT_PRO3 MUST STUDY SLOW Q	They must study in the morning slowly?
+1163	WHY PT_PRO2 TRAIN Q	Why Do you train on the weekend?
+1164	NIGHT PT_PRO2 HELP TEACHER Q	Do you help my teacher at night?
+1165	TOMORROW PT_PRO3 RUN Q	Will they run tomorrow?
+1166	LAST-WEEK PT_PRO3 WALK	They walked last week.
+1167	TODAY PT_PRO2 WATCH MOVIE	You watch a movie today.
+1168	WEEKEND PT_PRO2 WANT NOT HELP FRIEND	You do not want to help my friend on the weekend.
+1169	AFTERNOON PT_PRO1 EMAIL NEIGHBOUR Q	Do I email my neighbour in the afternoon?
+1170	PT_PRO2 DRINK COFFEE Q	Do you drink coffee?
+1171	NIGHT PT_PRO1 NOT READ BOOK	I do not read a book at night.
+1172	IF PT_PRO3 TRAIN THEN PT_PRO3 HOT	If they train, then they are hot.
+1173	TOMORROW PT_PRO2 LISTEN MUSIC Q	Will you listen to music tomorrow?
+1174	PT_PRO3 CAN COOK	They can cook.
+1175	YESTERDAY PT_PRO1 RUN Q	Did I run yesterday?
+1176	LAST-WEEK PT_PRO1 SLEEP	I slept last week.
+1177	IF PT_PRO3 STUDY THEN PT_PRO3 SICK	If they study, then they are sick.
+1178	YESTERDAY PT_PRO3 RUN SLOW	They ran yesterday slowly.
+1179	YESTERDAY MAN STUDY Q	Did the man study yesterday?
+1180	YESTERDAY PT_PRO3 NOT MEET MUM	They did not meet my mum yesterday.
+1181	NEXT-WEEK DOCTOR GOOD	The doctor will be good next week.
+1182	MORNING PT_PRO1 BUY MONEY	I buy money in the morning.
+1183	NIGHT TEACHER GO SCHOOL	The teacher goes to school at night.
+1184	WEEKEND PT_PRO2 MUST WALK	You must walk on the weekend.
+1185	TODAY PT_PRO2 SLEEP Q	Do you sleep today?
+1186	NIGHT PT_PRO1 HELP FRIEND	I help my friend at night.
+1187	DOCTOR HELP TEACHER	The doctor helps my teacher.
+1188	WHEN PT_PRO2 CLEAN Q	When Did you clean yesterday?
+1189	MORNING DOCTOR WALK Q	Does the doctor walk in the morning?
+1190	IF MORNING PT_PRO3 STUDY THEN PT_PRO3 GOOD	If they study, then they are good.
+1191	NOW FRIEND NOT RUN	My friend does not run now.
+1192	AFTERNOON COACH MUST RUN	The coach must run in the afternoon.
+1193	TODAY PT_PRO2 CAN COOK	You can cook today.
+1194	WEEKEND PT_PRO1 STUDY	I study on the weekend.
+1195	PT_PRO2 NOT GO BUS-STOP	You do not go to the bus stop.
+1196	WHY PT_PRO3 TRAIN Q	Why Do they train on the weekend?
+1197	TODAY PT_PRO1 NOT LISTEN PODCAST	I do not listen to a podcast today.
+1198	WHERE PT_PRO2 GO Q	Where Do you go now?
+1199	WHY PT_PRO1 TRAIN Q	Why Will I train tomorrow?
+1200	TOMORROW MAN NOT EMAIL NEIGHBOUR	The man will not email my neighbour tomorrow.
+1201	NEXT-WEEK PT_PRO1 BAD	I will be bad next week.
+1202	PT_PRO3 NOT LISTEN PODCAST	They do not listen to a podcast.
+1203	LAST-WEEK DOCTOR SAD	The doctor was sad last week.
+1204	NOW WOMAN PRACTISE	The woman practises now.
+1205	AFTERNOON PT_PRO2 MUST PRACTISE FAST	You must practise in the afternoon quickly.
+1206	NIGHT PT_PRO1 BUY EMAIL	I buy an email at night.
+1207	AFTERNOON PT_PRO2 WATCH PODCAST	You watch a podcast in the afternoon.
+1208	TOMORROW STUDENT WANT NOT PRACTISE	The student does not want to practise tomorrow.
+1209	MORNING PT_PRO1 MEET TEACHER	I meet my teacher in the morning.
+1210	WHAT PT_PRO2 READ Q	What Will you read next week?
+1211	TODAY TEACHER COME SHOP	The teacher comes to the shop today.
+1212	YESTERDAY PT_PRO1 SEE EMAIL	I saw an email yesterday.
+1213	WHAT PT_PRO1 BUY Q	What Do I buy today?
+1214	PT_PRO2 SEE CAR	You see a car.
+1215	AFTERNOON PT_PRO2 SLEEP	You sleep in the afternoon.
+1216	MORNING PT_PRO1 WORK SOMETIMES	I work in the morning sometimes.
+1217	LAST-WEEK PT_PRO2 READ SHOES	You read shoes last week.
+1218	WHY PT_PRO3 TRAIN Q	Why Do they train now?
+1219	IF MORNING PT_PRO2 TRAIN THEN PT_PRO2 COLD	If you train, then you are cold.
+1220	TODAY FRIEND HAPPY	My friend is happy today.
+1221	TOMORROW PT_PRO2 GO GYM	You will go to the gym tomorrow.
+1222	WHY PT_PRO3 GO Q	Why Will they go next week?
+1223	NOW PT_PRO3 MUST RUN Q	They must run now?
+1224	NOW PT_PRO2 TRAIN Q	Do you train now?
+1225	LAST-WEEK CHILD TIRED	The child was tired last week.
+1226	NIGHT PT_PRO2 WORK SOMETIMES Q	Do you work at night sometimes?
+1227	NEXT-WEEK PT_PRO1 SLEEP Q	Will I sleep next week?
+1228	YESTERDAY PT_PRO2 NOT BUY SHOES SOMETIMES	You did not buy shoes yesterday sometimes.
+1229	NOW PT_PRO2 HAPPY	You are happy now.
+1230	TOMORROW PT_PRO2 GO BEACH Q	Will you go to the beach tomorrow?
+1231	WHY PT_PRO3 STUDY Q	Why Do they study in the morning?
+1232	WEEKEND CHILD TIRED	The child is tired on the weekend.
+1233	WHEN PT_PRO1 TEXT COACH Q	When Do I text?
+1234	PT_PRO1 NOT READ BOOK	I do not read a book.
+1235	NOW CHILD SLEEP	The child sleeps now.
+1236	PT_PRO1 TIRED	I am tired.
+1237	YESTERDAY PT_PRO1 NOT LISTEN MUSIC	I did not listen to music yesterday.
+1238	NIGHT PT_PRO2 LISTEN MOVIE Q	Do you listen to a movie at night?
+1239	WEEKEND MAN NOT CLEAN	The man does not clean on the weekend.
+1240	AFTERNOON NEIGHBOUR SLEEP	The neighbour sleeps in the afternoon.
+1241	TODAY PT_PRO1 BAD	I am bad today.
+1242	TOMORROW PT_PRO1 CAN WORK	I can work tomorrow.
+1243	AFTERNOON PT_PRO1 READY	I am ready in the afternoon.
+1244	LAST-WEEK PT_PRO2 CLEAN	You cleaned last week.
+1245	TODAY COACH LISTEN MUSIC	The coach listens to music today.
+1246	NEXT-WEEK TEACHER NOT COOK	The teacher will not cook next week.
+1247	NEXT-WEEK PT_PRO1 WATCH MOVIE	I will watch a movie next week.
+1248	WHY PT_PRO3 TRAIN Q	Why Will they train next week?
+1249	WHEN PT_PRO3 WALK Q	When Do they walk today?
+1250	YESTERDAY MAN WORK	The man worked yesterday.
+1251	WHEN PT_PRO1 SLEEP Q	When Do I sleep in the morning?
+1252	WEEKEND PT_PRO2 NOT READ KEY	You do not read my keys on the weekend.
+1253	NIGHT PT_PRO3 NOT COOK	They do not cook at night.
+1254	AFTERNOON PT_PRO2 NOT WAKE-UP	You do not wake up in the afternoon.
+1255	YESTERDAY PT_PRO1 SEE BOOK RARELY Q	Did I see a book yesterday rarely?
+1256	NEXT-WEEK COACH NOT BUY KEY	The coach will not buy my keys next week.
+1257	NEXT-WEEK PT_PRO1 WANT EAT PIZZA	I want to eat pizza next week.
+1258	TOMORROW PT_PRO3 COOK	They will cook tomorrow.
+1259	YESTERDAY PT_PRO1 EAT PIZZA	I ate pizza yesterday.
+1260	YESTERDAY STUDENT WORK	The student worked yesterday.
+1261	WHEN CHILD CALL TEACHER Q	When Does the child call at night?
+1262	MORNING NEIGHBOUR TEXT DAD	The neighbour texts my dad in the morning.
+1263	AFTERNOON STUDENT WANT NOT MEET NEIGHBOUR	The student does not want to meet my neighbour in the afternoon.
+1264	NOW PT_PRO1 NOT COME CITY	I do not come to the city now.
+1265	AFTERNOON PT_PRO3 MUST NOT HELP DAD	They must not help my dad in the afternoon.
+1266	NEXT-WEEK PT_PRO3 WAKE-UP	They will wake up next week.
+1267	TODAY PT_PRO1 EMAIL COACH	I email my coach today.
+1268	NEXT-WEEK PT_PRO1 CALL COACH	I will call my coach next week.
+1269	WHAT STUDENT EAT Q	What Does the student eat today?
+1270	YESTERDAY PT_PRO3 WORK	They worked yesterday.
+1271	WEEKEND CHILD HELP MUM	The child helps my mum on the weekend.
+1272	TODAY PT_PRO2 TEXT COACH SLOW	You text my coach today slowly.
+1273	TOMORROW CHILD NOT TRAIN	The child will not train tomorrow.
+1274	LAST-WEEK CHILD CALL MUM Q	Did the child call my mum last week?
+1275	MORNING PT_PRO2 EAT NOODLE	You eat noodles in the morning.
+1276	WHEN PT_PRO3 SLEEP Q	When Do they sleep in the afternoon?
+1277	YESTERDAY PT_PRO2 EAT PIZZA Q	Did you eat pizza yesterday?
+1278	NIGHT COACH DRINK JUICE Q	Does the coach drink juice at night?
+1279	LAST-WEEK PT_PRO1 NOT STUDY	I did not study last week.
+1280	LAST-WEEK PT_PRO3 NOT EMAIL NEIGHBOUR	They did not email my neighbour last week.
+1281	TOMORROW PT_PRO3 READ BAG	They will read my bag tomorrow.
+1282	MORNING MAN PRACTISE Q	Does the man practise in the morning?
+1283	TOMORROW PT_PRO3 NOT READ CAR	They will not read a car tomorrow.
+1284	NIGHT WOMAN COME GYM Q	Does the woman come to the gym at night?
+1285	TODAY PT_PRO2 LISTEN MUSIC Q	Do you listen to music today?
+1286	WEEKEND PT_PRO2 TEXT MUM Q	Do you text my mum on the weekend?
+1287	LAST-WEEK PT_PRO1 SAD	I was sad last week.
+1288	AFTERNOON PT_PRO3 WANT GO BEACH SOMETIMES	They want to go to the beach in the afternoon sometimes.
+1289	NOW FRIEND NOT LISTEN MUSIC	My friend does not listen to music now.
+1290	LAST-WEEK PT_PRO2 NOT DRINK COFFEE SOMETIMES	You did not drink coffee last week sometimes.
+1291	LAST-WEEK PT_PRO3 NOT STUDY	They did not study last week.
+1292	NIGHT NEIGHBOUR DRINK JUICE FAST Q	Does the neighbour drink juice at night quickly?
+1293	YESTERDAY PT_PRO2 CLEAN	You cleaned yesterday.
+1294	NEXT-WEEK PT_PRO2 NOT TRAIN SOMETIMES	You will not train next week sometimes.
+1295	WHO PT_PRO2 HELP Q	Who Did you help last week?
+1296	NEXT-WEEK DOCTOR SEE BOOK	The doctor will see a book next week.
+1297	IF PT_PRO1 WALK THEN PT_PRO1 BAD	If I walk, then I am bad.
+1298	PT_PRO1 NOT TEXT MUM	I do not text my mum.
+1299	YESTERDAY NEIGHBOUR NOT SEE MESSAGE OFTEN	The neighbour did not see a message yesterday often.
+1300	NIGHT PT_PRO1 MUST COME SHOP	I must come to the shop at night.
+1301	AFTERNOON PT_PRO1 WANT NOT MEET COACH	I do not want to meet my coach in the afternoon.
+1302	NEXT-WEEK WOMAN NOT GO SHOP	The woman will not go to the shop next week.
+1303	WEEKEND COACH BUSY	The coach is busy on the weekend.
+1304	AFTERNOON PT_PRO1 NOT COOK SOMETIMES	I do not cook in the afternoon sometimes.
+1305	STUDENT NOT HELP DAD	The student does not help my dad.
+1306	WHEN PT_PRO1 HELP NEIGHBOUR Q	When Do I help at night?
+1307	YESTERDAY PT_PRO1 TEXT DAD ALWAYS	I texted my dad yesterday always.
+1308	YESTERDAY PT_PRO3 CALL COACH	They called my coach yesterday.
+1309	LAST-WEEK PT_PRO2 NOT CALL MUM	You did not call my mum last week.
+1310	WEEKEND PT_PRO1 NOT BUY KEY	I do not buy my keys on the weekend.
+1311	WHY PT_PRO2 STUDY Q	Why Do you study in the morning?
+1312	TODAY PT_PRO3 CAN COME HOME	They can come to home today.
+1313	MORNING PT_PRO2 WORK SOMETIMES Q	Do you work in the morning sometimes?
+1314	TODAY PT_PRO1 MEET DAD	I meet my dad today.
+1315	TODAY PT_PRO3 HELP MUM	They help my mum today.
+1316	YESTERDAY PT_PRO3 SEE BAG	They saw my bag yesterday.
+1317	YESTERDAY PT_PRO1 CALL DAD Q	Did I call my dad yesterday?
+1318	NIGHT PT_PRO2 MEET TEACHER Q	Do you meet my teacher at night?
+1319	NEXT-WEEK PT_PRO3 WALK	They will walk next week.
+1320	NIGHT PT_PRO2 NOT WALK	You do not walk at night.
+1321	LAST-WEEK NEIGHBOUR EMAIL FRIEND	The neighbour emailed my friend last week.
+1322	TOMORROW PT_PRO2 MUST WALK	You must walk tomorrow.
+1323	PT_PRO3 SAD	They are sad.
+1324	TOMORROW NEIGHBOUR WORK Q	Will the neighbour work tomorrow?
+1325	TODAY PT_PRO3 EAT PIZZA	They eat pizza today.
+1326	PT_PRO1 CAN TEXT COACH	I can text my coach.
+1327	MORNING STUDENT WANT STUDY SLOW	The student wants to study in the morning slowly.
+1328	PT_PRO2 NOT TRAIN	You do not train.
+1329	NIGHT PT_PRO3 EAT RICE	They eat rice at night.
+1330	YESTERDAY FRIEND SLEEP	My friend slept yesterday.
+1331	NIGHT PT_PRO2 NOT PRACTISE	You do not practise at night.
+1332	NIGHT PT_PRO2 COOK	You cook at night.
+1333	TOMORROW MAN WORK	The man will work tomorrow.
+1334	TOMORROW COACH MUST PRACTISE SLOW	The coach must practise tomorrow slowly.
+1335	TODAY FRIEND NOT EAT APPLE	My friend does not eat an apple today.
+1336	YESTERDAY PT_PRO1 NOT COME SCHOOL	I did not come to school yesterday.
+1337	WHEN FRIEND LISTEN MUSIC Q	When Did my friend listen last week?
+1338	WHO PT_PRO1 HELP Q	Who Do I help?
+1339	YESTERDAY PT_PRO1 PRACTISE	I practised yesterday.
+1340	NIGHT PT_PRO2 COLD	You are cold at night.
+1341	WEEKEND MAN NOT LISTEN MUSIC FAST	The man does not listen to music on the weekend quickly.
+1342	NIGHT PT_PRO3 COOK	They cook at night.
+1343	TOMORROW PT_PRO2 TRAIN	You will train tomorrow.
+1344	NOW NEIGHBOUR STUDY	The neighbour studies now.
+1345	NOW COACH NOT HELP FRIEND	The coach does not help my friend now.
+1346	TODAY PT_PRO2 PRACTISE Q	Do you practise today?
+1347	YESTERDAY PT_PRO1 DRINK JUICE	I drank juice yesterday.
+1348	AFTERNOON PT_PRO3 SEE PHONE	They see my phone in the afternoon.
+1349	NEXT-WEEK DOCTOR NOT RUN	The doctor will not run next week.
+1350	YESTERDAY PT_PRO1 PRACTISE Q	Did I practise yesterday?
+1351	WHO PT_PRO3 TEXT Q	Who Will they text next week?
+1352	NIGHT PT_PRO1 RUN	I run at night.
+1353	WEEKEND PT_PRO2 MUST NOT WORK ALWAYS	You must not work on the weekend always.
+1354	MORNING DOCTOR SLEEP	The doctor sleeps in the morning.
+1355	MORNING PT_PRO1 MUST SEE BAG	I must see my bag in the morning.
+1356	IF PT_PRO1 GO BUS-STOP THEN PT_PRO1 BAD	If I go to the bus stop, then I am bad.
+1357	PT_PRO1 WAKE-UP SLOW	I wake up slowly.
+1358	TODAY PT_PRO2 WORK	You work today.
+1359	LAST-WEEK PT_PRO2 READ PHONE FAST	You read my phone last week quickly.
+1360	TODAY PT_PRO1 CAN TEXT NEIGHBOUR	I can text my neighbour today.
+1361	NEXT-WEEK PT_PRO2 EMAIL DAD	You will email my dad next week.
+1362	WHEN CHILD WALK Q	When Did the child walk yesterday?
+1363	WHAT PT_PRO2 SEE Q	What Will you see tomorrow?
+1364	TOMORROW PT_PRO3 DRINK TEA	They will drink tea tomorrow.
+1365	NIGHT FRIEND WATCH MUSIC Q	Does my friend watch music at night?
+1366	NEXT-WEEK MAN COME BUS-STOP FAST Q	Will the man come to the bus stop next week quickly?
+1367	NEXT-WEEK PT_PRO3 BAD	They will be bad next week.
+1368	PT_PRO2 NOT COME CITY	You do not come to the city.
+1369	PT_PRO2 MEET TEACHER Q	Do you meet my teacher?
+1370	IF PT_PRO1 RUN THEN PT_PRO1 BAD	If I run, then I am bad.
+1371	WHAT CHILD WATCH Q	What Will the child watch tomorrow?
+1372	LAST-WEEK PT_PRO3 NOT LISTEN MUSIC	They did not listen to music last week.
+1373	NIGHT PT_PRO2 SLEEP	You sleep at night.
+1374	MORNING STUDENT WALK	The student walks in the morning.
+1375	MORNING PT_PRO2 NOT BUY MESSAGE	You do not buy a message in the morning.
+1376	YESTERDAY NEIGHBOUR WATCH MUSIC	The neighbour watched music yesterday.
+1377	WEEKEND PT_PRO2 NOT TEXT MUM	You do not text my mum on the weekend.
+1378	NIGHT PT_PRO3 WAKE-UP	They wake up at night.
+1379	WHERE PT_PRO3 GO Q	Where Do they go now?
+1380	NOW PT_PRO2 SLEEP SOMETIMES Q	Do you sleep now sometimes?
+1381	NEXT-WEEK PT_PRO3 STUDY	They will study next week.
+1382	HOW PT_PRO1 RUN Q	How Did I run yesterday?
+1383	WHAT PT_PRO2 LISTEN Q	What Do you listen now?
+1384	LAST-WEEK PT_PRO2 SICK	You were sick last week.
+1385	WHY PT_PRO1 STUDY Q	Why Did I study yesterday?
+1386	HOW PT_PRO3 RUN Q	How Did they run yesterday?
+1387	MORNING PT_PRO3 CALL TEACHER Q	Do they call my teacher in the morning?
+1388	NOW FRIEND NOT TRAIN	My friend does not train now.
+1389	NEXT-WEEK PT_PRO1 BUY KEY	I will buy my keys next week.
+1390	TOMORROW PT_PRO2 MUST NOT EMAIL COACH	You must not email my coach tomorrow.
+1391	TOMORROW PT_PRO1 DRINK TEA Q	Will I drink tea tomorrow?
+1392	LAST-WEEK PT_PRO3 LISTEN MUSIC OFTEN	They listened to music last week often.
+1393	NEXT-WEEK WOMAN WANT HELP DAD OFTEN Q	The woman wants to help my dad next week often?
+1394	NIGHT PT_PRO1 DRINK JUICE Q	Do I drink juice at night?
+1395	MORNING PT_PRO3 SLEEP SLOW	They sleep in the morning slowly.
+1396	NEXT-WEEK PT_PRO2 CAN CALL COACH	You can call my coach next week.
+1397	YESTERDAY STUDENT READ MONEY	The student read money yesterday.
+1398	LAST-WEEK WOMAN BUY PHONE	The woman bought my phone last week.
+1399	YESTERDAY PT_PRO2 SEE MONEY	You saw money yesterday.
+1400	NIGHT PT_PRO3 LISTEN PODCAST Q	Do they listen to a podcast at night?
+1401	WHERE PT_PRO3 GO Q	Where Do they go in the morning?
+1402	WEEKEND PT_PRO3 HAPPY	They are happy on the weekend.
+1403	TODAY WOMAN NOT PRACTISE SLOW	The woman does not practise today slowly.
+1404	WEEKEND PT_PRO2 GOOD	You are good on the weekend.
+1405	WHAT PT_PRO1 READ Q	What Do I read?
+1406	MORNING PT_PRO2 NOT TEXT MUM	You do not text my mum in the morning.
+1407	TODAY PT_PRO2 NOT PRACTISE	You do not practise today.
+1408	LAST-WEEK PT_PRO1 CALL MUM	I called my mum last week.
+1409	MORNING PT_PRO2 WANT CALL TEACHER	You want to call my teacher in the morning.
+1410	PT_PRO1 WALK OFTEN	I walk often.
+1411	LAST-WEEK PT_PRO2 RUN Q	Did you run last week?
+1412	MORNING PT_PRO3 WAKE-UP Q	Do they wake up in the morning?
+1413	TODAY PT_PRO2 CALL COACH	You call my coach today.
+1414	MORNING TEACHER GO WORK	The teacher goes to work in the morning.
+1415	WHO PT_PRO2 CALL Q	Who Did you call last week?
+1416	PT_PRO2 WATCH PODCAST	You watch a podcast.
+1417	YESTERDAY PT_PRO1 NOT READ MESSAGE	I did not read a message yesterday.
+1418	PT_PRO3 CALL TEACHER	They call my teacher.
+1419	WHAT TEACHER SEE Q	What Will the teacher see tomorrow?
+1420	IF NEXT-WEEK STUDENT WORK THEN STUDENT SAD	If the student works, then the student is sad next week.
+1421	NEXT-WEEK MAN WANT LISTEN MUSIC	The man wants to listen to music next week.
+1422	NIGHT WOMAN WORK Q	Does the woman work at night?
+1423	AFTERNOON TEACHER WALK	The teacher walks in the afternoon.
+1424	TOMORROW NEIGHBOUR NOT HELP COACH	The neighbour will not help my coach tomorrow.
+1425	LAST-WEEK PT_PRO1 LISTEN MOVIE	I listened to a movie last week.
+1426	LAST-WEEK COACH SAD	The coach was sad last week.
+1427	NOW PT_PRO2 NOT READ BAG	You do not read my bag now.
+1428	WOMAN EMAIL TEACHER	The woman emails my teacher.
+1429	YESTERDAY PT_PRO2 DRINK JUICE	You drank juice yesterday.
+1430	NEXT-WEEK PT_PRO1 GO SHOP	I will go to the shop next week.
+1431	TOMORROW STUDENT NOT SLEEP	The student will not sleep tomorrow.
+1432	WHAT PT_PRO1 DRINK Q	What Will I drink tomorrow?
+1433	TODAY PT_PRO1 NOT TRAIN	I do not train today.
+1434	TODAY TEACHER COOK Q	Does the teacher cook today?
+1435	WHO NEIGHBOUR CALL Q	Who Did the neighbour call last week?
+1436	PT_PRO1 PRACTISE SLOW	I practise slowly.
+1437	LAST-WEEK PT_PRO2 NOT BUY CAR	You did not buy a car last week.
+1438	YESTERDAY PT_PRO2 CALL COACH	You called my coach yesterday.
+1439	TODAY PT_PRO3 MUST NOT SLEEP	They must not sleep today.
+1440	WEEKEND PT_PRO1 DRINK TEA Q	Do I drink tea on the weekend?
+1441	NOW PT_PRO3 WAKE-UP	They wake up now.
+1442	WHO PT_PRO2 EMAIL Q	Who Will you email tomorrow?
+1443	TOMORROW WOMAN MUST NOT HELP DAD	The woman must not help my dad tomorrow.
+1444	LAST-WEEK MAN EMAIL TEACHER	The man emailed my teacher last week.
+1445	LAST-WEEK PT_PRO3 LISTEN MUSIC	They listened to music last week.
+1446	NIGHT PT_PRO1 NOT MEET DAD	I do not meet my dad at night.
+1447	NOW PT_PRO2 WAKE-UP	You wake up now.
+1448	AFTERNOON COACH READ MONEY	The coach reads money in the afternoon.
+1449	NOW PT_PRO1 COLD	I am cold now.
+1450	NIGHT PT_PRO3 READ EMAIL Q	Do they read an email at night?
+1451	NOW PT_PRO3 CAN SEE KEY Q	They can see my keys now?
+1452	IF PT_PRO1 STUDY THEN PT_PRO1 BAD	If I study, then I am bad on the weekend.
+1453	WHAT PT_PRO1 BUY Q	What Will I buy tomorrow?
+1454	TOMORROW PT_PRO3 COLD	They will be cold tomorrow.
+1455	MORNING PT_PRO1 NOT WALK	I do not walk in the morning.
+1456	TOMORROW PT_PRO2 COME BEACH	You will come to the beach tomorrow.
+1457	MORNING PT_PRO3 TRAIN	They train in the morning.
+1458	NIGHT PT_PRO1 COOK FAST	I cook at night quickly.
+1459	NOW PT_PRO3 RUN	They run now.
+1460	AFTERNOON PT_PRO2 MUST NOT LISTEN PODCAST	You must not listen to a podcast in the afternoon.
+1461	WHO PT_PRO3 EMAIL Q	Who Will they email next week?
+1462	AFTERNOON TEACHER PRACTISE	The teacher practises in the afternoon.
+1463	AFTERNOON PT_PRO2 EMAIL NEIGHBOUR Q	Do you email my neighbour in the afternoon?
+1464	NOW PT_PRO1 HELP MUM Q	Do I help my mum now?
+1465	LAST-WEEK PT_PRO2 PRACTISE SLOW Q	Did you practise last week slowly?
+1466	PT_PRO2 WATCH MUSIC	You watch music.
+1467	NEXT-WEEK PT_PRO1 NOT MEET COACH	I will not meet my coach next week.
+1468	YESTERDAY PT_PRO3 WAKE-UP SOMETIMES	They woke up yesterday sometimes.
+1469	MORNING PT_PRO2 READY	You are ready in the morning.
+1470	NOW PT_PRO1 PRACTISE FAST Q	Do I practise now quickly?
+1471	LAST-WEEK PT_PRO2 HELP FRIEND	You helped my friend last week.
+1472	NIGHT STUDENT RUN	The student runs at night.
+1473	WEEKEND PT_PRO3 NOT TRAIN	They do not train on the weekend.
+1474	YESTERDAY DOCTOR STUDY	The doctor studied yesterday.
+1475	NEXT-WEEK PT_PRO1 SEE CAR RARELY	I will see a car next week rarely.
+1476	NIGHT PT_PRO1 CAN NOT TRAIN	I cannot train at night.
+1477	NEXT-WEEK PT_PRO2 CAN CALL NEIGHBOUR Q	You can call my neighbour next week?
+1478	AFTERNOON PT_PRO3 NOT WORK OFTEN	They do not work in the afternoon often.
+1479	TOMORROW PT_PRO2 NOT RUN	You will not run tomorrow.
+1480	PT_PRO2 WALK Q	Do you walk?
+1481	TODAY PT_PRO1 STUDY	I study today.
+1482	NOW PT_PRO2 GO SCHOOL	You go to school now.
+1483	NEXT-WEEK PT_PRO2 NOT EMAIL TEACHER RARELY	You will not email my teacher next week rarely.
+1484	PT_PRO3 HELP DAD	They help my dad.
+1485	PT_PRO3 STUDY Q	Do they study?
+1486	AFTERNOON PT_PRO3 RUN	They run in the afternoon.
+1487	TOMORROW PT_PRO3 EAT FOOD	They will eat food tomorrow.
+1488	WEEKEND PT_PRO3 SLEEP	They sleep on the weekend.
+1489	AFTERNOON PT_PRO2 MUST COME HOME Q	You must come to home in the afternoon?
+1490	WHEN PT_PRO3 SLEEP Q	When Did they sleep last week?
+1491	LAST-WEEK PT_PRO1 WATCH MOVIE	I watched a movie last week.
+1492	LAST-WEEK PT_PRO1 COOK Q	Did I cook last week?
+1493	NIGHT PT_PRO1 CALL MUM	I call my mum at night.
+1494	AFTERNOON PT_PRO1 MUST COOK FAST	I must cook in the afternoon quickly.
+1495	TODAY PT_PRO2 WALK Q	Do you walk today?
+1496	NIGHT PT_PRO3 NOT RUN	They do not run at night.
+1497	HOW PT_PRO3 STUDY Q	How Do they study today?
+1498	LAST-WEEK PT_PRO1 NOT TRAIN OFTEN	I did not train last week often.
+1499	LAST-WEEK DOCTOR NOT LISTEN MOVIE	The doctor did not listen to a movie last week.
+1500	NOW WOMAN WORK	The woman works now.
+1501	NIGHT PT_PRO3 NOT TRAIN SOMETIMES	They do not train at night sometimes.
+1502	NIGHT CHILD CLEAN	The child cleans at night.
+1503	PT_PRO3 TRAIN OFTEN	They train often.
+1504	WHO STUDENT HELP Q	Who Did the student help yesterday?
+1505	PT_PRO1 EAT FOOD	I eat food.
+1506	AFTERNOON PT_PRO3 SEE SHOES Q	Do they see shoes in the afternoon?
+1507	WHY PT_PRO3 TRAIN Q	Why Do they train at night?
+1508	TODAY PT_PRO1 MUST NOT TEXT DAD	I must not text my dad today.
+1509	NIGHT PT_PRO2 SLEEP Q	Do you sleep at night?
+1510	MORNING PT_PRO1 BAD	I am bad in the morning.
+1511	TODAY PT_PRO1 SLEEP	I sleep today.
+1512	WHERE PT_PRO3 GO Q	Where Did they go last week?
+1513	TOMORROW PT_PRO3 CAN NOT BUY SHOES	They cannot buy shoes tomorrow.
+1514	WEEKEND PT_PRO3 WANT EAT PIZZA	They want to eat pizza on the weekend.
+1515	NOW PT_PRO3 CAN COOK ALWAYS	They can cook now always.
+1516	WHY PT_PRO3 STUDY Q	Why Do they study in the afternoon?
+1517	WEEKEND PT_PRO3 WAKE-UP	They wake up on the weekend.
+1518	LAST-WEEK WOMAN NOT TEXT FRIEND	The woman did not text my friend last week.
+1519	YESTERDAY PT_PRO1 WATCH PODCAST Q	Did I watch a podcast yesterday?
+1520	MORNING PT_PRO1 NOT GO BEACH SLOW	I do not go to the beach in the morning slowly.
+1521	LAST-WEEK PT_PRO3 READ KEY RARELY	They read my keys last week rarely.
+1522	PT_PRO2 WALK	You walk.
+1523	AFTERNOON TEACHER MUST CALL NEIGHBOUR	The teacher must call my neighbour in the afternoon.
+1524	YESTERDAY PT_PRO3 NOT HELP TEACHER FAST	They did not help my teacher yesterday quickly.
+1525	TOMORROW MAN NOT EMAIL FRIEND	The man will not email my friend tomorrow.
+1526	WHO PT_PRO1 HELP Q	Who Did I help yesterday?
+1527	TODAY MAN READ PHONE	The man reads my phone today.
+1528	NIGHT PT_PRO2 HELP MUM	You help my mum at night.
+1529	NOW PT_PRO2 HELP FRIEND Q	Do you help my friend now?
+1530	TOMORROW TEACHER HOT	The teacher will be hot tomorrow.
+1531	TOMORROW PT_PRO3 NOT READ BOOK	They will not read a book tomorrow.
+1532	TOMORROW DOCTOR MUST TEXT DAD OFTEN	The doctor must text my dad tomorrow often.
+1533	NEXT-WEEK PT_PRO2 NOT WAKE-UP	You will not wake up next week.
+1534	WEEKEND PT_PRO1 EMAIL DAD	I email my dad on the weekend.
+1535	WHY PT_PRO1 STUDY Q	Why Do I study in the morning?
+1536	NEXT-WEEK PT_PRO2 WATCH MUSIC	You will watch music next week.
+1537	YESTERDAY TEACHER NOT LISTEN PODCAST	The teacher did not listen to a podcast yesterday.
+1538	YESTERDAY PT_PRO2 CALL MUM	You called my mum yesterday.
+1539	NEXT-WEEK PT_PRO3 TIRED	They will be tired next week.
+1540	YESTERDAY PT_PRO2 NOT GO WORK	You did not go to work yesterday.
+1541	AFTERNOON PT_PRO3 DRINK TEA	They drink tea in the afternoon.
+1542	NEXT-WEEK PT_PRO1 CAN READ PHONE	I can read my phone next week.
+1543	AFTERNOON PT_PRO2 NOT TRAIN	You do not train in the afternoon.
+1544	WOMAN WORK	The woman works.
+1545	TOMORROW PT_PRO3 RUN SOMETIMES	They will run tomorrow sometimes.
+1546	LAST-WEEK PT_PRO1 MEET TEACHER FAST Q	Did I meet my teacher last week quickly?
+1547	AFTERNOON TEACHER NOT READ BOOK	The teacher does not read a book in the afternoon.
+1548	LAST-WEEK PT_PRO1 MEET TEACHER	I met my teacher last week.
+1549	NEXT-WEEK PT_PRO3 CLEAN Q	Will they clean next week?
+1550	NEXT-WEEK STUDENT PRACTISE	The student will practise next week.
+1551	MORNING CHILD WANT WALK	The child wants to walk in the morning.
+1552	IF PT_PRO3 WORK THEN PT_PRO3 COLD	If they work, then they are cold yesterday.
+1553	NEXT-WEEK CHILD NOT WATCH MOVIE	The child will not watch a movie next week.
+1554	WHAT TEACHER LISTEN Q	What Did the teacher listen last week?
+1555	NEXT-WEEK PT_PRO2 EMAIL TEACHER Q	Will you email my teacher next week?
+1556	TODAY PT_PRO2 WANT TEXT DAD	You want to text my dad today.
+1557	WHAT PT_PRO2 READ Q	What Did you read yesterday?
+1558	MORNING PT_PRO1 WALK	I walk in the morning.
+1559	NOW PT_PRO3 WORK	They work now.
+1560	IF PT_PRO2 STUDY THEN PT_PRO2 SAD	If you study, then you are sad.
+1561	YESTERDAY PT_PRO2 NOT BUY BAG	You did not buy my bag yesterday.
+1562	WEEKEND PT_PRO1 CALL DAD	I call my dad on the weekend.
+1563	WHEN COACH TEXT COACH Q	When Does the coach text today?
+1564	NOW PT_PRO3 GO HOME	They go to home now.
+1565	PT_PRO1 NOT READ MESSAGE SLOW	I do not read a message slowly.
+1566	NEXT-WEEK TEACHER EMAIL NEIGHBOUR	The teacher will email my neighbour next week.
+1567	LAST-WEEK PT_PRO1 NOT EAT APPLE	I did not eat an apple last week.
+1568	NIGHT PT_PRO3 DRINK TEA	They drink tea at night.
+1569	MORNING PT_PRO3 READ BOOK	They read a book in the morning.
+1570	YESTERDAY MAN READY	The man was ready yesterday.
+1571	MORNING PT_PRO1 WORK	I work in the morning.
+1572	LAST-WEEK PT_PRO2 NOT COOK	You did not cook last week.
+1573	AFTERNOON PT_PRO2 TEXT MUM	You text my mum in the afternoon.
+1574	NEXT-WEEK PT_PRO2 WORK	You will work next week.
+1575	WEEKEND PT_PRO3 NOT SEE BOOK SLOW	They do not see a book on the weekend slowly.
+1576	AFTERNOON PT_PRO1 WATCH PODCAST	I watch a podcast in the afternoon.
+1577	HOW DOCTOR COOK Q	How Did the doctor cook last week?
+1578	LAST-WEEK CHILD NOT COME HOME	The child did not come to home last week.
+1579	NEXT-WEEK PT_PRO2 TIRED	You will be tired next week.
+1580	NIGHT NEIGHBOUR NOT WALK	The neighbour does not walk at night.
+1581	HOW PT_PRO1 RUN Q	How Did I run last week?
+1582	YESTERDAY PT_PRO2 CALL FRIEND	You called my friend yesterday.
+1583	NEXT-WEEK PT_PRO3 GO SCHOOL	They will go to school next week.
+1584	WHY PT_PRO2 TRAIN Q	Why Do you train in the afternoon?
+1585	LAST-WEEK WOMAN MEET FRIEND	The woman met my friend last week.
+1586	PT_PRO1 PRACTISE Q	Do I practise?
+1587	WHO PT_PRO2 TEXT Q	Who Do you text in the morning?
+1588	IF WOMAN RUN THEN WOMAN TIRED	If the woman runs, then the woman is tired.
+1589	WHEN PT_PRO1 CLEAN Q	When Do I clean in the morning?
+1590	YESTERDAY PT_PRO1 TEXT NEIGHBOUR	I texted my neighbour yesterday.
+1591	NIGHT PT_PRO3 CALL COACH	They call my coach at night.
+1592	YESTERDAY PT_PRO1 WAKE-UP	I woke up yesterday.
+1593	TODAY PT_PRO1 RUN RARELY	I run today rarely.
+1594	WOMAN SEE CAR RARELY	The woman sees a car rarely.
+1595	MORNING COACH PRACTISE FAST Q	Does the coach practise in the morning quickly?
+1596	NEXT-WEEK PT_PRO1 GO HOME	I will go to home next week.
+1597	AFTERNOON COACH WATCH MOVIE	The coach watches a movie in the afternoon.
+1598	NEXT-WEEK PT_PRO3 MEET COACH	They will meet my coach next week.
+1599	NOW PT_PRO3 WANT TEXT COACH	They want to text my coach now.
+1600	YESTERDAY PT_PRO3 EAT PIZZA	They ate pizza yesterday.
+1601	YESTERDAY PT_PRO3 WATCH MUSIC Q	Did they watch music yesterday?
+1602	WEEKEND PT_PRO1 MUST WORK SLOW	I must work on the weekend slowly.
+1603	TODAY PT_PRO3 CAN CLEAN Q	They can clean today?
+1604	TODAY CHILD HELP COACH RARELY	The child helps my coach today rarely.
+1605	YESTERDAY PT_PRO3 GO CITY	They went to the city yesterday.
+1606	YESTERDAY DOCTOR READ CAR	The doctor read a car yesterday.
+1607	WHO PT_PRO3 HELP Q	Who Do they help on the weekend?
+1608	NOW PT_PRO2 BAD	You are bad now.
+1609	STUDENT NOT PRACTISE	The student does not practise.
+1610	NOW PT_PRO3 SICK	They are sick now.
+1611	NIGHT PT_PRO1 PRACTISE	I practise at night.
+1612	WHEN PT_PRO3 DRINK TEA Q	When Will they drink next week?
+1613	NEXT-WEEK PT_PRO2 MUST CALL TEACHER Q	You must call my teacher next week?
+1614	NOW PT_PRO1 NOT MEET MUM RARELY	I do not meet my mum now rarely.
+1615	NIGHT PT_PRO1 NOT COOK	I do not cook at night.
+1616	TODAY PT_PRO3 WANT CALL COACH	They want to call my coach today.
+1617	WHO PT_PRO1 EMAIL Q	Who Do I email today?
+1618	WHY PT_PRO3 GO Q	Why Do they go in the afternoon?
+1619	MORNING PT_PRO3 MUST CALL MUM	They must call my mum in the morning.
+1620	IF PT_PRO3 WALK THEN PT_PRO3 SICK	If they walk, then they are sick.
+1621	NEXT-WEEK PT_PRO2 NOT COOK SOMETIMES	You will not cook next week sometimes.
+1622	AFTERNOON PT_PRO3 WALK	They walk in the afternoon.
+1623	AFTERNOON WOMAN GO GYM	The woman goes to the gym in the afternoon.
+1624	NOW WOMAN SEE KEY OFTEN	The woman sees my keys now often.
+1625	YESTERDAY WOMAN READ MESSAGE Q	Did the woman read a message yesterday?
+1626	NOW PT_PRO3 NOT STUDY	They do not study now.
+1627	NEXT-WEEK PT_PRO2 GO SCHOOL	You will go to school next week.
+1628	LAST-WEEK PT_PRO3 GOOD	They were good last week.
+1629	TODAY PT_PRO1 NOT PRACTISE RARELY	I do not practise today rarely.
+1630	IF TOMORROW PT_PRO1 GO PARK THEN PT_PRO1 SAD	If I go to the park, then I am sad tomorrow.
+1631	MORNING WOMAN MUST WAKE-UP Q	The woman must wake up in the morning?
+1632	AFTERNOON PT_PRO2 WANT SLEEP	You want to sleep in the afternoon.
+1633	NIGHT PT_PRO1 WANT WORK Q	I want to work at night?
+1634	TODAY PT_PRO1 NOT READ SHOES	I do not read shoes today.
+1635	NOW PT_PRO3 RUN FAST	They run now quickly.
+1636	TOMORROW PT_PRO3 SICK	They will be sick tomorrow.
+1637	NEXT-WEEK PT_PRO1 RUN Q	Will I run next week?
+1638	TODAY PT_PRO3 WANT WATCH MUSIC	They want to watch music today.
+1639	MORNING MAN HAPPY	The man is happy in the morning.
+1640	TOMORROW PT_PRO2 NOT COOK	You will not cook tomorrow.
+1641	WEEKEND PT_PRO2 COME BEACH	You come to the beach on the weekend.
+1642	WHY PT_PRO2 STUDY Q	Why Do you study in the afternoon?
+1643	PT_PRO3 NOT MEET DAD SLOW	They do not meet my dad slowly.
+1644	IF FRIEND WALK THEN FRIEND READY	If my friend walks, then my friend is ready on the weekend.
+1645	WEEKEND PT_PRO2 EMAIL DAD	You email my dad on the weekend.
+1646	TOMORROW PT_PRO1 TRAIN	I will train tomorrow.
+1647	PT_PRO2 READ KEY	You read my keys.
+1648	WHAT PT_PRO2 BUY Q	What Do you buy today?
+1649	TOMORROW WOMAN BUY BAG	The woman will buy my bag tomorrow.
+1650	NIGHT PT_PRO2 WATCH MUSIC	You watch music at night.
+1651	PT_PRO1 WANT NOT LISTEN PODCAST	I do not want to listen to a podcast.
+1652	TODAY PT_PRO3 LISTEN MUSIC	They listen to music today.
+1653	WEEKEND COACH STUDY	The coach studies on the weekend.
+1654	NEXT-WEEK PT_PRO3 WANT TEXT COACH RARELY	They want to text my coach next week rarely.
+1655	TOMORROW PT_PRO3 WANT RUN	They want to run tomorrow.
+1656	TOMORROW PT_PRO2 CAN SEE MONEY	You can see money tomorrow.
+1657	LAST-WEEK PT_PRO1 NOT GO SHOP SLOW	I did not go to the shop last week slowly.
+1658	NIGHT PT_PRO1 DRINK TEA	I drink tea at night.
+1659	MORNING PT_PRO1 NOT TEXT FRIEND	I do not text my friend in the morning.
+1660	NOW WOMAN RUN	The woman runs now.
+1661	NIGHT PT_PRO1 TEXT NEIGHBOUR Q	Do I text my neighbour at night?
+1662	WHEN PT_PRO3 SLEEP Q	When Do they sleep on the weekend?
+1663	PT_PRO1 WAKE-UP Q	Do I wake up?
+1664	NEXT-WEEK PT_PRO1 TRAIN	I will train next week.
+1665	NIGHT PT_PRO3 NOT WORK	They do not work at night.
+1666	NOW PT_PRO3 EAT FOOD SOMETIMES Q	Do they eat food now sometimes?
+1667	NEXT-WEEK STUDENT DRINK TEA	The student will drink tea next week.
+1668	NOW DOCTOR COOK	The doctor cooks now.
+1669	PT_PRO3 TEXT TEACHER RARELY Q	Do they text my teacher rarely?
+1670	TODAY CHILD NOT SEE MESSAGE	The child does not see a message today.
+1671	PT_PRO3 EAT APPLE Q	Do they eat an apple?
+1672	WHY WOMAN GO Q	Why Will the woman go next week?
+1673	NEXT-WEEK PT_PRO2 BUY SHOES RARELY	You will buy shoes next week rarely.
+1674	PT_PRO2 GO BUS-STOP	You go to the bus stop.
+1675	NOW PT_PRO3 NOT PRACTISE	They do not practise now.
+1676	LAST-WEEK PT_PRO2 NOT COME GYM	You did not come to the gym last week.
+1677	YESTERDAY PT_PRO3 NOT EMAIL TEACHER	They did not email my teacher yesterday.
+1678	WHEN PT_PRO3 STUDY Q	When Do they study on the weekend?
+1679	LAST-WEEK PT_PRO3 GO CITY	They went to the city last week.
+1680	TOMORROW PT_PRO1 EAT APPLE	I will eat an apple tomorrow.
+1681	NOW PT_PRO2 NOT BUY KEY	You do not buy my keys now.
+1682	MORNING PT_PRO3 EAT PIZZA FAST	They eat pizza in the morning quickly.
+1683	WEEKEND PT_PRO3 SEE CAR	They see a car on the weekend.
+1684	TODAY PT_PRO3 MEET DAD Q	Do they meet my dad today?
+1685	YESTERDAY PT_PRO3 LISTEN MOVIE	They listened to a movie yesterday.
+1686	PT_PRO2 STUDY	You study.
+1687	NEXT-WEEK PT_PRO3 DRINK TEA ALWAYS	They will drink tea next week always.
+1688	LAST-WEEK COACH GO HOME	The coach went to home last week.
+1689	TOMORROW PT_PRO1 NOT COME SCHOOL	I will not come to school tomorrow.
+1690	NOW PT_PRO2 STUDY	You study now.
+1691	TOMORROW STUDENT LISTEN MUSIC	The student will listen to music tomorrow.
+1692	LAST-WEEK PT_PRO1 MEET MUM Q	Did I meet my mum last week?
+1693	WEEKEND PT_PRO1 WANT GO CITY Q	I want to go to the city on the weekend?
+1694	LAST-WEEK PT_PRO1 SLEEP Q	Did I sleep last week?
+1695	AFTERNOON PT_PRO3 DRINK COFFEE Q	Do they drink coffee in the afternoon?
+1696	YESTERDAY COACH NOT STUDY	The coach did not study yesterday.
+1697	YESTERDAY PT_PRO1 GO BUS-STOP Q	Did I go to the bus stop yesterday?
+1698	TODAY PT_PRO1 EAT NOODLE	I eat noodles today.
+1699	WEEKEND PT_PRO1 NOT CLEAN	I do not clean on the weekend.
+1700	NOW STUDENT BAD	The student is bad now.
+1701	WHEN PT_PRO2 EAT APPLE Q	When Do you eat in the afternoon?
+1702	MORNING PT_PRO2 PRACTISE OFTEN	You practise in the morning often.
+1703	MORNING PT_PRO1 COOK	I cook in the morning.
+1704	TODAY PT_PRO1 STUDY FAST Q	Do I study today quickly?
+1705	LAST-WEEK PT_PRO1 GO GYM Q	Did I go to the gym last week?
+1706	AFTERNOON PT_PRO2 EAT RICE SOMETIMES	You eat rice in the afternoon sometimes.
+1707	LAST-WEEK PT_PRO3 SEE MESSAGE	They saw a message last week.
+1708	TODAY PT_PRO3 SLEEP	They sleep today.
+1709	HOW PT_PRO3 COOK Q	How Do they cook?
+1710	AFTERNOON PT_PRO2 WORK OFTEN Q	Do you work in the afternoon often?
+1711	WEEKEND PT_PRO3 EMAIL DAD	They email my dad on the weekend.
+1712	PT_PRO1 NOT MEET TEACHER	I do not meet my teacher.
+1713	MORNING PT_PRO3 BUY MESSAGE	They buy a message in the morning.
+1714	WEEKEND PT_PRO1 COME SHOP	I come to the shop on the weekend.
+1715	TOMORROW PT_PRO1 NOT SEE EMAIL	I will not see an email tomorrow.
+1716	PT_PRO2 NOT EMAIL COACH SLOW	You do not email my coach slowly.
+1717	NOW PT_PRO1 PRACTISE Q	Do I practise now?
+1718	TODAY PT_PRO3 GOOD	They are good today.
+1719	NOW PT_PRO1 RUN	I run now.
+1720	IF YESTERDAY PT_PRO3 GO GYM THEN PT_PRO3 SAD	If they go to the gym, then they are sad.
+1721	AFTERNOON DOCTOR NOT COOK	The doctor does not cook in the afternoon.
+1722	TODAY PT_PRO2 WALK FAST Q	Do you walk today quickly?
+1723	LAST-WEEK PT_PRO1 STUDY RARELY	I studied last week rarely.
+1724	NIGHT PT_PRO2 HAPPY	You are happy at night.
+1725	MORNING PT_PRO3 WATCH MUSIC	They watch music in the morning.
+1726	LAST-WEEK PT_PRO3 CLEAN ALWAYS	They cleaned last week always.
+1727	WHERE PT_PRO3 COME Q	Where Do they come at night?
+1728	WHERE PT_PRO3 COME Q	Where Do they come on the weekend?
+1729	NOW PT_PRO3 WANT WAKE-UP Q	They want to wake up now?
+1730	TODAY PT_PRO2 DRINK TEA	You drink tea today.
+1731	WHAT TEACHER LISTEN Q	What Does the teacher listen in the morning?
+1732	WEEKEND PT_PRO2 WORK Q	Do you work on the weekend?
+1733	YESTERDAY COACH CLEAN	The coach cleaned yesterday.
+1734	WEEKEND PT_PRO1 NOT HELP NEIGHBOUR	I do not help my neighbour on the weekend.
+1735	MORNING PT_PRO2 MUST DRINK WATER	You must drink water in the morning.
+1736	NOW PT_PRO1 MUST COME CITY	I must come to the city now.
+1737	MORNING PT_PRO3 NOT SEE PHONE	They do not see my phone in the morning.
+1738	MORNING PT_PRO1 WAKE-UP	I wake up in the morning.
+1739	PT_PRO3 WAKE-UP	They wake up.
+1740	MORNING PT_PRO3 RUN	They run in the morning.
+1741	TOMORROW PT_PRO1 NOT WORK	I will not work tomorrow.
+1742	HOW PT_PRO2 CLEAN Q	How Do you clean now?
+1743	YESTERDAY PT_PRO1 SLEEP Q	Did I sleep yesterday?
+1744	TOMORROW PT_PRO1 RUN	I will run tomorrow.
+1745	TOMORROW PT_PRO1 CAN EAT APPLE	I can eat an apple tomorrow.
+1746	TODAY COACH WORK	The coach works today.
+1747	NIGHT PT_PRO1 NOT BUY CAR	I do not buy a car at night.
+1748	LAST-WEEK PT_PRO1 LISTEN PODCAST SOMETIMES	I listened to a podcast last week sometimes.
+1749	YESTERDAY DOCTOR TIRED	The doctor was tired yesterday.
+1750	YESTERDAY PT_PRO3 NOT WATCH MUSIC	They did not watch music yesterday.
+1751	WHEN PT_PRO1 READ KEY Q	When Do I read at night?
+1752	MORNING MAN NOT WALK	The man does not walk in the morning.
+1753	AFTERNOON PT_PRO2 CAN NOT GO BEACH	You cannot go to the beach in the afternoon.
+1754	NEXT-WEEK PT_PRO1 SEE MESSAGE	I will see a message next week.
+1755	WHY PT_PRO1 WORK Q	Why Do I work in the morning?
+1756	IF CHILD TRAIN THEN CHILD SAD	If the child trains, then the child is sad.
+1757	NOW PT_PRO1 WALK SLOW	I walk now slowly.
+1758	NEXT-WEEK PT_PRO3 NOT PRACTISE RARELY	They will not practise next week rarely.
+1759	PT_PRO3 RUN	They run.
+1760	YESTERDAY COACH LISTEN MOVIE	The coach listened to a movie yesterday.
+1761	TOMORROW PT_PRO2 WALK FAST Q	Will you walk tomorrow quickly?
+1762	NOW COACH WORK	The coach works now.
+1763	TOMORROW PT_PRO3 BUSY	They will be busy tomorrow.
+1764	NOW MAN WALK	The man walks now.
+1765	WEEKEND PT_PRO2 RUN Q	Do you run on the weekend?
+1766	NEXT-WEEK STUDENT WAKE-UP Q	Will the student wake up next week?
+1767	MORNING PT_PRO2 NOT STUDY RARELY	You do not study in the morning rarely.
+1768	NIGHT PT_PRO1 NOT EMAIL DAD OFTEN	I do not email my dad at night often.
+1769	IF YESTERDAY PT_PRO2 TRAIN THEN PT_PRO2 HAPPY	If you train, then you are happy.
+1770	PT_PRO2 CAN LISTEN PODCAST Q	You can listen to a podcast?
+1771	MORNING WOMAN MUST CLEAN	The woman must clean in the morning.
+1772	NEXT-WEEK WOMAN TEXT MUM	The woman will text my mum next week.
+1773	WHY PT_PRO3 STUDY Q	Why Will they study tomorrow?
+1774	NEXT-WEEK PT_PRO3 GOOD	They will be good next week.
+1775	MORNING TEACHER PRACTISE	The teacher practises in the morning.
+1776	TOMORROW PT_PRO3 MUST READ KEY	They must read my keys tomorrow.
+1777	LAST-WEEK WOMAN TRAIN	The woman trained last week.
+1778	AFTERNOON PT_PRO1 HOT	I am hot in the afternoon.
+1779	NEXT-WEEK STUDENT TIRED	The student will be tired next week.
+1780	WHY PT_PRO1 GO Q	Why Do I go at night?
+1781	AFTERNOON PT_PRO2 LISTEN MUSIC	You listen to music in the afternoon.
+1782	IF MORNING PT_PRO3 GO GYM THEN PT_PRO3 COLD	If they go to the gym, then they are cold in the morning.
+1783	TODAY PT_PRO1 NOT EAT PIZZA	I do not eat pizza today.
+1784	NOW PT_PRO2 GO GYM	You go to the gym now.
+1785	AFTERNOON PT_PRO2 BUY SHOES OFTEN	You buy shoes in the afternoon often.
+1786	LAST-WEEK PT_PRO3 TRAIN ALWAYS	They trained last week always.
+1787	NOW PT_PRO1 GOOD	I am good now.
+1788	IF PT_PRO1 WORK THEN PT_PRO1 BAD	If I work, then I am bad.
+1789	WHO PT_PRO3 TEXT Q	Who Did they text yesterday?
+1790	LAST-WEEK PT_PRO1 NOT SLEEP	I did not sleep last week.
+1791	WEEKEND PT_PRO1 MEET FRIEND OFTEN	I meet my friend on the weekend often.
+1792	NIGHT TEACHER NOT SLEEP OFTEN	The teacher does not sleep at night often.
+1793	YESTERDAY COACH SEE MONEY Q	Did the coach see money yesterday?
+1794	NEXT-WEEK PT_PRO1 MEET NEIGHBOUR Q	Will I meet my neighbour next week?
+1795	NEXT-WEEK PT_PRO2 BUY BOOK	You will buy a book next week.
+1796	NOW PT_PRO2 RUN Q	Do you run now?
+1797	PT_PRO3 MEET TEACHER	They meet my teacher.
+1798	LAST-WEEK PT_PRO3 NOT EAT PIZZA	They did not eat pizza last week.
+1799	MORNING DOCTOR WANT NOT SEE BAG	The doctor does not want to see my bag in the morning.
+1800	TOMORROW PT_PRO1 MEET DAD	I will meet my dad tomorrow.
+1801	AFTERNOON FRIEND EMAIL COACH Q	Does my friend email my coach in the afternoon?
+1802	WEEKEND DOCTOR NOT HELP FRIEND	The doctor does not help my friend on the weekend.
+1803	WHAT PT_PRO1 WATCH Q	What Do I watch in the morning?
+1804	IF YESTERDAY FRIEND STUDY THEN FRIEND SAD	If my friend studies, then my friend is sad.
+1805	NIGHT COACH TEXT MUM Q	Does the coach text my mum at night?
+1806	HOW PT_PRO2 GO Q	How Do you go in the afternoon?
+1807	LAST-WEEK PT_PRO2 EAT PIZZA	You ate pizza last week.
+1808	WEEKEND PT_PRO1 NOT TEXT DAD	I do not text my dad on the weekend.
+1809	TOMORROW PT_PRO2 COME BUS-STOP	You will come to the bus stop tomorrow.
+1810	PT_PRO2 CALL TEACHER	You call my teacher.
+1811	AFTERNOON PT_PRO2 BUY BOOK Q	Do you buy a book in the afternoon?
+1812	LAST-WEEK PT_PRO1 EAT APPLE	I ate an apple last week.
+1813	MORNING PT_PRO3 NOT CALL FRIEND	They do not call my friend in the morning.
+1814	TODAY PT_PRO3 MUST NOT EAT NOODLE RARELY	They must not eat noodles today rarely.
+1815	YESTERDAY PT_PRO2 PRACTISE SLOW	You practised yesterday slowly.
+1816	IF NEXT-WEEK PT_PRO3 RUN THEN PT_PRO3 GOOD	If they run, then they are good.
+1817	WEEKEND MAN CAN EMAIL TEACHER	The man can email my teacher on the weekend.
+1818	PT_PRO1 LISTEN MUSIC	I listen to music.
+1819	MORNING PT_PRO2 CAN LISTEN MUSIC	You can listen to music in the morning.
+1820	TODAY PT_PRO2 EAT NOODLE	You eat noodles today.
+1821	MORNING MAN NOT LISTEN PODCAST	The man does not listen to a podcast in the morning.
+1822	WHY PT_PRO1 PRACTISE Q	Why Do I practise now?
+1823	WHO PT_PRO1 TEXT Q	Who Will I text next week?
+1824	TOMORROW PT_PRO1 NOT SLEEP	I will not sleep tomorrow.
+1825	HOW FRIEND TRAIN Q	How Does my friend train in the afternoon?
+1826	IF FRIEND TRAIN THEN FRIEND HOT	If my friend trains, then my friend is hot today.
+1827	MORNING PT_PRO2 NOT HELP COACH	You do not help my coach in the morning.
+1828	TOMORROW DOCTOR MEET MUM Q	Will the doctor meet my mum tomorrow?
+1829	WHO PT_PRO2 TEXT Q	Who Do you text on the weekend?
+1830	MORNING PT_PRO1 NOT COME GYM	I do not come to the gym in the morning.
+1831	PT_PRO1 BUY BAG Q	Do I buy my bag?
+1832	WHERE CHILD GO Q	Where Does the child go in the morning?
+1833	NOW PT_PRO2 SAD	You are sad now.
+1834	YESTERDAY PT_PRO1 CLEAN SLOW	I cleaned yesterday slowly.
+1835	WHY PT_PRO2 PRACTISE Q	Why Do you practise on the weekend?
+1836	NEXT-WEEK MAN COOK	The man will cook next week.
+1837	TODAY PT_PRO2 WAKE-UP Q	Do you wake up today?
+1838	NIGHT PT_PRO3 TRAIN	They train at night.
+1839	LAST-WEEK PT_PRO3 WATCH MOVIE	They watched a movie last week.
+1840	NIGHT PT_PRO2 MUST READ MESSAGE Q	You must read a message at night?
+1841	LAST-WEEK PT_PRO1 LISTEN PODCAST	I listened to a podcast last week.
+1842	MORNING PT_PRO3 MUST CALL COACH	They must call my coach in the morning.
+1843	IF WOMAN WALK THEN WOMAN HAPPY	If the woman walks, then the woman is happy.
+1844	MORNING PT_PRO2 CALL NEIGHBOUR Q	Do you call my neighbour in the morning?
+1845	WHY PT_PRO1 GO Q	Why Do I go now?
+1846	AFTERNOON PT_PRO2 MEET FRIEND	You meet my friend in the afternoon.
+1847	IF PT_PRO2 WALK THEN PT_PRO2 BUSY	If you walk, then you are busy in the afternoon.
+1848	CHILD WATCH MUSIC	The child watches music.
+1849	WEEKEND DOCTOR MUST NOT HELP DAD	The doctor must not help my dad on the weekend.
+1850	NEXT-WEEK PT_PRO1 WORK	I will work next week.
+1851	IF TOMORROW STUDENT STUDY THEN STUDENT READY	If the student studies, then the student is ready tomorrow.
+1852	WHAT PT_PRO2 READ Q	What Do you read today?
+1853	AFTERNOON PT_PRO3 TEXT DAD	They text my dad in the afternoon.
+1854	MAN MEET TEACHER	The man meets my teacher.
+1855	COACH WALK	The coach walks.
+1856	LAST-WEEK PT_PRO3 WORK	They worked last week.
+1857	TOMORROW PT_PRO3 WALK Q	Will they walk tomorrow?
+1858	TODAY PT_PRO1 CAN NOT STUDY	I cannot study today.
+1859	AFTERNOON PT_PRO1 MEET MUM	I meet my mum in the afternoon.
+1860	YESTERDAY PT_PRO2 LISTEN MUSIC	You listened to music yesterday.
+1861	AFTERNOON PT_PRO1 COME BUS-STOP	I come to the bus stop in the afternoon.
+1862	TODAY PT_PRO2 NOT CALL NEIGHBOUR	You do not call my neighbour today.
+1863	TOMORROW PT_PRO2 READ EMAIL Q	Will you read an email tomorrow?
+1864	NOW PT_PRO3 EAT RICE	They eat rice now.
+1865	WHY MAN TRAIN Q	Why Does the man train today?
+1866	LAST-WEEK PT_PRO3 NOT COME SHOP	They did not come to the shop last week.
+1867	MORNING FRIEND EAT FOOD	My friend eats food in the morning.
+1868	NOW PT_PRO2 LISTEN PODCAST Q	Do you listen to a podcast now?
+1869	TOMORROW PT_PRO2 WANT CALL MUM Q	You want to call my mum tomorrow?
+1870	WHO PT_PRO3 EMAIL Q	Who Will they email tomorrow?
+1871	NOW PT_PRO1 MUST NOT STUDY	I must not study now.
+1872	NOW PT_PRO1 NOT HELP MUM	I do not help my mum now.
+1873	MORNING PT_PRO3 MUST WAKE-UP	They must wake up in the morning.
+1874	TODAY PT_PRO1 NOT SLEEP	I do not sleep today.
+1875	WEEKEND PT_PRO1 MUST HELP COACH	I must help my coach on the weekend.
+1876	YESTERDAY PT_PRO3 MEET DAD RARELY	They met my dad yesterday rarely.
+1877	NEXT-WEEK MAN WANT WORK	The man wants to work next week.
+1878	NEXT-WEEK PT_PRO1 COOK	I will cook next week.
+1879	YESTERDAY PT_PRO1 NOT TEXT DAD	I did not text my dad yesterday.
+1880	NEXT-WEEK MAN EAT FOOD	The man will eat food next week.
+1881	NIGHT PT_PRO2 SEE CAR	You see a car at night.
+1882	NEIGHBOUR NOT COME WORK	The neighbour does not come to work.
+1883	WHEN PT_PRO1 HELP Q	When Will I help next week?
+1884	WHO PT_PRO1 CALL Q	Who Do I call on the weekend?
+1885	WHO PT_PRO2 HELP Q	Who Do you help?
+1886	NEXT-WEEK PT_PRO2 TEXT FRIEND	You will text my friend next week.
+1887	MORNING PT_PRO3 PRACTISE	They practise in the morning.
+1888	TOMORROW PT_PRO1 GO CITY	I will go to the city tomorrow.
+1889	WEEKEND PT_PRO3 CALL DAD SOMETIMES	They call my dad on the weekend sometimes.
+1890	NEXT-WEEK PT_PRO3 NOT LISTEN MUSIC	They will not listen to music next week.
+1891	TODAY PT_PRO1 NOT CALL MUM	I do not call my mum today.
+1892	MORNING PT_PRO1 CAN SLEEP Q	I can sleep in the morning?
+1893	NIGHT PT_PRO3 DRINK JUICE	They drink juice at night.
+1894	WEEKEND PT_PRO3 CLEAN Q	Do they clean on the weekend?
+1895	YESTERDAY PT_PRO2 NOT SLEEP RARELY	You did not sleep yesterday rarely.
+1896	WEEKEND STUDENT LISTEN MUSIC	The student listens to music on the weekend.
+1897	NEXT-WEEK PT_PRO2 MEET FRIEND SOMETIMES	You will meet my friend next week sometimes.
+1898	IF COACH GO SHOP THEN COACH HAPPY	If the coach goes to the shop, then the coach is happy.
+1899	TODAY PT_PRO3 CLEAN Q	Do they clean today?
+1900	PT_PRO3 WANT NOT SEE KEY	They do not want to see my keys.
+1901	TOMORROW PT_PRO3 MUST CLEAN	They must clean tomorrow.
+1902	NIGHT PT_PRO1 READ KEY	I read my keys at night.
+1903	LAST-WEEK NEIGHBOUR LISTEN MOVIE	The neighbour listened to a movie last week.
+1904	IF NEXT-WEEK PT_PRO1 RUN THEN PT_PRO1 COLD	If I run, then I am cold next week.
+1905	TODAY FRIEND WANT NOT BUY CAR SLOW	My friend does not want to buy a car today slowly.
+1906	TODAY WOMAN GO SCHOOL	The woman goes to school today.
+1907	PT_PRO1 WATCH PODCAST	I watch a podcast.
+1908	PT_PRO2 RUN	You run.
+1909	WEEKEND PT_PRO2 TRAIN Q	Do you train on the weekend?
+1910	WHAT PT_PRO1 BUY Q	What Do I buy at night?
+1911	MORNING PT_PRO2 WAKE-UP Q	Do you wake up in the morning?
+1912	AFTERNOON TEACHER WANT STUDY	The teacher wants to study in the afternoon.
+1913	YESTERDAY PT_PRO2 WATCH PODCAST	You watched a podcast yesterday.
+1914	PT_PRO1 COLD	I am cold.
+1915	MORNING WOMAN RUN	The woman runs in the morning.
+1916	LAST-WEEK PT_PRO3 NOT PRACTISE	They did not practise last week.
+1917	TOMORROW PT_PRO1 LISTEN PODCAST Q	Will I listen to a podcast tomorrow?
+1918	MORNING PT_PRO1 DRINK COFFEE	I drink coffee in the morning.
+1919	IF PT_PRO3 WALK THEN PT_PRO3 HAPPY	If they walk, then they are happy.
+1920	NOW MAN EAT APPLE	The man eats an apple now.
+1921	NOW STUDENT PRACTISE	The student practises now.
+1922	LAST-WEEK PT_PRO1 TRAIN ALWAYS	I trained last week always.
+1923	NOW PT_PRO3 CLEAN	They clean now.
+1924	NIGHT PT_PRO3 BAD	They are bad at night.
+1925	NIGHT PT_PRO2 CAN HELP COACH	You can help my coach at night.
+1926	WHEN PT_PRO2 EMAIL Q	When Do you email in the afternoon?
+1927	AFTERNOON DOCTOR CALL MUM	The doctor calls my mum in the afternoon.
+1928	MORNING PT_PRO2 EAT RICE	You eat rice in the morning.
+1929	WEEKEND PT_PRO1 NOT EMAIL MUM	I do not email my mum on the weekend.
+1930	YESTERDAY PT_PRO2 GO GYM	You went to the gym yesterday.
+1931	PT_PRO2 SEE EMAIL Q	Do you see an email?
+1932	WHAT PT_PRO3 READ Q	What Do they read?
+1933	WHAT WOMAN DRINK Q	What Will the woman drink tomorrow?
+1934	AFTERNOON NEIGHBOUR WANT LISTEN MOVIE RARELY	The neighbour wants to listen to a movie in the afternoon rarely.
+1935	NIGHT PT_PRO1 COOK	I cook at night.
+1936	WHERE PT_PRO2 COME Q	Where Do you come in the afternoon?
+1937	YESTERDAY PT_PRO2 NOT DRINK JUICE	You did not drink juice yesterday.
+1938	WHAT PT_PRO3 WATCH Q	What Will they watch tomorrow?
+1939	LAST-WEEK PT_PRO2 HELP DAD	You helped my dad last week.
+1940	LAST-WEEK PT_PRO1 NOT SEE MESSAGE	I did not see a message last week.
+1941	AFTERNOON PT_PRO2 HELP DAD	You help my dad in the afternoon.
+1942	PT_PRO3 READ BAG	They read my bag.
+1943	MORNING PT_PRO1 NOT BUY MESSAGE	I do not buy a message in the morning.
+1944	PT_PRO1 COOK FAST	I cook quickly.
+1945	NIGHT PT_PRO3 STUDY	They study at night.
+1946	WHY NEIGHBOUR PRACTISE Q	Why Did the neighbour practise yesterday?
+1947	NOW PT_PRO2 HOT	You are hot now.
+1948	TODAY PT_PRO2 WATCH MUSIC	You watch music today.
+1949	WHO PT_PRO2 TEXT Q	Who Will you text next week?
+1950	NEXT-WEEK PT_PRO3 COOK	They will cook next week.
+1951	WHERE PT_PRO2 COME Q	Where Do you come on the weekend?
+1952	NIGHT PT_PRO1 SLEEP	I sleep at night.
+1953	AFTERNOON PT_PRO2 PRACTISE	You practise in the afternoon.
+1954	WEEKEND PT_PRO1 NOT SLEEP	I do not sleep on the weekend.
+1955	NIGHT PT_PRO1 NOT WAKE-UP ALWAYS	I do not wake up at night always.
+1956	NEXT-WEEK NEIGHBOUR NOT CLEAN ALWAYS	The neighbour will not clean next week always.
+1957	NOW WOMAN NOT BUY SHOES ALWAYS	The woman does not buy shoes now always.
+1958	MORNING PT_PRO2 SLEEP	You sleep in the morning.
+1959	AFTERNOON PT_PRO1 NOT WAKE-UP	I do not wake up in the afternoon.
+1960	TOMORROW PT_PRO2 MUST CLEAN Q	You must clean tomorrow?
+1961	TODAY NEIGHBOUR MUST WAKE-UP	The neighbour must wake up today.
+1962	AFTERNOON PT_PRO2 CAN NOT CALL COACH	You cannot call my coach in the afternoon.
+1963	NEXT-WEEK PT_PRO1 MUST NOT HELP NEIGHBOUR	I must not help my neighbour next week.
+1964	MORNING PT_PRO3 DRINK WATER Q	Do they drink water in the morning?
+1965	NEXT-WEEK PT_PRO2 NOT TEXT COACH	You will not text my coach next week.
+1966	TOMORROW PT_PRO2 RUN OFTEN Q	Will you run tomorrow often?
+1967	YESTERDAY PT_PRO2 COME HOME	You came to home yesterday.
+1968	NEXT-WEEK PT_PRO3 CAN TEXT DAD	They can text my dad next week.
+1969	MORNING TEACHER NOT TRAIN	The teacher does not train in the morning.
+1970	IF PT_PRO3 GO HOME THEN PT_PRO3 READY	If they go to home, then they are ready.
+1971	YESTERDAY PT_PRO1 SEE BOOK SOMETIMES	I saw a book yesterday sometimes.
+1972	NIGHT DOCTOR WALK	The doctor walks at night.
+1973	AFTERNOON PT_PRO2 TRAIN	You train in the afternoon.
+1974	NIGHT PT_PRO1 NOT STUDY	I do not study at night.
+1975	NOW PT_PRO1 LISTEN MOVIE Q	Do I listen to a movie now?
+1976	PT_PRO2 READ PHONE OFTEN	You read my phone often.
+1977	LAST-WEEK PT_PRO1 TEXT FRIEND	I texted my friend last week.
+1978	YESTERDAY DOCTOR TRAIN	The doctor trained yesterday.
+1979	WHO TEACHER MEET Q	Who Will the teacher meet next week?
+1980	TOMORROW PT_PRO3 CALL NEIGHBOUR	They will call my neighbour tomorrow.
+1981	LAST-WEEK PT_PRO3 COOK	They cooked last week.
+1982	TOMORROW PT_PRO1 CAN MEET TEACHER	I can meet my teacher tomorrow.
+1983	TOMORROW PT_PRO2 TRAIN Q	Will you train tomorrow?
+1984	LAST-WEEK PT_PRO1 WORK Q	Did I work last week?
+1985	WOMAN MUST SEE EMAIL OFTEN	The woman must see an email often.
+1986	IF PT_PRO2 RUN THEN PT_PRO2 HAPPY	If you run, then you are happy.
+1987	NEXT-WEEK PT_PRO1 HOT	I will be hot next week.
+1988	WHY TEACHER GO Q	Why Does the teacher go at night?
+1989	WEEKEND PT_PRO2 SEE BAG	You see my bag on the weekend.
+1990	NOW WOMAN CALL TEACHER	The woman calls my teacher now.
+1991	NEXT-WEEK PT_PRO3 GO PARK	They will go to the park next week.
+1992	WEEKEND NEIGHBOUR EMAIL TEACHER	The neighbour emails my teacher on the weekend.
+1993	WEEKEND PT_PRO3 SEE MESSAGE	They see a message on the weekend.
+1994	TODAY PT_PRO1 NOT STUDY	I do not study today.
+1995	WEEKEND STUDENT BUY CAR	The student buys a car on the weekend.
+1996	AFTERNOON PT_PRO3 LISTEN MUSIC	They listen to music in the afternoon.
+1997	AFTERNOON PT_PRO2 CAN SLEEP FAST	You can sleep in the afternoon quickly.
+1998	IF PT_PRO2 RUN THEN PT_PRO2 BAD	If you run, then you are bad.
+1999	YESTERDAY PT_PRO1 NOT WORK ALWAYS	I did not work yesterday always.
+2000	NIGHT PT_PRO3 WANT BUY BAG Q	They want to buy my bag at night?

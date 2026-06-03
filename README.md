@@ -1,164 +1,241 @@
-# Auslan → English Sign Language Translation Transformer
+# Auslan → English Sign Language Translator
 
-A sequence-to-sequence Transformer that translates **Australian Sign Language (Auslan)** video clips into English text, using MediaPipe keypoint features as input.
+A computer vision pipeline for translating **Australian Sign Language (Auslan)**
+video into English text, using MediaPipe keypoint features as input. The system
+implements a two-stage **Video-to-Gloss (V2G)** and **Gloss-to-Text (G2T)**
+pipeline, alongside an end-to-end (E2E) baseline transformer.
 
----
-
-## Architecture Overview
-
-```
-Input (.npy)           Encoder                   Decoder               Output
-(N, 258) ──► FeatureProjection ──► TransformerEncoder ──► TransformerDecoder ──► English text
-             (258 → d_model)       (4 layers, 8 heads)    (4 layers, 8 heads)
-             + PositionalEncoding                          + Token Embedding
-                                                          + PositionalEncoding
-```
-
-### Feature vector (258-d per frame)
-| Segment       | Landmarks | Values each | Total |
-|---------------|-----------|-------------|-------|
-| Pose          | 33        | x, y, z, visibility | 132 |
-| Left hand     | 21        | x, y, z     | 63   |
-| Right hand    | 21        | x, y, z     | 63   |
-| **Total**     |           |             | **258** |
+This repository accompanies the thesis:
+> *Dynamic Auslan Sign-Language Translator Using Computer Vision*
+> Hamish Dawson, University of Sydney (2026)
+> Supervisor: Prof. Mitch Bryson
 
 ---
 
-## Project Structure
+## Results Summary
+
+| Component | Model | Test Metric |
+|-----------|-------|-------------|
+| E2E Transformer | Encoder-decoder transformer | BLEU-4: 3.39 (dev) |
+| V2G Classifier (exp01) | Transformer encoder + classifier | F1 macro: 0.509 |
+| V2G + NON_DETECTION | Transformer encoder + 11 classes | F1 macro: 0.494 |
+| G2T Translator (Claude PGen) | T5-small fine-tuned | SacreBLEU: 41.14 |
+
+---
+
+## Repository Structure
 
 ```
-auslan_transformer/
-├── model.py          # AuslanTransformer (encoder + decoder)
-├── dataset.py        # Vocabulary, AuslanDataset, collate_fn
-├── train.py          # Training loop with warmup-cosine LR, label smoothing
-├── evaluate.py       # BLEU-4, test evaluation, single-file inference
-├── requirements.txt
-└── README.md
+├── src/
+│   ├── e2e/                          # End-to-end transformer (baseline)
+│   │   ├── model.py                  # AuslanTransformer (encoder-decoder)
+│   │   ├── dataset.py                # Vocabulary, AuslanDataset, collate_fn
+│   │   ├── train.py                  # Training loop
+│   │   └── evaluate.py               # BLEU-4 evaluation and inference
+│   ├── v2g/                          # Video-to-gloss classifier
+│   │   ├── train_video2gloss.py      # Transformer encoder + classifier head
+│   │   └── sliding_windows_demo.py   # Real-time webcam inference demo
+│   ├── g2t/                          # Gloss-to-text translator
+│   │   ├── train_gloss2text.py       # T5-small fine-tuning
+│   │   └── infer_gloss2text.py       # Inference on gloss sequences
+│   ├── features/                     # MediaPipe feature extraction
+│   │   ├── extract_features.py       # Single clip extraction
+│   │   └── extract_all_features.py   # Batch extraction
+│   └── preprocessing/                # Dataset construction tools
+│       ├── annotator.py              # Manual gloss clip annotation tool
+│       ├── augment_poses.py          # Mirror, speed, frame-drop augmentation
+│       ├── clip_filtering.py         # PGen-based clip filtering
+│       ├── collect_resting_poses.py  # NON_DETECTION webcam recorder
+│       ├── non_detection_sampler.py  # Off-cut clip sampler
+│       └── validator.py              # Dataset validation utilities
+├── backtranslation/
+│   ├── backtranslate.py              # Claude Haiku PGen gloss generation
+│   ├── BacktranslationClaude/        # Claude PGen TSV datasets (14,041 pairs)
+│   └── BacktranslationGPT5/          # GPT-5 PGen TSV datasets (~2,000 pairs)
+├── experiments/
+│   ├── configs/                      # YAML configs for all V2G experiments
+│   │   ├── exp01_clean_only.yaml
+│   │   ├── exp02_auslan_daily_manual_glosses.yaml
+│   │   ├── exp03_full_auslan_daily.yaml
+│   │   ├── exp04_manual_glosses_plus_clean.yaml
+│   │   ├── exp05_full_auslan_daily_plus_clean.yaml
+│   │   ├── exp_clean_with_nondet.yaml
+│   │   └── exp_clean_with_nondet_v3.yaml
+│   ├── run_all.py                    # Run all experiments sequentially
+│   ├── dry_run.py                    # Validate config without training
+│   └── analyse_results.py            # Aggregate and compare results
+├── experiment_logger.py              # Structured experiment logging
+├── confusion_matrices_vis.py         # Confusion matrix visualisation
+├── auslan_translator.yml             # Conda environment
+└── data/                             # Manifests and feature files (not tracked)
 ```
 
 ---
 
-## Quick Start
+## Environment Setup
 
-### 1. Install dependencies
 ```bash
-pip install -r requirements.txt
+conda env create -f environment.yml
+conda activate auslan_translator
 ```
 
-### 2. Prepare your data
-```
-project/
-├── AuslanDaily_Communication.xlsx   # manifest with Subtitle + Split columns
-├── features/                        # 6817 .npy files of shape (N, 258)
-│   ├── video_1_0.npy
-│   ├── video_1_1.npy
-│   └── ...
-└── auslan_transformer/              # this repo
-```
+Key dependencies:
+- Python 3.10
+- PyTorch 2.2.2
+- Transformers 4.40.2 + T5 / SentencePiece
+- MediaPipe 0.10.11
+- SacreBLEU 2.4.0
+- scikit-learn 1.4.2
 
-### 3. Train
+> **Note:** `environment.yml` uses CPU-only PyTorch wheels for Mac Intel.
+> If you are on Apple Silicon, replace `torch==2.2.2` with the MPS-compatible
+> build from https://pytorch.org/get-started/locally/
+
+---
+
+## Data
+
+This project uses the **Auslan Daily Dataset (Communication sub-dataset)**:
+> Shen et al., *Auslan-Daily: Australian Sign Language Translation for Daily
+> Communication and News*, NeurIPS 2023.
+> https://uq-cvlab.github.io/Auslan-Daily-Dataset/
+
+Place manifests in `data/manifests/` and extracted features in
+`data/auslan_daily_features/` and `data/gloss_clips_features/`.
+
+---
+
+## Usage
+
+### 0. Download the Auslan Daily Dataset
+
+Request access and download the Communication sub-dataset from the official source:
+
+> https://uq-cvlab.github.io/Auslan-Daily-Dataset/docs/en/dataset-download
+
+Once downloaded, place the manifest and video clips as follows:
+data/
+├── manifests/
+│   └── AuslanDaily_Communication.csv
+└── clips/
+├── video_1_0.mp4
+├── video_1_1.mp4
+└── ...
+
+### 1. Extract MediaPipe features
+
 ```bash
-cd auslan_transformer
-
-python train.py \
-    --manifest ../AuslanDaily_Communication.xlsx \
-    --features_dir ../features \
-    --output_dir checkpoints \
-    --epochs 50 \
-    --batch_size 32 \
-    --lr 1e-4 \
-    --d_model 256 \
-    --nhead 8 \
-    --enc_layers 4 \
-    --dec_layers 4 \
-    --device cuda
+python src/features/extract_all_features.py \
+    --manifest data/manifests/AuslanDaily_Communication.csv \
+    --clips_dir data/clips/ \
+    --output_dir data/auslan_daily_features/
 ```
 
-On first run the script will:
-1. Build and save a vocabulary (`checkpoints/vocab.json`)
-2. Compute and save normalisation statistics (`checkpoints/norm_mean.npy`, `norm_std.npy`)
-3. Train for N epochs, saving `last_model.pt` and `best_model.pt` (by dev BLEU)
-4. Write a `history.json` with per-epoch metrics
+### 2. Generate PGen gloss annotations (Claude Haiku)
 
-### 4. Evaluate on test set
 ```bash
-python evaluate.py \
-    --checkpoint checkpoints/best_model.pt \
-    --manifest ../AuslanDaily_Communication.xlsx \
-    --features_dir ../features \
-    --split test \
-    --beam_size 4 \
-    --output test_results.json
+python backtranslation/backtranslate.py
+# Output: backtranslation/BacktranslationClaude/
 ```
 
-### 5. Translate a single clip
-```python
-import torch, numpy as np
-from model import AuslanTransformer
-from dataset import Vocabulary, PAD_IDX
-from evaluate import translate_single
+Set your `ANTHROPIC_API_KEY` environment variable before running.
 
-device = torch.device("cuda")
-ckpt = torch.load("checkpoints/best_model.pt", map_location=device)
-vocab = Vocabulary.load(ckpt["vocab_path"])
+### 3. Train V2G classifier
 
-model = AuslanTransformer(
-    vocab_size=len(vocab),
-    d_model=256, nhead=8,
-    num_encoder_layers=4, num_decoder_layers=4,
-    dim_feedforward=1024, dropout=0.0, pad_idx=PAD_IDX,
-).to(device)
-model.load_state_dict(ckpt["model"])
-model.eval()
+```bash
+python src/v2g/train_video2gloss.py \
+    --config experiments/configs/exp01_clean_only.yaml
+```
 
-norm_mean = np.load("checkpoints/norm_mean.npy")
-norm_std  = np.load("checkpoints/norm_std.npy")
+Run all experiments:
 
-text = translate_single(
-    "features/video_1_0.npy", model, vocab,
-    norm_mean, norm_std, device, beam_size=4
-)
-print(text)  # e.g. "hello ."
+```bash
+python experiments/run_all.py
+```
+
+### 4. Run sliding window demo
+
+```bash
+python src/v2g/sliding_windows_demo.py \
+    --model results/<run_id>/best_model.pt \
+    --label-map results/<run_id>/label_map.json \
+    --config experiments/configs/exp_clean_with_nondet_v3.yaml
+```
+
+### 5. Train G2T translator
+
+```bash
+conda activate text2gloss
+python src/g2t/train_gloss2text.py
+# Edit TRAIN_PATH, DEV_PATH, TEST_PATH in script before running
+```
+
+### 6. Run G2T inference
+
+```bash
+python src/g2t/infer_gloss2text.py
+```
+
+### 7. Train E2E baseline
+
+```bash
+PYTHONPATH=. python src/e2e/train.py \
+    --manifest data/manifests/AuslanDaily_Communication.xlsx \
+    --features_dir data/auslan_daily_features/ \
+    --output_dir src/e2e/checkpoints/ \
+    --epochs 50 --batch_size 32
 ```
 
 ---
 
-## Hyperparameter Reference
+## Annotation Tools
 
-| Argument          | Default | Description |
-|-------------------|---------|-------------|
-| `--d_model`       | 256     | Transformer hidden dimension |
-| `--nhead`         | 8       | Attention heads |
-| `--enc_layers`    | 4       | Encoder layers |
-| `--dec_layers`    | 4       | Decoder layers |
-| `--dim_ff`        | 1024    | Feedforward dimension |
-| `--dropout`       | 0.1     | Dropout rate |
-| `--lr`            | 1e-4    | Peak learning rate |
-| `--warmup_steps`  | 500     | LR warmup steps |
-| `--label_smoothing` | 0.1  | Label smoothing ε |
-| `--grad_clip`     | 1.0     | Gradient clipping norm |
-| `--epochs`        | 50      | Training epochs |
-| `--batch_size`    | 32      | Samples per batch |
+Two tools were developed for dataset construction:
 
----
+**Gloss annotation tool** — manually clip and verify individual sign instances:
 
-## Decoding Options
+```bash
+python src/preprocessing/annotator.py
+```
 
-| Method | Flag | Notes |
-|--------|------|-------|
-| Greedy | `--beam_size 1` | Fastest, lower BLEU |
-| Beam search | `--beam_size 4` | Best quality (default) |
+**Resting pose recorder** — capture NON_DETECTION training clips via webcam:
 
-Length penalty α = 0.6 (adjustable in `model.beam_decode`).
+```bash
+python src/preprocessing/collect_resting_poses.py
+```
 
 ---
 
-## Training Tips
+## Experiments
 
-- **GPU memory**: On a 12 GB GPU with `batch_size=32` and long sequences, you may need to reduce `--batch_size` to 16 or 8.
-- **Larger model**: Try `--d_model 512 --nhead 8 --enc_layers 6 --dec_layers 6 --dim_ff 2048` if you have a strong GPU.
-- **Resume training**: `--resume checkpoints/last_model.pt`
-- **Longer warmup**: If loss spikes early, increase `--warmup_steps` to 1000–2000.
-- **Data augmentation**: Consider adding temporal jitter or small Gaussian noise to features during training.
+All V2G experiments are defined by YAML configs in `experiments/configs/`.
+
+| Experiment | Training Data | Test F1 Macro |
+|------------|--------------|---------------|
+| exp01 | 530 verified clips + augmentation | **0.509** |
+| exp02 | Auslan Daily (filtered to 10 glosses) | 0.010 |
+| exp03 | Full Auslan Daily | 0.027 |
+| exp04 | Filtered Auslan Daily + clean clips | 0.006 |
+| exp05 | Full Auslan Daily + clean clips | 0.024 |
+| nondet_v3 | exp01 + NON_DETECTION class | 0.494 |
 
 ---
+
+## Citation
+
+If you use this code or the synthetic gloss dataset, please cite:
+
+```bibtex
+@thesis{dawson2026auslan,
+  author  = {Hamish Dawson},
+  title   = {Dynamic Auslan Sign-Language Translator Using Computer Vision},
+  school  = {University of Sydney},
+  year    = {2026}
+}
+```
+
+---
+
+## License
+
+See `LICENSE`.
