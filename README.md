@@ -113,8 +113,8 @@ Request access and download the Communication sub-dataset from the official sour
 
 > https://uq-cvlab.github.io/Auslan-Daily-Dataset/docs/en/dataset-download
 
-'''
 Once downloaded, place the manifest and video clips as follows:
+```
 data/
 ├── manifests/
 │   └── AuslanDaily_Communication.csv
@@ -122,7 +122,7 @@ data/
 ├── video_1_0.mp4
 ├── video_1_1.mp4
 └── ...
-'''
+```
 
 ### 1. Extract MediaPipe features
 
